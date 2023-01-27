@@ -16,13 +16,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <BrowserRouter basename="/team-project">
-        <React.StrictMode>
-          <ChakraProvider theme={theme}>
-            <Media>
-              <App />
-            </Media>
-          </ChakraProvider>
-        </React.StrictMode>
+        {/* <React.StrictMode> */}
+        <ChakraProvider theme={theme}>
+          <Media>
+            <App />
+          </Media>
+        </ChakraProvider>
+        {/* </React.StrictMode> */}
       </BrowserRouter>
     </PersistGate>
   </Provider>
