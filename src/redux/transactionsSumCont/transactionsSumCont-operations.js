@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { walletApi } from 'index';
 
 export const getTransactionsSummary = createAsyncThunk(
-  "trSummary/getTransactionsSummary",
+  'trSummary/getTransactionsSummary',
   async ({ month, year }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(
+      const { data } = await walletApi.get(
         `/transactions-summary?month=${month}&year=${year}`
       );
       return data;

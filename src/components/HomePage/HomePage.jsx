@@ -20,13 +20,13 @@ const HomePage = () => {
           h="200px"
           gap="0.5"
           color="textMain"
-          fontFamily="mainHeaders"
+          fontFamily="heading"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'}>
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Poppins',
               }}
             >
               TEST tets font FONT
@@ -34,7 +34,7 @@ const HomePage = () => {
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Circe',
               }}
             >
               TEST tets font FONT
@@ -42,7 +42,7 @@ const HomePage = () => {
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Poppins',
                 textAlign: 'center',
               }}
             >
