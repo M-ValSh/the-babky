@@ -1,8 +1,8 @@
-import authSelectors from 'redux/auth/auth-selectors';
+// import authSelectors from 'redux/auth/auth-selectors';
 import {
-  BalanceBlockDesk,
-  BalanceBlockTablet,
-  BalanceBlockMob,
+  // BalanceBlockDesk,
+  // BalanceBlockTablet,
+  // BalanceBlockMob,
   BalanceTitle,
   BalanceSumm,
 } from './Balance.styled';
