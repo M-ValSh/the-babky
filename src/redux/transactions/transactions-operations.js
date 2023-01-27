@@ -5,7 +5,7 @@ export const fetchTransactions = createAsyncThunk(
   "transactions/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios("/transactions");
+      const { data } = await axios.get("/transactions");
 
       return data;
     } catch (error) {
