@@ -5,7 +5,7 @@ export const getTransactionsSummary = createAsyncThunk(
   "trSummary/getTransactionsSummary",
   async ({ month, year }, { rejectWithValue }) => {
     try {
-      const { data } = await axios(
+      const { data } = await axios.get(
         `/transactions-summary?month=${month}&year=${year}`
       );
       return data;
