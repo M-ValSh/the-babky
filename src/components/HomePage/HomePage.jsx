@@ -50,7 +50,6 @@ const HomePage = () => {
               TEST tets font FONT
             </div>
             Nav
-            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
@@ -88,6 +87,7 @@ const HomePage = () => {
         >
           <GridItem pl="2" bg="pink.300" area={'nav'}>
             Nav
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
