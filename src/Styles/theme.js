@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
+// import injectGlobal from 'assets/fonts/fontStyled';
 
 const colors = {
   mainBgDarker: '#E5E5E5',
