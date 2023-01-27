@@ -15,12 +15,11 @@ const HomePage = () => {
         <Grid
           templateAreas={`"nav nav"
                   "main main"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          gridTemplateColumns={'150px 1fr'}
+          gridTemplateRows={' 1fr 30px'}
+          gridTemplateColumns={' 1fr'}
           h="200px"
           gap="0.5"
           color="textMain"
-          // fontWeight="bold"
           fontFamily="mainHeaders"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'}>
@@ -28,6 +27,23 @@ const HomePage = () => {
               style={{
                 fontSize: 40,
                 fontFamily: 'Poppins Bold',
+              }}
+            >
+              TEST tets font FONT
+            </div>
+            <div
+              style={{
+                fontSize: 40,
+                fontFamily: 'Poppins Bold',
+              }}
+            >
+              TEST tets font FONT
+            </div>
+            <div
+              style={{
+                fontSize: 40,
+                fontFamily: 'Poppins Bold',
+                textAlign: 'center',
               }}
             >
               TEST tets font FONT
