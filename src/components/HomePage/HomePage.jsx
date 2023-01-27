@@ -78,8 +78,8 @@ const HomePage = () => {
       {media.isDesktop && (
         <Grid
           templateAreas={`"nav main"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          gridTemplateColumns={'150px 1fr'}
+          gridTemplateRows={'250px 1fr 30px'}
+          gridTemplateColumns={'350px 1fr'}
           h="200px"
           gap="0.5"
           color="blackAlpha.700"

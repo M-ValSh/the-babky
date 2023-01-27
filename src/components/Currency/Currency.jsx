@@ -1,45 +1,66 @@
-import axios from 'axios';
-// import fakeData from './fakeData.json';
+// import { fetchCurrency } from '../../services/fetchCurrency';
+import { useEffect, useState } from 'react';
+import fetchCurrency from './fakeData.json';
+import { Box } from '@chakra-ui/react';
 
 export const Currency = () => {
-  const fetchCurrency = async () => {
-    //   // МОНОБАНК Працює
-    //   // const { data } = await axios.get(`https://api.monobank.ua/bank/currency`);
-    //   // const data = await resp.json();
-    //   const data = fakeData;
+  const [currency, setCurrency] = useState(null);
+  // const [error, setError] = useState(false);
 
-    //   // console.log(data);
-    //   const newArr = data.filter(el => {
-    //     if (el['currencyCodeA'] === 840 && el['currencyCodeB'] === 980) {
-    //       return el;
-    //     }
-    //     if (el['currencyCodeA'] === 978 && el['currencyCodeB'] === 980) {
-    //       return el;
-    //     }
-    //     return null;
-    //   });
+  useEffect(() => {
+    // async function fetchCurrency() {
+    function getCurrency() {
+      try {
+        // const data = await fetchCurrency();
+        const data = fetchCurrency;
+        const dataCurrency = data.filter(el => {
+          if (el['currencyCodeA'] === 978 && el['currencyCodeB'] === 980) {
+            return el;
+          }
+          if (el['currencyCodeA'] === 840 && el['currencyCodeB'] === 980) {
+            return el;
+          }
+          return null;
+        });
+        setCurrency(dataCurrency);
+      } catch {
+        // setError(true);
+        console.error();
+      }
+    }
 
-    //   console.log(newArr);
-    // };
-    // fetchCurrency();
+    getCurrency();
+  }, []);
 
-    // return (
-    //   <div>
-    //     <p>Here should be CURRENCY informer</p>
-    //   </div>
-    // );
-
-    const res = await axios.get(
-      `https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5`
-    );
-    console.log(res);
-  };
-  fetchCurrency();
+  return (
+    <>
+      {currency && (
+        <Box>
+          <table>
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>Purchase</th>
+                <th>Sale</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currency.map(({ currencyCodeA, rateBuy, rateSell }) => {
+                const codeCurrency = currencyCodeA === 978 ? 'EUR' : 'USD';
+                const rateBuyCurrency = Number(rateBuy).toFixed(2);
+                const rateSellCurrency = Number(rateSell).toFixed(2);
+                return (
+                  <tr key={currencyCodeA}>
+                    <td>{codeCurrency}</td>
+                    <td>{rateBuyCurrency}</td>
+                    <td>{rateSellCurrency}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Box>
+      )}
+    </>
+  );
 };
-
-// const res = await fetch(
-//   `https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5`,
-//   {
-//     mode: 'no-cors',
-//   }
-// ).json();
