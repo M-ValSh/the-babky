@@ -1,13 +1,11 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// axios.defaults.baseURL = 'https://wallet.goit.ua/';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { walletApi } from 'index';
 
 export const fetchTransactionCategories = createAsyncThunk(
-  "transactionCategories/fetchAll",
+  'transactionCategories/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/transaction-categories");
+      const { data } = await walletApi.get('/transaction-categories');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

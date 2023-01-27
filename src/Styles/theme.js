@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-// import injectGlobal from 'assets/fonts/fontStyled';
 
 const colors = {
   mainBgDarker: '#E5E5E5',
@@ -30,23 +29,14 @@ const radii = {
   currency: '30px',
 };
 
-// const space = {
-//   spacing: value => `${4 * value}px`,
-// };
-
 const fonts = {
-  mainHeaders: 'Poppins Regular',
-  secondaryMainHeaders: 'Poppins Bold',
-  mainForms: 'Circe Regular',
-  secondaryMainForms: 'Circe Bold',
+  main: 'Poppins',
+  secondary: 'Circe',
 };
-
-const fontSizes = {};
 
 export const theme = extendTheme({
   colors,
   breakpoints,
   radii,
   fonts,
-  fontSizes,
 });

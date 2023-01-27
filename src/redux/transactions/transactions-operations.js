@@ -1,11 +1,11 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { walletApi } from 'index';
 
 export const fetchTransactions = createAsyncThunk(
-  "transactions/fetchAll",
+  'transactions/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/transactions");
+      const { data } = await walletApi.get('/transactions');
 
       return data;
     } catch (error) {
@@ -15,10 +15,10 @@ export const fetchTransactions = createAsyncThunk(
 );
 
 export const addTransaction = createAsyncThunk(
-  "transaction/addTransaction",
+  'transaction/addTransaction',
   async (transaction, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/transactions", transaction);
+      const { data } = await walletApi.post('/transactions', transaction);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -27,10 +27,10 @@ export const addTransaction = createAsyncThunk(
 );
 
 export const deleteTransaction = createAsyncThunk(
-  "transaction/deleteTransaction",
+  'transaction/deleteTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`/transactions/${id}`);
+      await walletApi.delete(`/transactions/${id}`);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);

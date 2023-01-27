@@ -1,8 +1,19 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { useTheme } from '@chakra-ui/react';
 import { Currency } from 'components/Currency/Currency';
-
+import { Balance } from 'components/Balance/Balance';
 import { useMedia } from 'components/Media/useMedia';
+import {
+  BalanceBlockDesk,
+  BalanceBlockTablet,
+  BalanceBlockMob,
+} from 'components/Balance/Balance.styled';
+import {
+  NavigationTablet,
+  NavigationDesk,
+  NavigationMob,
+} from 'components/Navigations/Navigation.styled';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   const media = useMedia();
@@ -17,17 +28,25 @@ const HomePage = () => {
           templateAreas={`"nav nav"
                   "main main"`}
           gridTemplateRows={' 1fr 30px'}
-          gridTemplateColumns={' 1fr'}
+          gridTemplateColumns={'1fr'}
           h="200px"
           gap="0.5"
           color="textMain"
-          fontFamily="mainHeaders"
+          fontFamily="heading"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'}>
+          <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
+            <NavigationMob theme={theme}>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/statistics">Stat</NavLink>
+              <NavLink to="/">Currency</NavLink>
+            </NavigationMob>
+            <BalanceBlockMob theme={theme}>
+              <Balance />
+            </BalanceBlockMob>
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Poppins',
               }}
             >
               TEST tets font FONT
@@ -35,7 +54,7 @@ const HomePage = () => {
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Circe',
               }}
             >
               TEST tets font FONT
@@ -43,13 +62,12 @@ const HomePage = () => {
             <div
               style={{
                 fontSize: 40,
-                fontFamily: 'Poppins Bold',
+                fontFamily: 'Poppins',
                 textAlign: 'center',
               }}
             >
               TEST tets font FONT
             </div>
-            Nav
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
@@ -60,15 +78,21 @@ const HomePage = () => {
         <Grid
           templateAreas={`"nav nav"
                   "main main"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          gridTemplateColumns={'150px 1fr'}
+          gridTemplateRows={'1fr 30px'}
+          gridTemplateColumns={'1fr'}
           h="200px"
           gap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'}>
-            Nav
+          <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
+            <NavigationTablet theme={theme}>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/statistics">Stat</NavLink>
+            </NavigationTablet>
+            <BalanceBlockTablet theme={theme}>
+              <Balance />
+            </BalanceBlockTablet>
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
@@ -78,15 +102,21 @@ const HomePage = () => {
       {media.isDesktop && (
         <Grid
           templateAreas={`"nav main"`}
-          gridTemplateRows={'250px 1fr 30px'}
-          gridTemplateColumns={'350px 1fr'}
+          gridTemplateRows={'50px 1fr 30px'}
+          gridTemplateColumns={'37vw 1fr'}
           h="200px"
           gap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'}>
-            Nav
+          <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
+            <NavigationDesk theme={theme}>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/statistics">Stat</NavLink>
+            </NavigationDesk>
+            <BalanceBlockDesk theme={theme}>
+              <Balance />
+            </BalanceBlockDesk>
             <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>

@@ -10,7 +10,7 @@ const extraActions = [
 const getActions = type => extraActions.map(action => action[type]);
 
 const initialState = {
-  user: { username: null, email: null, balance: null, id: null },
+  user: { username: null, email: null, balance: 154, id: null },
   token: null,
   isLoggedIn: false,
   isLoading: false,
