@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Poppins Regular';
+  src: url('Poppins-Regular.eot');
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url('Poppins-Regular.eot?#iefix') format('embedded-opentype'),
+    url('Poppins-Regular.woff2') format('woff2'),
+    url('Poppins-Regular.woff') format('woff'),
+    url('Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('Poppins-Bold.eot');
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url('Poppins-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Poppins-Bold.woff2') format('woff2'),
+    url('Poppins-Bold.woff') format('woff'),
+    url('Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

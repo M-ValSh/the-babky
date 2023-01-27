@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import LoginForm from 'components/LoginForm/LoginForm';
+import HomePage from 'components/HomePage/HomePage';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <Helmet>
           <title>Home</title>
         </Helmet>
-        <LoginForm />
+        <HomePage />
       </div>
     </HelmetProvider>
   );
