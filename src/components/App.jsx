@@ -1,5 +1,4 @@
 import { useTheme } from '@chakra-ui/react';
-import { useMedia } from './Media/useMedia';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
@@ -11,9 +10,9 @@ import Statistics from 'pages/Statistics/Statistics';
 
 export const App = () => {
   const theme = useTheme();
-  const media = useMedia();
+
   console.log(theme);
-  console.log(media);
+
   return (
     <div>
       <Routes>
