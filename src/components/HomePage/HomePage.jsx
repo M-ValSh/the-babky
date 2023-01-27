@@ -1,10 +1,11 @@
 import { Grid, GridItem } from '@chakra-ui/react';
+import { Currency } from 'components/Currency/Currency';
 
 const HomePage = () => {
   return (
     <Grid
       templateAreas={`"nav main"`}
-      gridTemplateRows={'50px 1fr 30px'}
+      gridTemplateRows={'150px 1fr 30px'}
       gridTemplateColumns={'150px 1fr'}
       h="200px"
       gap="0.5"
@@ -13,6 +14,7 @@ const HomePage = () => {
     >
       <GridItem pl="2" bg="pink.300" area={'nav'}>
         Nav
+        <Currency />
       </GridItem>
       <GridItem pl="2" bg="green.300" area={'main'}>
         Main
