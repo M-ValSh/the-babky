@@ -1,13 +1,4 @@
-import {
-  configureStore,
-  getDefaultMiddleware,
-  combineReducers,
-} from "@reduxjs/toolkit";
-import { transactionsReduser } from "./transactions/transactions-slice";
-import transactionCategoriesReduser from "./transactionsCategories/transactionsCategories-slice";
-import { authReducer } from "./auth";
-import { globalReducer } from "./global/global-slice";
-import { trSummaryReducer } from "./transactionSumCont/transactionSumCont-slice";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -17,8 +8,14 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { transactionsReducer } from './transactions/transactions-slice';
+import transactionCategoriesReduser from './transactionsCategories/transactionsCategories-slice';
+import { authReducer } from './auth/auth-slice';
+import { globalReducer } from './global/global-slice';
+
+import { trSummaryReducer } from './transactionsSumCont/transactionsSumCont-slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -29,26 +26,21 @@ const middleware = [
 ];
 
 const authPersistConfig = {
-  key: "auth",
+  key: 'auth',
   storage,
-  whitelist: ["token"],
+  whitelist: ['token'],
 };
-const authPersistedReducer = persistReducer(authPersistConfig, authReducer);
-
-const rootReducer = combineReducers({
-  auth: authPersistedReducer,
-  transactions: transactionsReduser,
-  transactionCategories: transactionCategoriesReduser,
-  global: globalReducer,
-  trSummary: trSummaryReducer,
-});
-
-const rootPersistedReducer = persistReducer(rootReducer);
 
 export const store = configureStore({
-  reducer: rootPersistedReducer,
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    transactions: transactionsReducer,
+    transactionCategories: transactionCategoriesReduser,
+    global: globalReducer,
+    trSummary: trSummaryReducer,
+  },
   middleware,
-  devTools: process.env.NODE_ENV === "development",
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

@@ -72,4 +72,4 @@ const authOperations = {
   logIn,
   fetchCurrentUser,
 };
-export default operations;
+export default authOperations;

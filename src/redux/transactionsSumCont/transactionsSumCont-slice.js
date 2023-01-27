@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { getTransactionsSummary } from "./transactionSumCont-operations";
+import { getTransactionsSummary } from './transactionsSumCont-operations';
 
 const trSummarySlice = createSlice({
-  name: "transactions",
+  name: 'transactions',
   initialState: {
     summary: [],
     expenseSummary: null,
@@ -12,9 +12,9 @@ const trSummarySlice = createSlice({
     error: null,
   },
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getTransactionsSummary.pending, (state) => {
+      .addCase(getTransactionsSummary.pending, state => {
         state.isLoading = true;
         state.error = null;
       })

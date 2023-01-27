@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import {
   addTransaction,
   fetchTransactions,
   deleteTransaction,
-} from "./transactionsOperations";
+} from './transactions-operations';
 
 const initialState = {
   items: [],
@@ -12,12 +12,12 @@ const initialState = {
 };
 
 const transactionsSlice = createSlice({
-  name: "transactions",
+  name: 'transactions',
   initialState,
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchTransactions.pending, (state) => {
+      .addCase(fetchTransactions.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
@@ -30,7 +30,7 @@ const transactionsSlice = createSlice({
         state.error = payload;
         state.isLoading = false;
       })
-      .addCase(addTransaction.pending, (state) => {
+      .addCase(addTransaction.pending, state => {
         state.isLoading = true;
       })
       .addCase(addTransaction.fulfilled, (state, { payload }) => {
@@ -42,7 +42,7 @@ const transactionsSlice = createSlice({
         state.error = payload;
         state.isLoading = false;
       })
-      .addCase(deleteTransaction.pending, (state) => {
+      .addCase(deleteTransaction.pending, state => {
         state.isLoading = true;
       })
       .addCase(deleteTransaction.fulfilled, (state, { payload }) => {

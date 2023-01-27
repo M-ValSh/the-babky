@@ -1,5 +1,5 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import authOperations from "./auth-operations";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import authOperations from './auth-operations';
 
 const extraActions = [
   authOperations.register,
@@ -7,7 +7,7 @@ const extraActions = [
   authOperations.logIn,
   authOperations.fetchCurrentUser,
 ];
-const getActions = (type) => extraActions.map((action) => action[type]);
+const getActions = type => extraActions.map(action => action[type]);
 
 const initialState = {
   user: { username: null, email: null, balance: null, id: null },
@@ -18,20 +18,20 @@ const initialState = {
   error: null,
 };
 
-const handleFulfilled = (state) => {
+const handleFulfilled = state => {
   state.isLoading = false;
   state.error = null;
 };
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.isLoading = true;
   state.error = null;
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(authOperations.register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
@@ -43,12 +43,12 @@ const authSlice = createSlice({
         state.token = payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.logOut.fulfilled, (state) => {
+      .addCase(authOperations.logOut.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(authOperations.fetchCurrentUser.pending, (state) => {
+      .addCase(authOperations.fetchCurrentUser.pending, state => {
         state.isRefreshing = true;
         state.isLoading = true;
       })
@@ -69,8 +69,8 @@ const authSlice = createSlice({
         }
       )
 
-      .addMatcher(isAnyOf(...getActions("fulfilled")), handleFulfilled)
-      .addMatcher(isAnyOf(...getActions("pending")), handlePending);
+      .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled)
+      .addMatcher(isAnyOf(...getActions('pending')), handlePending);
   },
 
   reducers: {
