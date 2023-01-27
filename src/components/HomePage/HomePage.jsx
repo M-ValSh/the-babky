@@ -1,5 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { useTheme } from '@chakra-ui/react';
+import { Currency } from 'components/Currency/Currency';
 
 import { useMedia } from 'components/Media/useMedia';
 
@@ -86,6 +87,7 @@ const HomePage = () => {
         >
           <GridItem pl="2" bg="pink.300" area={'nav'}>
             Nav
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
