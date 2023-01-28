@@ -1,78 +1,38 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { closeModalWindow } from "redux/global/global-slice";
+
+
 const LogOutModal = () => {
-  // hideModal = e => {
-  //     if (e.code === 'Escape') {
-  //       this.props.hideModal();
-  //     }
-  //   };
+  const dispatch = useDispatch()
 
-  //   onBackdropClick = e => {
-  //     if (e.currentTarget !== e.target) {
-  //       return;
-  //     }
-  //     this.props.hideModal();
-  //   };
+  const onBackdropClick = (e) => {
+    if (e.currentTarget !== e.target) return;
+    dispatch(closeModalWindow());
+  };
 
-  //   componentDidMount() {
-  //     window.addEventListener('keydown', this.hideModal);
-  //   }
+  useEffect(() => {
+    const hideModal = e => {
+      if (e.code === 'Escape') dispatch(closeModalWindow());
+    }
 
-  //   componentWillUnmount() {
-  //     window.removeEventListener('keydown', this.hideModal);
-  // }
+    document.addEventListener("keydown", hideModal);
+
+    return () => {
+      document.removeEventListener("keydown", hideModal);
+    };
+  }, []);
+    
 
   return (
-    <div></div>
-    // <div onClick={this.onBackdropClick} className={styles.overlay}>
-    //     <div className={styles.modal}>
-    //         <img src={url} alt="Some pic" width="800" />
-    //     </div>
-    // </div>
+    <div onClick={() => onBackdropClick(e)} className={styles.overlay}>
+        <div className={styles.modal}>
+            <p>Are you sure, you want to Log Out?</p>
+            <button type="button" onClick={() => dispatch(closeModalWindow())}>Keep In</button>
+            <button type="button" >Log Out</button>
+        </div>
+    </div>
   );
 };
 
 export default LogOutModal;
-
-// ----------------------------------------------------------
-
-// import PropTypes from 'prop-types';
-// import styles from './Modal.module.css';
-// import { Component } from 'react';
-
-// export default class Modal extends Component {
-//   hideModal = e => {
-//     if (e.code === 'Escape') {
-//       this.props.hideModal();
-//     }
-//   };
-
-//   onBackdropClick = e => {
-//     if (e.currentTarget !== e.target) {
-//       return;
-//     }
-//     this.props.hideModal();
-//   };
-
-//   componentDidMount() {
-//     window.addEventListener('keydown', this.hideModal);
-//   }
-
-//   componentWillUnmount() {
-//     window.removeEventListener('keydown', this.hideModal);
-//   }
-
-//   render() {
-//     const { url } = this.props;
-//     return (
-//       <div onClick={this.onBackdropClick} className={styles.overlay}>
-//         <div className={styles.modal}>
-//           <img src={url} alt="Some pic" width="800" />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// Modal.propTypes = {
-//   hideModal: PropTypes.func.isRequired,
-//   url: PropTypes.string.isRequired,
-// };
