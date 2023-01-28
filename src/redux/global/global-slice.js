@@ -14,6 +14,9 @@ const globalSlice = createSlice({
     openModalLogout: (state, _) => {
       state.isModalLogoutOpen = true;
     },
+    closeModalLogout: (state, _) => {
+      state.isModalLogoutOpen = false;
+    },
     closeModalWindow: (state, _) => {
       state.isModalLogoutOpen = false;
       state.isModalAddTransactionOpen = false;
