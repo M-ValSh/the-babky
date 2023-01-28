@@ -43,6 +43,7 @@ const HomePage = () => {
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
+            <Currency />
             <div
               style={{
                 fontSize: 40,
@@ -93,6 +94,7 @@ const HomePage = () => {
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main

@@ -1,9 +1,15 @@
-import { fetchCurrency } from '../../services/fetchCurrency';
-import { useEffect, useState } from 'react';
+import { bankApi } from 'index';
 // import fetchCurrency from './fakeData.json';
+// import { fetchCurrency } from '../../services/fetchCurrency';
+import { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
+// import { useMedia } from 'components/Media/useMedia';
+import { TableWrapperDesc, THdesc, TableText, TR } from './Currency.styled';
+import CurrencyDesc from '../../assets/images/iMac-currency.svg';
 
 export const Currency = () => {
+  // const media = useMedia();
+
   const [currency, setCurrency] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -14,7 +20,7 @@ export const Currency = () => {
 
       setIsLoading(true);
       try {
-        const { data } = await fetchCurrency();
+        const { data } = await bankApi.get('');
         // const data = fetchCurrency;
         const dataCurrency = data.filter(el => {
           if (el['currencyCodeA'] === 978 && el['currencyCodeB'] === 980) {
@@ -26,7 +32,7 @@ export const Currency = () => {
           return null;
         });
 
-        console.log('dataCurrency', dataCurrency);
+        // console.log('dataCurrency', dataCurrency);
         setCurrency(dataCurrency);
       } catch {
         setError(true);
@@ -42,41 +48,45 @@ export const Currency = () => {
   return (
     <>
       <Box>
-        <table>
-          <thead>
-            <tr>
-              <th>Currency</th>
-              <th>Purchase</th>
-              <th>Sale</th>
-            </tr>
-          </thead>
-          <tbody>
-            {isLoading && (
-              <tr>
-                <td>Please wait...</td>
-              </tr>
-            )}
-            {error && (
-              <tr>
-                <td>Too many requests. Sorry, but try again later</td>
-              </tr>
-            )}
+        <TableWrapperDesc bg={CurrencyDesc}>
+          <table>
+            <thead>
+              <TR>
+                <THdesc>Currency</THdesc>
+                <THdesc>Purchase</THdesc>
+                <THdesc>Sale</THdesc>
+              </TR>
+            </thead>
+            <tbody>
+              {isLoading && (
+                <tr>
+                  <td>Please wait...</td>
+                </tr>
+              )}
+              {error && (
+                <tr>
+                  <td colSpan="3">
+                    Too many requests. Sorry, but try again later
+                  </td>
+                </tr>
+              )}
 
-            {currency &&
-              currency.map(({ currencyCodeA, rateBuy, rateSell }) => {
-                const codeCurrency = currencyCodeA === 978 ? 'EUR' : 'USD';
-                const rateBuyCurrency = Number(rateBuy).toFixed(2);
-                const rateSellCurrency = Number(rateSell).toFixed(2);
-                return (
-                  <tr key={currencyCodeA}>
-                    <td>{codeCurrency}</td>
-                    <td>{rateBuyCurrency}</td>
-                    <td>{rateSellCurrency}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+              {currency &&
+                currency.map(({ currencyCodeA, rateBuy, rateSell }) => {
+                  const codeCurrency = currencyCodeA === 978 ? 'EUR' : 'USD';
+                  const rateBuyCurrency = Number(rateBuy).toFixed(2);
+                  const rateSellCurrency = Number(rateSell).toFixed(2);
+                  return (
+                    <TR key={currencyCodeA}>
+                      <TableText>{codeCurrency}</TableText>
+                      <TableText>{rateBuyCurrency}</TableText>
+                      <TableText>{rateSellCurrency}</TableText>
+                    </TR>
+                  );
+                })}
+            </tbody>
+          </table>
+        </TableWrapperDesc>
       </Box>
     </>
   );
