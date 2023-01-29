@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/team-project/static/css/main.2f0d597b.css",
-    "main.js": "/team-project/static/js/main.bfd124ea.js",
+    "main.css": "/team-project/static/css/main.2a6009b4.css",
+    "main.js": "/team-project/static/js/main.960c9f0f.js",
     "static/media/Circe-Bold.woff": "/team-project/static/media/Circe-Bold.fca9743700608e1abf6a.woff",
     "static/media/Circe-Regular.woff": "/team-project/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
     "static/media/Circe-Bold.woff2": "/team-project/static/media/Circe-Bold.b64357adbf12b109fcf2.woff2",
@@ -22,11 +22,11 @@
     "static/media/logout-icon.svg": "/team-project/static/media/logout-icon.dcd3363176363020f7b35195714fb1e2.svg",
     "static/media/home-icon-active.svg": "/team-project/static/media/home-icon-active.7bb7687f8c8e2af95acaec211ef60ddc.svg",
     "static/media/home-icon.svg": "/team-project/static/media/home-icon.f816d5949c3561381dfd5bd80e9a2223.svg",
-    "main.2f0d597b.css.map": "/team-project/static/css/main.2f0d597b.css.map",
-    "main.bfd124ea.js.map": "/team-project/static/js/main.bfd124ea.js.map"
+    "main.2a6009b4.css.map": "/team-project/static/css/main.2a6009b4.css.map",
+    "main.960c9f0f.js.map": "/team-project/static/js/main.960c9f0f.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f0d597b.css",
-    "static/js/main.bfd124ea.js"
+    "static/css/main.2a6009b4.css",
+    "static/js/main.960c9f0f.js"
   ]
 }
