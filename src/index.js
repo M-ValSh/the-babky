@@ -16,7 +16,7 @@ import Media from 'components/Media/Media';
 import { PersistGate } from 'redux-persist/integration/react';
 
 export const bankApi = axios.create({
-  baseURL: 'https://api.privatbank.ua/p24api/',
+  baseURL: 'https://api.monobank.ua/bank/currency',
 });
 export const walletApi = axios.create({
   baseURL: 'https://wallet.goit.ua/api',
@@ -26,14 +26,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <BrowserRouter basename="/team-project">
-        <React.StrictMode>
-          <ChakraProvider theme={theme}>
-            <Media>
-              <Global styles={fontFaceStyles} />
-              <App />
-            </Media>
-          </ChakraProvider>
-        </React.StrictMode>
+        {/* <React.StrictMode> */}
+        <ChakraProvider theme={theme}>
+          <Media>
+            <Global styles={fontFaceStyles} />
+            <App />
+          </Media>
+        </ChakraProvider>
+        {/* </React.StrictMode> */}
       </BrowserRouter>
     </PersistGate>
   </Provider>
