@@ -7,19 +7,11 @@ import {
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
 import {
+  NavigationMobile,
   NavigationTablet,
-  NavigationDesk,
-  NavigationMob,
-  NavigationIconActive,
-  NavigationIcon,
-  NavigationIconActiveMob,
-  NavigationIconMob,
-} from 'components/Navigations/Navigation.styled';
+  NavigationDesktop,
+} from 'components/Navigations/Navigation';
 import { Currency } from 'components/Currency/Currency';
-import { NavLink } from 'react-router-dom';
-import StatSvg from 'assets/images/icons/statistics-icon.svg';
-import HomeSvg from 'assets/images/icons/home-icon.svg';
-import CurrencySvg from 'assets/images/icons/currency-icon.svg';
 
 const { Grid, GridItem } = require('@chakra-ui/react');
 
@@ -40,17 +32,8 @@ const StatisticsPage = () => {
           fontFamily="heading"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationMob theme={theme}>
-              <NavLink to="/">
-                <NavigationIconMob src={HomeSvg} />
-              </NavLink>
-              <NavLink to="/statistics">
-                <NavigationIconActiveMob src={StatSvg} />
-              </NavLink>
-              <NavLink to="/">
-                <NavigationIconMob src={CurrencySvg} />
-              </NavLink>
-            </NavigationMob>
+            <NavigationMobile />
+
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
@@ -72,23 +55,7 @@ const StatisticsPage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationTablet theme={theme}>
-              <NavLink to="/" style={{ display: 'flex', alignItems: 'center' }}>
-                <NavigationIcon src={HomeSvg} />
-                Home
-              </NavLink>
-              <NavLink
-                to="/statistics"
-                style={isActive => ({
-                  fontWeight: isActive && 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                })}
-              >
-                <NavigationIconActive src={StatSvg} />
-                Stat
-              </NavLink>
-            </NavigationTablet>
+            <NavigationTablet />
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
@@ -109,22 +76,7 @@ const StatisticsPage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
-            <NavigationDesk theme={theme}>
-              <NavLink to="/" style={{ display: 'flex', alignItems: 'center' }}>
-                <NavigationIcon src={HomeSvg} /> Home
-              </NavLink>
-              <NavLink
-                to="/statistics"
-                style={isActive => ({
-                  fontWeight: isActive && 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                })}
-              >
-                <NavigationIconActive src={StatSvg} />
-                Stat
-              </NavLink>
-            </NavigationDesk>
+            <NavigationDesktop />
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>
