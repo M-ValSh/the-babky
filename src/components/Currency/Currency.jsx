@@ -1,6 +1,4 @@
 import { bankApi } from 'index';
-// import fetchCurrency from './fakeData.json';
-// import { fetchCurrency } from '../../services/fetchCurrency';
 import { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
@@ -22,6 +20,21 @@ import CurrencyDesc from '../../assets/images/iMac-currency.svg';
 import CurrencyTablet from '../../assets/images/tablet-currency.svg';
 import CurrencyMobile from '../../assets/images/mobile-currency.svg';
 
+let timeDiff = 0;
+let dataCurrency = {};
+async function fetchAndFilter() {
+  const { data } = await bankApi.get('');
+  return data.filter(el => {
+    if (el['currencyCodeA'] === 978 && el['currencyCodeB'] === 980) {
+      return el;
+    }
+    if (el['currencyCodeA'] === 840 && el['currencyCodeB'] === 980) {
+      return el;
+    }
+    return null;
+  });
+}
+
 export const Currency = () => {
   const media = useMedia();
 
@@ -31,27 +44,47 @@ export const Currency = () => {
 
   useEffect(() => {
     async function getCurrency() {
-      // function getCurrency() {
-
       setIsLoading(true);
-      try {
-        const { data } = await bankApi.get('');
-        // const data = fetchCurrency;
-        const dataCurrency = data.filter(el => {
-          if (el['currencyCodeA'] === 978 && el['currencyCodeB'] === 980) {
-            return el;
-          }
-          if (el['currencyCodeA'] === 840 && el['currencyCodeB'] === 980) {
-            return el;
-          }
-          return null;
-        });
 
-        // console.log('dataCurrency', dataCurrency);
-        setCurrency(dataCurrency);
+      try {
+        // Checking if LS contains time and data
+        if (localStorage.getItem('currency')) {
+          console.log('LS contains data');
+
+          const lsTimeParsed = JSON.parse(
+            localStorage.getItem('currency')
+          ).currentDate;
+          const newDate = new Date().getTime();
+          timeDiff = newDate - lsTimeParsed;
+
+          // IF time from last fetch is more them 1 hour
+          // then do fetch
+          if (timeDiff > 3600000) {
+            dataCurrency = await fetchAndFilter();
+          } else {
+            // IF time from last fetch if less them 1 hour
+            // then read data from LocalStorage
+            const lsCurrencyData = localStorage.getItem('currency');
+            const lsCurrencyParsedData =
+              JSON.parse(lsCurrencyData).dataCurrency;
+            console.log('lsCurrencyParsedData:', lsCurrencyParsedData);
+            setCurrency(lsCurrencyParsedData);
+          }
+        } else {
+          dataCurrency = await fetchAndFilter();
+          console.log(dataCurrency);
+
+          // Write time and fetchedData to LocalStorage
+          const currentDate = new Date().getTime();
+          localStorage.setItem(
+            'currency',
+            JSON.stringify({ dataCurrency, currentDate })
+          );
+
+          setCurrency(dataCurrency);
+        }
       } catch {
         setError(true);
-        // console.error();
       } finally {
         setIsLoading(false);
       }
