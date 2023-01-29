@@ -8,12 +8,12 @@ import {
   BalanceBlockTablet,
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
+
 import {
+  NavigationMobile,
   NavigationTablet,
-  NavigationDesk,
-  NavigationMob,
-} from 'components/Navigations/Navigation.styled';
-import { NavLink } from 'react-router-dom';
+  NavigationDesktop,
+} from 'components/Navigations/Navigation';
 
 const HomePage = () => {
   const media = useMedia();
@@ -35,11 +35,7 @@ const HomePage = () => {
           fontFamily="heading"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationMob theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-              <NavLink to="/">Currency</NavLink>
-            </NavigationMob>
+            <NavigationMobile />
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
@@ -86,10 +82,7 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationTablet theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-            </NavigationTablet>
+            <NavigationTablet />
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
@@ -110,10 +103,7 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
-            <NavigationDesk theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-            </NavigationDesk>
+            <NavigationDesktop />
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>
