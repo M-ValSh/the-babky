@@ -9,15 +9,33 @@ import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 // import fakeTransactions from './fakeTransactions.json';
 // import fakeTACategories from './fakeTACategories.json';
-import fakeDataPereiodResp from './fakeDataPereiodResp.json';
+import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 
 export const DiagramTab = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [responce, setResponce] = useState({});
-  console.log('month', month);
-  console.log('year :>> ', year);
-  // const [filteredCatsArr, setFilteredCatsArr] = useState([]);
+
+  useEffect(() => {
+    // console.log('Console, only after first render');
+  }, []);
+
+  useEffect(() => {
+    delayedFetch();
+
+    // const response = fakeDataPeriodResp;
+    // console.log('response 33line', response);
+    // setResponce(response);
+    // console.log('Console after data update');
+  }, [month, year, delayedFetch]);
+
+  function delayedFetch() {
+    window.setTimeout(setData, 1000);
+  }
+
+  function setData() {
+    setResponce(fakeDataPeriodResp);
+  }
 
   function handleChangeMonth(event) {
     setMonth(event.target.value);
@@ -26,15 +44,6 @@ export const DiagramTab = () => {
   function handleChangeYear(event) {
     setYear(event.target.value);
   }
-
-  useEffect(() => {
-    // console.log('month :>>', month);
-    // console.log('year :>>', year);
-    const response = fakeDataPereiodResp;
-    console.log('response 34line', response);
-    setResponce(response);
-    // const fetchData = fakeDataPereiodResp(month, year);
-  }, [month, year]);
 
   return (
     <WrapperDesc>
@@ -70,18 +79,14 @@ export const DiagramTab = () => {
             <option value="2025">2025</option>
           </Select>
         </SelectWrapperDesc>
-        {/* СЮДИ ПРОКИДАТИ НЕ ФІЛЬТРОВАНІ ТРАНЗАКЦІЇ, А КАТЕГОРІЇ */}
-        {console.log(
-          'responce.categoriesSummary 74line:>> ',
-          responce.categoriesSummary
-        )}
-        {responce.categoriesSummary.length > 0 ? (
+        {/* {responce.categoriesSummary.length > 0 ? (
           // <div>Дані прийшли</div>
-          <CategoryTable responce={responce} />
+          // <CategoryTable responce={responce} />
+          <CategoryTable />
         ) : (
           <div>Даних нема</div>
-        )}
-        {/* <CategoryTable /> */}
+        )} */}
+        {responce && <CategoryTable responce={responce} />}
       </TableWrapperDesc>
     </WrapperDesc>
   );
