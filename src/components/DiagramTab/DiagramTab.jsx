@@ -21,17 +21,17 @@ export const DiagramTab = () => {
   }, []);
 
   useEffect(() => {
+    function delayedFetch() {
+      window.setTimeout(setData, 1000);
+    }
+
     delayedFetch();
 
     // const response = fakeDataPeriodResp;
     // console.log('response 33line', response);
     // setResponce(response);
     // console.log('Console after data update');
-  }, [month, year, delayedFetch]);
-
-  function delayedFetch() {
-    window.setTimeout(setData, 1000);
-  }
+  }, [month, year]);
 
   function setData() {
     setResponce(fakeDataPeriodResp);
