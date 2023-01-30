@@ -11,6 +11,7 @@ import {
   NavigationTablet,
   NavigationDesktop,
 } from 'components/Navigations/Navigation';
+import { Currency } from 'components/Currency/Currency';
 import { DiagramTab } from 'components/DiagramTab/DiagramTab';
 
 const { Grid, GridItem } = require('@chakra-ui/react');
@@ -33,10 +34,10 @@ const StatisticsPage = () => {
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
             <NavigationMobile />
-
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
@@ -60,6 +61,7 @@ const StatisticsPage = () => {
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
@@ -82,7 +84,7 @@ const StatisticsPage = () => {
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>
-            {/* <Currency /> */}
+            <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
