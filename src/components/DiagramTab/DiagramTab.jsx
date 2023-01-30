@@ -7,34 +7,57 @@ import {
 } from './DiagramTab.styled';
 import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-// import fakeTransactions from './fakeTransactions.json';
-// import fakeTACategories from './fakeTACategories.json';
+import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
 import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 
 export const DiagramTab = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
-  const [responce, setResponce] = useState({});
-
-  useEffect(() => {
-    // console.log('Console, only after first render');
-  }, []);
+  const [categoriesSummary, setCategoriesSummary] = useState([]);
+  const [incomeSummary, setIncomeSummary] = useState(null);
+  const [expenseSummary, setExpenseSummary] = useState(null);
 
   useEffect(() => {
     function delayedFetch() {
       window.setTimeout(setData, 1000);
     }
 
-    delayedFetch();
+    function setData() {
+      setCategoriesSummary(fakeDataPeriodResp.categoriesSummary);
+      setIncomeSummary(fakeDataPeriodResp.incomeSummary);
+      setExpenseSummary(fakeDataPeriodResp.expenseSummary);
+    }
 
-    // const response = fakeDataPeriodResp;
-    // console.log('response 33line', response);
-    // setResponce(response);
-    // console.log('Console after data update');
+    delayedFetch();
   }, [month, year]);
 
-  function setData() {
-    setResponce(fakeDataPeriodResp);
+  const initialData = {
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [1],
+        backgroundColor: ['#a6a6a6'],
+        borderColor: ['transparent'],
+      },
+    ],
+  };
+
+  // PREPARE DATA FOR CHART DIAGRAM
+  function prepareData() {
+    const total = categoriesSummary.map(el => el.total);
+    const colors = categoriesSummary.map(el => categoryColorSwitcher(el.name));
+
+    let data = {
+      datasets: [
+        {
+          data: total,
+          backgroundColor: colors,
+          borderColor: colors,
+          borderWidth: 1,
+        },
+      ],
+    };
+    return data;
   }
 
   function handleChangeMonth(event) {
@@ -47,7 +70,11 @@ export const DiagramTab = () => {
 
   return (
     <WrapperDesc>
-      <ChartComp />
+      {categoriesSummary.length > 0 ? (
+        <ChartComp data={prepareData()} />
+      ) : (
+        <ChartComp data={initialData} />
+      )}
       <TableWrapperDesc>
         <SelectWrapperDesc>
           <Select
@@ -79,14 +106,15 @@ export const DiagramTab = () => {
             <option value="2025">2025</option>
           </Select>
         </SelectWrapperDesc>
-        {/* {responce.categoriesSummary.length > 0 ? (
-          // <div>Дані прийшли</div>
-          // <CategoryTable responce={responce} />
-          <CategoryTable />
+        {categoriesSummary.length > 0 ? (
+          <CategoryTable
+            categoriesSummary={categoriesSummary}
+            incomeSummary={incomeSummary}
+            expenseSummary={expenseSummary}
+          />
         ) : (
           <div>Даних нема</div>
-        )} */}
-        {responce && <CategoryTable responce={responce} />}
+        )}
       </TableWrapperDesc>
     </WrapperDesc>
   );

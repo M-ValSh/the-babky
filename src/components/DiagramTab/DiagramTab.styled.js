@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import { Select } from '@chakra-ui/react';
 
 export const WrapperDesc = styled.div`
   display: flex;

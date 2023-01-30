@@ -5,8 +5,8 @@
     { "name": "Education", "type": "EXPENSE", "total": -2800 }
   ],
   "incomeSummary": 0,
-  "expenseSummary": -5000,
-  "periodTotal": -5000,
+  "expenseSummary": -7800,
+  "periodTotal": -7800,
   "year": 2022,
   "month": 12
 }
