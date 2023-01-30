@@ -1,12 +1,8 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import authOperations from '../../redux/auth/auth-operations';
-// import { authReducer } from '../../redux/auth/auth-slice';
 import WalletButton from 'components/WalletButton/WalletButton';
-// import s from './RegisterForm.module.css';
-// import { useState } from 'react';
-// import { Container, FormEl, LogBtn } from './RegisterForm.styled';
-// import { Logo } from 'components/Headers/Headers.styled';
+
 import { Input, InputGroup, Stack, InputLeftElement } from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 
@@ -17,6 +13,7 @@ const initialValues = {
   username: '',
   email: '',
   password: '',
+  confirmPassword: '',
 };
 
 const validationSchema = Yup.object({
@@ -39,20 +36,7 @@ const validationSchema = Yup.object({
 });
 const RegisterForm = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   const auth = useSelector(state => state.auth);
-
-  // const [password, setPassword] = useState('');
-
-  // const onSubmit = params => {
-  //   dispatch(authOperations.register(params));
-
-  //   navigate('/login');
-  // };
-
-  // const onLoginBtn = () => {
-  //   navigate('/login');
-  // };
 
   const formik = useFormik({
     initialValues,
@@ -60,11 +44,7 @@ const RegisterForm = () => {
 
     onSubmit: ({ email, username, password }, { resetForm }) => {
       dispatch(authOperations.register({ email, username, password }));
-      // resetForm({
-      //   values: {
-      //     initialValues,
-      //   },
-      // });
+      resetForm({ values: '' });
     },
   });
   return (
@@ -97,7 +77,7 @@ const RegisterForm = () => {
               placeholder="Email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              // value={formik.initialValues.email}
+              value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
@@ -112,7 +92,7 @@ const RegisterForm = () => {
             placeholder="username"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            // value={formik.initialValues.username}
+            value={formik.values.username}
           />
           {formik.touched.username && formik.errors.username ? (
             <div>{formik.errors.username}</div>
@@ -130,7 +110,7 @@ const RegisterForm = () => {
             placeholder="password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            // value={formik.initialValues.password}
+            value={formik.values.password}
           />
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
@@ -148,18 +128,14 @@ const RegisterForm = () => {
             placeholder="confirmPassword"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            value={formik.values.confirmPassword}
           />
           {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
             <div>{formik.errors.confirmPassword}</div>
           ) : null}
         </InputGroup>
         <WalletButton text={'register'} styleType={'normal'} type={'submit'} />
-        <NavLink
-          // onSubmit={() => onLoginBtn}
-          text={'Log In'}
-          // type={'transparent'}
-          to="/login"
-        >
+        <NavLink text={'Log In'} to="/login">
           Log In
         </NavLink>
       </form>
