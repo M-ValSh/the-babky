@@ -110,7 +110,6 @@ export const NavigationTablet = () => {
 
 export const NavigationDesktop = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <NavigationDesk theme={theme}>
       <NavLink

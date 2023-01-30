@@ -13,6 +13,30 @@ import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+const initialValues = {
+  username: '',
+  email: '',
+  password: '',
+};
+
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email('Please enter your email')
+    .required('This field is required'),
+  password: Yup.string()
+    .min(6, 'At least 6 characters')
+    .max(12, 'maximum of 12 characters')
+    .required('This field is required'),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref('password')],
+    'Passwords do not match'
+  ),
+  username: Yup.string()
+    .typeError()
+    .min(1, 'At least 1 character required')
+    .max(12, 'maximum 12 characters required')
+    .required('this field is required'),
+});
 const RegisterForm = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -30,38 +54,19 @@ const RegisterForm = () => {
   //   navigate('/login');
   // };
 
-  const schema = Yup.object({
-    email: Yup.string()
-      .email('Please enter your email')
-      .required('This field is required'),
-    password: Yup.string()
-      .min(6, 'At least 6 characters')
-      .max(12, 'maximum of 12 characters')
-      .required('This field is required'),
-    confirmPassword: Yup.string().oneOf(
-      [Yup.ref('password')],
-      'Passwords do not match'
-    ),
-    username: Yup.string()
-      .typeError()
-      .min(1, 'At least 1 character required')
-      .max(12, 'maximum 12 characters required')
-      .required('this field is required'),
-  });
-
   const formik = useFormik({
-    initialValues: {
-      username: '',
-      email: '',
-      password: '',
-    },
-    validationSchema: schema,
+    initialValues,
+    validationSchema,
 
-    onSubmit: ({ email, username, password }) => {
+    onSubmit: ({ email, username, password }, { resetForm }) => {
       dispatch(authOperations.register({ email, username, password }));
+      // resetForm({
+      //   values: {
+      //     initialValues,
+      //   },
+      // });
     },
   });
-
   return (
     <div
       style={{
@@ -92,6 +97,7 @@ const RegisterForm = () => {
               placeholder="Email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              // value={formik.initialValues.email}
             />
             {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
@@ -106,6 +112,7 @@ const RegisterForm = () => {
             placeholder="username"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            // value={formik.initialValues.username}
           />
           {formik.touched.username && formik.errors.username ? (
             <div>{formik.errors.username}</div>
@@ -123,6 +130,7 @@ const RegisterForm = () => {
             placeholder="password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            // value={formik.initialValues.password}
           />
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
@@ -145,7 +153,7 @@ const RegisterForm = () => {
             <div>{formik.errors.confirmPassword}</div>
           ) : null}
         </InputGroup>
-        <WalletButton text={'register'} type={'normal'} />
+        <WalletButton text={'register'} styleType={'normal'} type={'submit'} />
         <NavLink
           // onSubmit={() => onLoginBtn}
           text={'Log In'}
