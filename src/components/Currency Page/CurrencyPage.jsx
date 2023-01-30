@@ -1,4 +1,3 @@
-import { Balance } from 'components/Balance/Balance';
 import { useTheme } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
 import { NavigationMobile } from 'components/Navigations/Navigation';

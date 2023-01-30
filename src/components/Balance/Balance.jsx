@@ -1,18 +1,17 @@
-// import authSelectors from 'redux/auth/auth-selectors';
-import {
-  // BalanceBlockDesk,
-  // BalanceBlockTablet,
-  // BalanceBlockMob,
-  BalanceTitle,
-  BalanceSumm,
-} from './Balance.styled';
+import { BalanceTitle, BalanceSumm } from './Balance.styled';
+import authSelectors from 'redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
+
 import { theme } from 'Styles/theme';
 
 export const Balance = () => {
+  const { selectBalance } = authSelectors;
+  const balance = useSelector(selectBalance).toFixed(2).toLocaleString();
+
   return (
     <>
       <BalanceTitle theme={theme}> Your balance</BalanceTitle>
-      <BalanceSumm>₴ 25 000.00</BalanceSumm>
+      <BalanceSumm>₴ {balance}</BalanceSumm>
     </>
   );
 };
