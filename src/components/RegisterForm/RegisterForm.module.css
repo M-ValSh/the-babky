@@ -1,0 +1,85 @@
+.form-register {
+    @media screen and (min-width: 320px) {
+        width: 320px;
+        padding-top: 50px;
+        padding-bottom: 110px;
+        margin: 0 auto;
+    }
+
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        bottom: 100px;
+        right: 50%;
+        transform: translate(50%);
+        width: 540px;
+        border-radius: 50px;
+        padding-bottom: 50px;
+        margin: auto;
+    }
+
+    @media screen and (min-width: 1280px) {
+        bottom: 50%;
+        right: 85px;
+        transform: translateY(50%);
+        margin: 0;
+    }
+
+    background-color: #fff;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+.logo_reg_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.text_pr {
+    text-align: end;
+}
+
+.progress {
+    background-color: #e5f1ef;
+    width: 450px;
+    height: 4px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+        background-color: #e5f1ef;
+        width: 450px;
+        height: 4px;
+        margin-bottom: 30px;
+    }
+}
+
+
+.main_btn {
+    display: inline-block;
+    height: 50px;
+    width: 280px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #fff;
+
+    border-radius: 20px;
+    text-align: center;
+
+    transition: 100ms linear, color 100ms linear, border-color 100ms linear;
+
+    color: #4a56e2;
+    background-color: #fff;
+    border: 2px solid #4a56e2;
+    padding-top: 10px;
+}
+
+main_btn:hover {
+    color: #fff;
+    background-color: #4a56e2;
+}
