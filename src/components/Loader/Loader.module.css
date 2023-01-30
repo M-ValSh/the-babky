@@ -20,7 +20,7 @@
   border: 2px solid #fff;
   border-radius: 5px;
 }
-.cube__fac__top {
+.cube__face__top {
   transform: rotateX(90deg) translateY(-0px) translateX(0) translateZ(5em);
   animation: travel-up var(--animate-time) var(--face-animate-function)
     var(--face-animate-iteration);

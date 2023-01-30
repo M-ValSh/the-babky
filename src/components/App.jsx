@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PublicRoute } from 'HOCs/PublicRoute';
-// import { PrivateRoute } from 'HOCs/PrivateRoute';
+import { PrivateRoute } from 'HOCs/PrivateRoute';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,7 @@ import NotFound from './NotFound/NotFound';
 import HomePage from './HomePage/HomePage';
 import Statistics from 'pages/Statistics/Statistics';
 import authOperations from 'redux/auth/auth-operations';
+
 // import LogOutModal from './Modals/LogOutModal/LogOutModal';
 
 export const App = () => {
@@ -40,9 +41,7 @@ export const App = () => {
           <Route
             path="/"
             element={
-              // <PrivateRoute>
-              <Layout />
-              // </PrivateRoute>
+              <PrivateRoute redirectTo="/login" component={<Layout />} />
             }
           >
             <Route index element={<HomePage />} />
@@ -52,20 +51,12 @@ export const App = () => {
 
           <Route
             path="/register"
-            element={
-              <PublicRoute restricted>
-                <Register />
-              </PublicRoute>
-            }
+            element={<PublicRoute redirectTo="/" component={<Register />} />}
           />
 
           <Route
             path="/login"
-            element={
-              <PublicRoute restricted>
-                <Login />
-              </PublicRoute>
-            }
+            element={<PublicRoute redirectTo="/" component={<Login />} />}
           />
         </Routes>
       )}
