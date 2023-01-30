@@ -5,10 +5,10 @@ import { WalletBtn } from './WalletButton.styled';
 // приклад: <WalletButton text={'register'} type={'normal'} />
 //          <WalletButton text={'log in'} type={'transparent'} />
 
-export default function WalletButton({ text, type }) {
+export default function WalletButton({ text, styleType, ...otherProps }) {
   return (
     <>
-      <WalletBtn theme={theme} type={type}>
+      <WalletBtn theme={theme} styleType={styleType} {...otherProps}>
         {text}
       </WalletBtn>
     </>
