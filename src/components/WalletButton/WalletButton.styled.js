@@ -9,6 +9,7 @@ export const WalletBtn = styled.button(({ theme, type }) => ({
   fontFamily: theme.fonts.mainForms,
   fontSize: theme.fontSizes.lg,
   textTransform: 'uppercase',
+  letterSpacing: '0.1em',
 
   marginTop: type === 'transparent' && '20px',
 

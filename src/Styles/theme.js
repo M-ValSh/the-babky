@@ -3,9 +3,12 @@ import { extendTheme } from '@chakra-ui/react';
 const colors = {
   mainBgDarker: '#E5E5E5',
   mainBgLighter: 'rgba(255, 255, 255, 0.4)',
+  mainBgUnderColor: '#E7EAF2',
   BgforCurrency: '#4A56E2',
   BgBtnGreen: '#24CCA7',
   BgBtnRed: '#FF6596',
+
+  whiteColor: '#FFFFFF',
 
   textMain: '#000000',
   textSecondary: '#FFFFFF',
