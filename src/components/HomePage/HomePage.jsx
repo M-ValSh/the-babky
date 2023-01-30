@@ -8,14 +8,13 @@ import {
   BalanceBlockTablet,
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
+
 import {
-  NavigationTablet,
-  NavigationDesk,
   NavigationMob,
+  NavigationTab,
+  NavigationDesk,
 } from 'components/Navigations/Navigation.styled';
 import { NavLink } from 'react-router-dom';
-import { ChartComp } from 'components/Chart/ChartComp';
-import { CategoryTable } from 'components/CategoryTable/CategoryTable';
 
 const HomePage = () => {
   const media = useMedia();
@@ -37,11 +36,7 @@ const HomePage = () => {
           fontFamily="heading"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationMob theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-              <NavLink to="/">Currency</NavLink>
-            </NavigationMob>
+            <NavigationMob />
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
@@ -89,10 +84,7 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationTablet theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-            </NavigationTablet>
+            <NavigationTab />
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
@@ -114,16 +106,11 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
-            <NavigationDesk theme={theme}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/statistics">Stat</NavLink>
-            </NavigationDesk>
+            <NavigationDesk />
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>
             <Currency />
-            <ChartComp />
-            <CategoryTable />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
