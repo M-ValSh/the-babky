@@ -3,8 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 import authSelectors from '../redux/auth/auth-selectors';
 
-export const PublicRoute = ({ children, restricted = false }) => {
-  const token = useSelector(authSelectors.selectToken);
-  const shouldRedirect = token && restricted;
-  return shouldRedirect ? children : <Navigate to="/" />;
+export const PublicRoute = ({ component: Component, redirectTo = '/' }) => {
+  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
+  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
 };

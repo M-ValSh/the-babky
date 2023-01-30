@@ -1,0 +1,11 @@
+.loader_field {
+  margin: 0;
+  background: #222;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --animate-time: 3s;
+  --face-animate-function: ease-in-out;
+  --face-animate-iteration: infinite;
+}
