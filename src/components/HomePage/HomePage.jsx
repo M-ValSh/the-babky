@@ -8,7 +8,6 @@ import {
   BalanceBlockTablet,
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
-import { Link } from 'react-router-dom';
 
 import {
   NavigationMobile,
@@ -18,9 +17,7 @@ import {
 
 const HomePage = () => {
   const media = useMedia();
-  console.log(media);
   const theme = useTheme();
-  console.log(theme);
 
   return (
     <>
@@ -31,17 +28,15 @@ const HomePage = () => {
           gridTemplateRows={' 1fr 30px'}
           gridTemplateColumns={'1fr'}
           h="200px"
-          gap="0.5"
           color="textMain"
           fontFamily="heading"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
+          <GridItem bg={theme.colors.BgMain} area={'nav'} h="180px">
             <NavigationMobile />
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
-            <Currency />
-            <div
+            {/*    <div
               style={{
                 fontSize: 40,
                 fontFamily: 'Poppins',
@@ -65,9 +60,9 @@ const HomePage = () => {
               }}
             >
               TEST tets font FONT
-            </div>
+            </div> */}
           </GridItem>
-          <GridItem pl="2" bg="green.300" area={'main'}>
+          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
             Main
           </GridItem>
         </Grid>
@@ -79,18 +74,24 @@ const HomePage = () => {
           gridTemplateRows={'1fr 30px'}
           gridTemplateColumns={'1fr'}
           h="200px"
-          gap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationTablet />
-            <BalanceBlockTablet theme={theme}>
-              <Balance />
-            </BalanceBlockTablet>
+          <GridItem
+            bg={theme.colors.BgMain}
+            area={'nav'}
+            h="234px"
+            display="flex"
+          >
+            <section>
+              <NavigationTablet />
+              <BalanceBlockTablet theme={theme}>
+                <Balance />
+              </BalanceBlockTablet>
+            </section>
             <Currency />
           </GridItem>
-          <GridItem pl="2" bg="green.300" area={'main'}>
+          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
             Main
           </GridItem>
         </Grid>
@@ -105,15 +106,21 @@ const HomePage = () => {
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
+          <GridItem
+            bg={theme.colors.BgMain}
+            area={'nav'}
+            h="100vh"
+            borderRight="1px solid #E7E5F2"
+            boxShadow="-1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6)"
+          >
             <NavigationDesktop />
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>
             <Currency />
           </GridItem>
-          <GridItem pl="2" bg="green.300" area={'main'}>
-            <Link to="/register">Register</Link>
+
+          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
             Main
           </GridItem>
         </Grid>

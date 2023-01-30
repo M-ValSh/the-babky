@@ -7,6 +7,7 @@ const colors = {
   BgforCurrency: '#4A56E2',
   BgBtnGreen: '#24CCA7',
   BgBtnRed: '#FF6596',
+  BgMain: '#f1f2f7',
 
   whiteColor: '#FFFFFF',
 
