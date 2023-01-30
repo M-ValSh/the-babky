@@ -43,7 +43,7 @@ export const NavigationMobile = () => {
           }
         />
       </NavLink>
-      <NavLink to="/">
+      <NavLink to="/currency">
         <NavigationIconMob
           src={loc.pathname === '/currency' ? CurrencyActiveSvg : CurrencySvg}
           style={
@@ -102,7 +102,7 @@ export const NavigationTablet = () => {
               : null
           }
         />
-        Stat
+        Statistics
       </NavLink>
     </NavigationTab>
   );
@@ -151,7 +151,7 @@ export const NavigationDesktop = () => {
               : null
           }
         />
-        Stat
+        Statistics
       </NavLink>
     </NavigationDesk>
   );

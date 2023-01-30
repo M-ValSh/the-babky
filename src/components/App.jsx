@@ -18,7 +18,9 @@ import Register from 'pages/Register/Register';
 import NotFound from './NotFound/NotFound';
 import HomePage from './HomePage/HomePage';
 import Statistics from 'pages/Statistics/Statistics';
+import Currencys from 'pages/Currencys/Currencys';
 import authOperations from 'redux/auth/auth-operations';
+import { useMedia } from './Media/useMedia';
 // import LogOutModal from './Modals/LogOutModal/LogOutModal';
 
 export const App = () => {
@@ -26,7 +28,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
   // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
-
+  const media = useMedia();
   console.log(theme);
 
   useEffect(() => {
@@ -47,6 +49,10 @@ export const App = () => {
           >
             <Route index element={<HomePage />} />
             <Route path="/statistics" element={<Statistics />} />
+            {media.isMobile && (
+              <Route path="/currency" element={<Currencys />} />
+            )}
+
             <Route path="*" element={<NotFound />} />
           </Route>
 
