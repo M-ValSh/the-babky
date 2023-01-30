@@ -23,12 +23,9 @@ import authOperations from 'redux/auth/auth-operations';
 // import LogOutModal from './Modals/LogOutModal/LogOutModal';
 
 export const App = () => {
-  const theme = useTheme();
   const dispatch = useDispatch();
   const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
   // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
-
-  console.log(theme);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
