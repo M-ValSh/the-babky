@@ -8,6 +8,7 @@ import {
   BalanceBlockTablet,
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
+import { Link } from 'react-router-dom';
 
 import {
   NavigationMobile,
@@ -112,6 +113,7 @@ const HomePage = () => {
             <Currency />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
+            <Link to="/register">Register</Link>
             Main
           </GridItem>
         </Grid>
