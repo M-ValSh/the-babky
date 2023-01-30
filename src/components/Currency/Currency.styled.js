@@ -5,9 +5,9 @@ export const TableWrapperDesc = styled.div(({ theme, bg }) => {
     width: '393px',
     height: '331px',
     color: theme.colors.textSecondary,
-    margin: "32px 18px",
     borderRadius: theme.radii.currency,
     background: `url(${bg}) no-repeat bottom`,
+    // margin: "32px 18px",
   })
 });
 
@@ -47,7 +47,7 @@ export const TableWrapperTablet = styled.div(({ theme, bg }) => {
     color: theme.colors.textSecondary,
     borderRadius: theme.radii.currency,
     background: `url(${bg}) no-repeat bottom`,
-    margin: "62px 18px",
+    // margin: "62px 18px",
   })
 });
 
@@ -86,7 +86,7 @@ export const TableWrapperMobile = styled.div(({ theme, bg }) => {
     color: theme.colors.textSecondary,
     borderRadius: theme.radii.currency,
     background: `url(${bg}) no-repeat bottom`,
-    margin: "142px 18px",
+    // margin: "142px 18px",
   })
 });
 
