@@ -10,11 +10,10 @@ import {
 } from 'components/Balance/Balance.styled';
 
 import {
-  NavigationMob,
-  NavigationTab,
-  NavigationDesk,
-} from 'components/Navigations/Navigation.styled';
-import { NavLink } from 'react-router-dom';
+  NavigationMobile,
+  NavigationTablet,
+  NavigationDesktop,
+} from 'components/Navigations/Navigation';
 
 const HomePage = () => {
   const media = useMedia();
@@ -36,7 +35,7 @@ const HomePage = () => {
           fontFamily="heading"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationMob />
+            <NavigationMobile />
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
@@ -84,7 +83,7 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="234px">
-            <NavigationTab />
+            <NavigationTablet />
             <BalanceBlockTablet theme={theme}>
               <Balance />
             </BalanceBlockTablet>
@@ -106,7 +105,7 @@ const HomePage = () => {
           fontWeight="bold"
         >
           <GridItem pl="2" bg="pink.300" area={'nav'} h="800px">
-            <NavigationDesk />
+            <NavigationDesktop />
             <BalanceBlockDesk theme={theme}>
               <Balance />
             </BalanceBlockDesk>

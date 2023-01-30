@@ -20,8 +20,8 @@ import CurrencyDesc from '../../assets/images/iMac-currency.svg';
 import CurrencyTablet from '../../assets/images/tablet-currency.svg';
 import CurrencyMobile from '../../assets/images/mobile-currency.svg';
 
-// const ONE_HOUR = 3600000;
-const ONE_HOUR = 86400000;
+const ONE_HOUR = 3600000;
+// const ONE_HOUR = 86400000;
 let timeDiff = 0;
 let dataCurrency = {};
 
