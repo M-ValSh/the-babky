@@ -41,7 +41,7 @@ const StatisticsPage = () => {
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
-            <DiagramTab />
+            {/* <DiagramTab /> */}
           </GridItem>
         </Grid>
       )}
@@ -65,7 +65,7 @@ const StatisticsPage = () => {
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
-            <DiagramTab />
+            {/* <DiagramTab /> */}
           </GridItem>
         </Grid>
       )}

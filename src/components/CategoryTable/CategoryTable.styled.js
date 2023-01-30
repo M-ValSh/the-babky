@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TableWrapperDesc = styled.div`
-  margin: 50px 0px 0px 18px;
+  margin: 20px 0px 20px 0px;
   width: 395px;
 `;
 

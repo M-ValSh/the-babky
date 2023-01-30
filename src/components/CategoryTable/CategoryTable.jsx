@@ -1,8 +1,7 @@
-// import { bankApi } from 'index';
 // import { useEffect, useState } from 'react';
-// import { Box } from '@chakra-ui/react';
 // import { useMedia } from 'components/Media/useMedia';
-import taCats from './fakeTACategories.json';
+// import taCats from '../DiagramTab/fakeTACategories';
+// import { useEffect, useState } from 'react';
 import {
   TableWrapperDesc,
   TRHeadDesc,
@@ -15,7 +14,17 @@ import {
 } from './CategoryTable.styled';
 import { categoryColorSwitcher } from './categoryColorSwitcher';
 
-export const CategoryTable = () => {
+export const CategoryTable = ({ responce }) => {
+  // // console.log('responce', responce);
+  // const [catsArrs, setCatsArr] = useState([]);
+
+  // useEffect(() => {
+  //   console.log('responce', responce);
+  //   let respArr = responce.categoriesSummary;
+  //   // console.log('respArr', respArr);
+  //   setCatsArr(respArr);
+  // }, [responce]);
+
   return (
     <TableWrapperDesc>
       <table>
@@ -27,27 +36,29 @@ export const CategoryTable = () => {
         </thead>
         <tbody>
           {/* Dynamic render of the table list */}
-          {taCats.map(el => {
+          {/* {responce && console.log('catsArrs', catsArrs)} */}
+          {responce.categoriesSummary.map(el => {
             return (
-              <TRBodyDesc key={el.id}>
+              <TRBodyDesc key={el.name}>
                 <THDesc>
                   <BoxDesc color={categoryColorSwitcher(el.name)} />
                   {el.name}
                 </THDesc>
-                <th>8 700.00</th>
+                <th>{el.total}</th>
               </TRBodyDesc>
             );
           })}
           {/*  */}
         </tbody>
+
         <tfoot>
           <TRFooterDesc>
             <th>Expenses:</th>
-            <THRedDesc>22 549.24</THRedDesc>
+            <THRedDesc>{responce.expenseSummary}</THRedDesc>
           </TRFooterDesc>
           <TRFooterDesc>
             <th>Income:</th>
-            <THGreenDesc>27 350.00</THGreenDesc>
+            <THGreenDesc>{responce.incomeSummary}</THGreenDesc>
           </TRFooterDesc>
         </tfoot>
       </table>
