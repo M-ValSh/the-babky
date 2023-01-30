@@ -1,4 +1,3 @@
-import { useTheme } from '@chakra-ui/react';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
