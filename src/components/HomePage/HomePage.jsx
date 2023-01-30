@@ -14,6 +14,8 @@ import {
   NavigationMob,
 } from 'components/Navigations/Navigation.styled';
 import { NavLink } from 'react-router-dom';
+import { ChartComp } from 'components/Chart/ChartComp';
+import { CategoryTable } from 'components/CategoryTable/CategoryTable';
 
 const HomePage = () => {
   const media = useMedia();
@@ -120,6 +122,8 @@ const HomePage = () => {
               <Balance />
             </BalanceBlockDesk>
             <Currency />
+            <ChartComp />
+            <CategoryTable />
           </GridItem>
           <GridItem pl="2" bg="green.300" area={'main'}>
             Main
