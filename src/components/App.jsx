@@ -27,8 +27,8 @@ import { useMedia } from './Media/useMedia';
 export const App = () => {
   const dispatch = useDispatch();
   const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
+  const media = useMedia();
   // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
-
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
