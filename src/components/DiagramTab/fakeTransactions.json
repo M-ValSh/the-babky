@@ -23,7 +23,7 @@
     "id": "0fc08d7f-ab19-4748-9fad-ca1b91aba661",
     "transactionDate": "2022-09-06",
     "type": "EXPENSE",
-    "comment": "Продукти",
+    "comment": "Заправка",
     "amount": -2600,
     "balanceAfter": 23200,
     "categoryId": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
@@ -79,7 +79,6 @@
     "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
     "userId": "113a6461-8c44-12e2-b9a1-d37120daf911"
   },
-  ,
   {
     "id": "0fc08d7f-ab19-4748-9fad-ca1b91aba661",
     "transactionDate": "2022-11-30",
@@ -157,6 +156,16 @@
     "comment": "Курси FullStack",
     "amount": -2800,
     "balanceAfter": 131200,
+    "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+    "userId": "113a6461-8c44-12e2-b9a1-d37120daf911"
+  },
+  {
+    "id": "0fc08d7f-ab19-4748-9fad-ca1b91aba661",
+    "transactionDate": "2023-01-17",
+    "type": "EXPENSE",
+    "comment": "Курси FullStack",
+    "amount": -2900,
+    "balanceAfter": 128300,
     "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
     "userId": "113a6461-8c44-12e2-b9a1-d37120daf911"
   }
