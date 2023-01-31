@@ -7,14 +7,16 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 // import { Logo } from 'components/Headers/Headers.styled';
 import WalletButton from '../WalletButton/WalletButton';
-
+import { useMedia } from 'components/Media/useMedia';
 
 import { NavLink } from 'react-router-dom';
-import { Input, InputGroup, Stack, InputLeftElement, Box } from '@chakra-ui/react';
+import { Input, InputGroup, Stack, InputLeftElement, Box, GridItem, Grid } from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { Logo } from 'components/Logo/Logo';
 import Frame from '../../img/illustrations/Frame.svg';
+import pink_ellipse from '../../img/figures/pink_ellipse.svg';
+import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 
 import {
   FormWrapper,
@@ -27,9 +29,11 @@ import {
 
 
 
+
 const LoginForm = () => {
   const dispatch = useDispatch();
 
+  const media = useMedia();
   const theme = useTheme();
 
   const schema = Yup.object({
@@ -49,13 +53,41 @@ const LoginForm = () => {
   };
 
   return (
-      // <div>
-      <LoginFormPage>
+    <>
+      {media.isDesktop && (
+        <Grid
+        templateAreas={`
+                        "nav main"
+                        "nav main"`}
+        gridTemplateRows={'1fr 30px'}
+        gridTemplateColumns={'550px 1fr'}
+        gap='0'
+        h='100vh'
+        backgroundColor='mainBgUnderColor'
+        backgroundRepeat='no-repeat, no-repeat'
+        backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
+        backgroundPosition='top -150px right -150px, bottom -150px left -150px'
+        // color='blackAlpha.700'
+        // fontWeight='bold'
+      >
+      {/* <LoginFormPage> */}
+      <GridItem pl='2'  area={'nav'}>
         <IllustrationWrapper>
           <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' />
           <IllustrationDesc>Finance App</IllustrationDesc>
         </IllustrationWrapper>
-        <FormWrapper>
+      </GridItem>
+        {/* <IllustrationWrapper> */}
+          {/* <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' /> */}
+          {/* <IllustrationDesc>Finance App</IllustrationDesc> */}
+        {/* </IllustrationWrapper> */}
+        {/* <FormWrapper> */}
+        <GridItem 
+          pl='2' 
+          area={'main'}
+          backgroundColor='mainBgLighter'
+          backdropFilter='blur(25px)'
+        >
           <Formik
             initialValues={{
               email: '',
@@ -117,7 +149,7 @@ const LoginForm = () => {
                   <Stack spacing={0} mt='42px'>
                     <WalletButton text='LOG IN'/>
                     <NavLink to="/register">
-                      <WalletButton text='REGISTER' type='transparent'/>
+                      <WalletButton text='REGISTER' styleType='transparent'/>
                     </NavLink>
                   </Stack>
                 </FormBlock>
@@ -125,10 +157,37 @@ const LoginForm = () => {
               
             )}
           </Formik>
-        </FormWrapper>
-      </LoginFormPage>         
-      // </div>
+        </GridItem>
+        {/* </FormWrapper> */}
+      {/* </LoginFormPage>   */}
+      </Grid>     
+      )}
+    </>
   );
 };
 
 export default LoginForm;
+
+
+
+// desktop
+
+{/* <Grid
+  templateAreas={`
+                  "nav main"
+                  "nav main"`}
+  gridTemplateRows={'1fr 30px'}
+  gridTemplateColumns={'550px 1fr'}
+  gap='0'
+  color='blackAlpha.700'
+  fontWeight='bold'
+>
+
+  <GridItem pl='2' bg='pink.300' area={'nav'}>
+    Nav
+  </GridItem>
+  <GridItem pl='2' bg='green.300' area={'main'}>
+    Main
+  </GridItem>
+
+</Grid> */}

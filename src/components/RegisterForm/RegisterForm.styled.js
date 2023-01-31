@@ -5,6 +5,7 @@ import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 import Frame from '../../img/illustrations/Frame.png';
 
 
+
 export const LoginFormPage = styled.div(({ theme }) => ({
     margin: '0',
     display: 'Flex',
@@ -76,7 +77,7 @@ export const FormBlock = styled.div(({ theme }) => ({
   padding: '40px 61px 62px 61px',
 
   width: '532px',
-  height: '468px',
+  height: '616px',
 
   alignItems: 'center',
 //   justifyContent: 'center',
