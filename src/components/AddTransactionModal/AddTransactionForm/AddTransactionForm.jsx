@@ -40,37 +40,30 @@ export default function AddTransactionForm() {
       comment: '',
     },
     onSubmit: values => {
-      console.log(
-        values.isChecked,
-        values.category,
-        values.amount,
-        values.date,
-        values.comment
-      );
-
+      const { category, amount, date, comment } = values;
       console.log(categories);
-      const trType = values.isChecked ? 'EXPENSE' : 'INCOME';
-      const balanceAfter =
-        trType === 'INCOME'
-          ? userBalance + values.amount
-          : userBalance - values.amount;
-
-      const selectedCategory = categories.find(category => {
-        return category.name === values.category;
+      const selectedCategory = categories.find(item => {
+        return item.name === (category === '' ? 'Income' : category);
       });
 
-      const categoryId =
-        trType === 'EXPENSE' ? selectedCategory.id : categories[10].id;
+      const balanceAfter =
+        selectedCategory.type === 'INCOME'
+          ? userBalance + amount
+          : userBalance - amount;
+
+      const categoryId = selectedCategory.id;
+
       const newTransaction = {
-        transactionDate: values.date,
-        type: trType,
-        comment: values.comment,
-        amount: trType === 'EXPENSE' ? '-' + values.amount : values.amount,
+        transactionDate: date,
+        type: selectedCategory.type,
+        comment: comment,
+        amount: selectedCategory.type === 'EXPENSE' ? '-' + amount : amount,
         categoryId,
-        // balanceAfter,
       };
       dispatch(changeBalance(balanceAfter));
       dispatch(addTransaction(newTransaction));
+      formik.resetForm();
+      dispatch(closeModalWindow());;
     },
   });
 
@@ -104,42 +97,11 @@ export default function AddTransactionForm() {
             required
             icon={<SlArrowDown />}
           >
-            {' '}
             {categories.map(category => (
               <ModalOpt key={category.id} value={category.name} theme={theme}>
                 {category.name}
               </ModalOpt>
             ))}
-            {/* <ModalOpt value="Main expenses" theme={theme}>
-              Main expenses
-            </ModalOpt>
-            <ModalOpt value="Products" theme={theme}>
-              Products
-            </ModalOpt>
-            <ModalOpt value="Car" theme={theme}>
-              Car
-            </ModalOpt>
-            <ModalOpt value="Self care" theme={theme}>
-              Self care
-            </ModalOpt>
-            <ModalOpt value="Child care" theme={theme}>
-              Child care
-            </ModalOpt>
-            <ModalOpt value="Household products" theme={theme}>
-              Household products
-            </ModalOpt>
-            <ModalOpt value="Education" theme={theme}>
-              Education
-            </ModalOpt>
-            <ModalOpt value="Leisure" theme={theme}>
-              Leisure
-            </ModalOpt>
-            <ModalOpt value="Other expenses" theme={theme}>
-              Other expenses
-            </ModalOpt>
-            <ModalOpt value="Entertainment" theme={theme}>
-              Entertainment
-            </ModalOpt> */}
           </ModalSlct>
         )}
         <ModalInput
