@@ -12,6 +12,7 @@ import {
 } from 'components/Navigations/Navigation';
 import { Currency } from 'components/Currency/Currency';
 import { DiagramTab } from 'components/DiagramTab/DiagramTab';
+import { BubleWrapper } from 'components/Navigations/Navigation.styled';
 
 const { Grid, GridItem } = require('@chakra-ui/react');
 
@@ -44,62 +45,60 @@ const StatisticsPage = () => {
         </Grid>
       )}
       {media.isTablet && (
-        <Grid
-          templateAreas={`"nav nav"
+        <BubleWrapper>
+          <Grid
+            templateAreas={`"nav nav"
                   "main main"`}
-          gridTemplateRows={'1fr 30px'}
-          gridTemplateColumns={'1fr'}
-          h="200px"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
-          <GridItem
-            bg={theme.colors.BgMain}
-            area={'nav'}
-            h="234px"
-            display="flex"
-            w="100%"
+            gridTemplateRows={'1fr 30px'}
+            gridTemplateColumns={'1fr'}
+            h="200px"
+            color="blackAlpha.700"
+            fontWeight="bold"
           >
-            <section>
-              <NavigationTablet />
-              <BalanceBlockTablet theme={theme}>
-                <Balance />
-              </BalanceBlockTablet>
-            </section>
-            <Currency />
-          </GridItem>
-          <GridItem bg={theme.colors.BgMain} h="100vh" area={'main'}>
-            <DiagramTab />
-          </GridItem>
-        </Grid>
+            <GridItem zIndex="2" area={'nav'} h="234px" display="flex" w="100%">
+              <section>
+                <NavigationTablet />
+                <BalanceBlockTablet theme={theme}>
+                  <Balance />
+                </BalanceBlockTablet>
+              </section>
+              <Currency />
+            </GridItem>
+            <GridItem zIndex="2" h="100vh" area={'main'}>
+              <DiagramTab />
+            </GridItem>
+          </Grid>
+        </BubleWrapper>
       )}
       {media.isDesktop && (
-        <Grid
-          templateAreas={`"nav main"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          gridTemplateColumns={'37vw 1fr'}
-          h="200px"
-          gap="0.5"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
-          <GridItem
-            bg={theme.colors.BgMain}
-            area={'nav'}
-            h="100vh"
-            borderRight="1px solid #E7E5F2"
-            boxShadow="-1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6)"
+        <BubleWrapper>
+          <Grid
+            templateAreas={`"nav main"`}
+            gridTemplateRows={'50px 1fr 30px'}
+            gridTemplateColumns={'37vw 1fr'}
+            h="200px"
+            gap="0.5"
+            color="blackAlpha.700"
+            fontWeight="bold"
           >
-            <NavigationDesktop />
-            <BalanceBlockDesk theme={theme}>
-              <Balance />
-            </BalanceBlockDesk>
-            <Currency />
-          </GridItem>
-          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            <DiagramTab />
-          </GridItem>
-        </Grid>
+            <GridItem
+              zIndex="2"
+              area={'nav'}
+              h="100vh"
+              borderRight="1px solid #E7E5F2"
+              boxShadow="-1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6)"
+            >
+              <NavigationDesktop />
+              <BalanceBlockDesk theme={theme}>
+                <Balance />
+              </BalanceBlockDesk>
+              <Currency />
+            </GridItem>
+            <GridItem zIndex="2" area={'main'} h="100vh">
+              <DiagramTab />
+            </GridItem>
+          </Grid>
+        </BubleWrapper>
       )}
     </>
   );

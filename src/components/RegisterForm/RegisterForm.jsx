@@ -2,8 +2,8 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 import authOperations from '../../redux/auth/auth-operations';
-// import { authReducer } from '../../redux/auth/auth-slice';
 import WalletButton from 'components/WalletButton/WalletButton';
+
 // import s from './RegisterForm.module.css';
 // import { useState } from 'react';
 // import { Container, FormEl, LogBtn } from './RegisterForm.styled';
@@ -17,6 +17,7 @@ import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 import { useDispatch, useSelector } from 'react-redux';
+
 
 import {
   FormWrapper,
@@ -33,6 +34,7 @@ const initialValues = {
   username: '',
   email: '',
   password: '',
+  confirmPassword: '',
 };
 
 const validationSchema = Yup.object({
@@ -56,22 +58,12 @@ const validationSchema = Yup.object({
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
+
   const media = useMedia();
   const theme = useTheme();
   // const navigate = useNavigate();
+
   const auth = useSelector(state => state.auth);
-
-  // const [password, setPassword] = useState('');
-
-  // const onSubmit = params => {
-  //   dispatch(authOperations.register(params));
-
-  //   navigate('/login');
-  // };
-
-  // const onLoginBtn = () => {
-  //   navigate('/login');
-  // };
 
   const formik = useFormik({
     initialValues,
@@ -79,11 +71,7 @@ const RegisterForm = () => {
 
     onSubmit: ({ email, username, password }, { resetForm }) => {
       dispatch(authOperations.register({ email, username, password }));
-      // resetForm({
-      //   values: {
-      //     initialValues,
-      //   },
-      // });
+      resetForm({ values: '' });
     },
   });
   return (
@@ -137,10 +125,14 @@ const RegisterForm = () => {
               placeholder="Email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              // value={formik.initialValues.email}
+
+ 
               width='410px'
               height='32px'
               errorBorderColor={theme.colors.BgBtnRed}
+
+              value={formik.values.email}
+
             />
             {formik.touched.email && formik.errors.email ? (
               toast.info(formik.errors.email)
@@ -220,7 +212,9 @@ const RegisterForm = () => {
             <WalletButton text='log in' styleType='transparent'/>
           </NavLink>
         </Stack>
+
       </FormBlock>
+
       </form>
       </GridItem>
     </Grid> 
