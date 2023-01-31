@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/team-project/static/css/main.ae629872.css",
-    "main.js": "/team-project/static/js/main.cd86bcb5.js",
+    "main.js": "/team-project/static/js/main.6673dd28.js",
     "static/media/Circe-Bold.woff": "/team-project/static/media/Circe-Bold.fca9743700608e1abf6a.woff",
     "static/media/Circe-Regular.woff": "/team-project/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
+    "static/media/404.png": "/team-project/static/media/404.99b7cb0e1e20e4eeeaba.png",
     "static/media/Circe-Bold.woff2": "/team-project/static/media/Circe-Bold.b64357adbf12b109fcf2.woff2",
     "static/media/Circe-Regular.woff2": "/team-project/static/media/Circe-Regular.2c54c074533cf5620761.woff2",
     "static/media/Poppins-Regular.woff": "/team-project/static/media/Poppins-Regular.9b9d9585fc27c8fff554.woff",
@@ -22,11 +23,13 @@
     "static/media/logout-icon.svg": "/team-project/static/media/logout-icon.dcd3363176363020f7b35195714fb1e2.svg",
     "static/media/home-icon-active.svg": "/team-project/static/media/home-icon-active.7bb7687f8c8e2af95acaec211ef60ddc.svg",
     "static/media/home-icon.svg": "/team-project/static/media/home-icon.f816d5949c3561381dfd5bd80e9a2223.svg",
+    "static/media/ellipse-purple.svg": "/team-project/static/media/ellipse-purple.f6c24d3e33e7e1253ac73f0578713248.svg",
+    "static/media/ellipse-pink.svg": "/team-project/static/media/ellipse-pink.07ef13244b203e866dcdec6e7633ee44.svg",
     "main.ae629872.css.map": "/team-project/static/css/main.ae629872.css.map",
-    "main.cd86bcb5.js.map": "/team-project/static/js/main.cd86bcb5.js.map"
+    "main.6673dd28.js.map": "/team-project/static/js/main.6673dd28.js.map"
   },
   "entrypoints": [
     "static/css/main.ae629872.css",
-    "static/js/main.cd86bcb5.js"
+    "static/js/main.6673dd28.js"
   ]
 }
