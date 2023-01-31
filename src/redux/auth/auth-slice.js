@@ -80,7 +80,7 @@ const authSlice = createSlice({
 
   reducers: {
     changeBalance(state, action) {
-      state.user.balance = state.user.balance - action.payload;
+      state.user.balance = action.payload;
     },
   },
 });

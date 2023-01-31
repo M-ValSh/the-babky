@@ -18,6 +18,7 @@ export const addTransaction = createAsyncThunk(
   'transaction/addTransaction',
   async (transaction, { rejectWithValue }) => {
     try {
+      console.log('this is transaction from operations', transaction);
       const { data } = await walletApi.post('/transactions', transaction);
       return data;
     } catch (error) {
