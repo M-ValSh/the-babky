@@ -20,7 +20,7 @@ import { useMedia } from 'components/Media/useMedia';
 import { selectTransactions } from 'redux/transactions/transactions-selectors';
 
 // fake data, later connect from some state
-import fakeTACategories from '../CategoryTable/fakeTACategories.json';
+import fakeTACategories from '../DiagramTab/fakeTACategories.json';
 
 export const HomeTab = () => {
   const mobile = useMedia().isMobile;
