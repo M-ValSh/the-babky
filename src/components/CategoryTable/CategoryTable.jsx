@@ -24,6 +24,7 @@ import {
   BoxHeadTitle,
   BoxTitle,
   THTextMobile,
+  BoxAmount,
 } from './CategoryTable.styled';
 import { categoryColorSwitcher } from './categoryColorSwitcher';
 
@@ -55,7 +56,7 @@ export const CategoryTable = ({
                       <BoxDesk color={categoryColorSwitcher(el.name)} />
                       <BoxTitle>{el.name}</BoxTitle>
                     </THDesk>
-                    <BoxTitle>{el.total}</BoxTitle>
+                    <BoxAmount>{el.total}</BoxAmount>
                   </TRBodyDesk>
                 );
               })}
@@ -93,7 +94,7 @@ export const CategoryTable = ({
                       <BoxTablet color={categoryColorSwitcher(el.name)} />
                       <BoxTitle>{el.name}</BoxTitle>
                     </THTablet>
-                    <THTablet>{el.total}</THTablet>
+                    <BoxAmount>{el.total}</BoxAmount>
                   </TRBodyTablet>
                 );
               })}
@@ -131,7 +132,7 @@ export const CategoryTable = ({
                       <BoxMobile color={categoryColorSwitcher(el.name)} />
                       <THTextMobile>{el.name}</THTextMobile>
                     </THMobile>
-                    <THMobile>{el.total}</THMobile>
+                    <BoxAmount>{el.total}</BoxAmount>
                   </TRBodyMobile>
                 );
               })}

@@ -48,6 +48,16 @@ export const TRFooterDesk = styled.tr`
   line-height: calc(24 / 16);
 `;
 
+export const BoxHeadTitle = styled.th`
+  font-style: normal;
+  font-weight: 700;
+  color: ${p => p.theme.colors.textMain}
+`
+
+export const THDesk = styled.th`
+  display: flex;
+`
+
 export const BoxDesk = styled.label`
   display: inline-block;
   margin-right: 16px;
@@ -58,20 +68,15 @@ export const BoxDesk = styled.label`
   background-color: ${p => p.color};
 `;
 
-export const BoxHeadTitle = styled.th`
-  font-style: normal;
-  font-weight: 700;
-  color: ${p => p.theme.colors.textMain}
-`
-
-export const BoxTitle = styled.th`
+export const BoxTitle = styled.label`
   font-style: normal;
   font-weight: 400;
   color: ${p => p.theme.colors.textMain}
 `
-
-export const THDesk = styled.th`
-  display: flex;
+export const BoxAmount = styled.th`
+  font-style: normal;
+  font-weight: 400;
+  color: ${p => p.theme.colors.textMain}
 `
 
 export const THFooter = styled.th`
