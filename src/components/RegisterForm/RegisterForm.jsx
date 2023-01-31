@@ -25,7 +25,7 @@ import { Logo } from 'components/Logo/Logo';
 import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   Illustration,
@@ -34,7 +34,6 @@ import {
   FormBlock,
 } from './RegisterForm.styled';
 import { NavLink } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   username: '',
@@ -68,7 +67,7 @@ const RegisterForm = () => {
   const theme = useTheme();
   // const navigate = useNavigate();
 
-  const auth = useSelector(state => state.auth);
+  // const auth = useSelector(state => state.auth);
 
   const formik = useFormik({
     initialValues,
@@ -174,9 +173,6 @@ const RegisterForm = () => {
                         errorBorderColor={theme.colors.BgBtnRed}
                         value={formik.values.username}
                       />
-                      {/* {formik.touched.username && formik.errors.username
-                        ? toast.info(formik.errors.username)
-                        : null} */}
                     </InputGroup>
                     <FormErrorMessage position={'absolute'} bottom="0">
                       {formik.errors.email}
@@ -203,7 +199,7 @@ const RegisterForm = () => {
                         width="410px"
                         height="32px"
                         errorBorderColor={theme.colors.BgBtnRed}
-                        // value={formik.initialValues.password}
+                        value={formik.values.password}
                       />
                       {/* {formik.touched.password && formik.errors.password
                         ? toast.info(formik.errors.password)

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
 
-import css from './Layout/Layout.module.css';
+// import css from './Layout/Layout.module.css';
 
 import authSelectors from 'redux/auth/auth-selectors';
 // import { selectIsModalLogoutOpen } from 'redux/global/global-selectors';
@@ -20,7 +20,7 @@ import Currencys from 'pages/Currencys/Currencys';
 import authOperations from 'redux/auth/auth-operations';
 
 import { useMedia } from './Media/useMedia';
-import Loader from './Loader/Loader';
+// import Loader from './Loader/Loader';
 
 // import LogOutModal from './Modals/LogOutModal/LogOutModal';
 
