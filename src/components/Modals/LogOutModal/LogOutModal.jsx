@@ -1,11 +1,9 @@
-// import { Box, Text } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsModalLogoutOpen } from 'redux/global/global-selectors';
-// import { globalOperations } from 'redux/global/global-slice';
+import { useDispatch } from 'react-redux';
+
 import { closeModalLogout } from 'redux/global/global-slice';
-import authOperations from "../../../redux/auth/auth-operations";
+import authOperations from '../../../redux/auth/auth-operations';
 import {
   OverlayBox,
   ModalBox,
@@ -18,10 +16,11 @@ import {
 const LogOutModal = () => {
   const dispatch = useDispatch();
 
-  const isModalOpen = useSelector(selectIsModalLogoutOpen);
-
-  const onLogOutClick = () => (dispatch(authOperations.logOut()).unwrap().then(() => dispatch(closeModalLogout())))
-  const onKeepInClick = () => (dispatch(closeModalLogout()))
+  const onLogOutClick = () =>
+    dispatch(authOperations.logOut())
+      .unwrap()
+      .then(() => dispatch(closeModalLogout()));
+  const onKeepInClick = () => dispatch(closeModalLogout());
 
   const onBackdropClick = e => {
     if (e.currentTarget !== e.target) return;
@@ -44,7 +43,9 @@ const LogOutModal = () => {
     <OverlayBox onClick={onBackdropClick} /* className={styles.overlay} */>
       <ModalBox /* className={styles.modal} */>
         <ContentBox>
-          <Text>Are you sure, you want to <b>Log Out</b>?</Text>
+          <Text>
+            Are you sure, you want to <b>Log Out</b>?
+          </Text>
           <ButtonsBox>
             <KeepButton type="button" onClick={onKeepInClick}>
               Keep In

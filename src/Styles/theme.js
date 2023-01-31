@@ -40,14 +40,15 @@ const fonts = {
   secondary: 'Circe',
 };
 
-const placeholderCss = { 
+const placeholderCss = {
   fontFamily: 'Circe',
   fontStyle: 'normal',
   fontSize: '18px',
   fontWeight: 400,
   color: colors.BgBtnGreen,
-  color: '#BDBDBD',
-  opacity: '1'}
+  colorPlaceholder: '#BDBDBD',
+  opacity: '1',
+};
 
 export const theme = extendTheme({
   colors,
