@@ -14,13 +14,24 @@ import {
   NavigationTablet,
   NavigationDesktop,
 } from 'components/Navigations/Navigation';
+import AddTrnsctnBtn from 'components/AddTrnsctnBtn/AddTrnsctnBtn';
+import AddTransactionModal from 'components/AddTransactionModal/AddTransactionModal';
+import { useSelector } from 'react-redux';
+import { selectIsModalAddTransactionOpen } from 'redux/global/global-selectors';
 
 const HomePage = () => {
   const media = useMedia();
   const theme = useTheme();
 
+  const isModalAddTransactionOpen = useSelector(
+    selectIsModalAddTransactionOpen
+  );
+
   return (
     <>
+      <AddTrnsctnBtn />
+      {isModalAddTransactionOpen && <AddTransactionModal />}
+
       {media.isMobile && (
         <Grid
           templateAreas={`"nav nav"
