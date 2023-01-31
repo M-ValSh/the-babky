@@ -27,7 +27,12 @@ const Layout = () => {
         </Suspense>
       </main>
       {isModalOpen && (<LogOutModal />)}
-      <ToastContainer />
+      <ToastContainer
+        autoClose={3000}
+        theme="colored"
+        limit={2}
+        style={{ zIndex: '100000' }}
+      />
     </>
   );
 };

@@ -8,7 +8,16 @@ import WalletButton from 'components/WalletButton/WalletButton';
 // import { useState } from 'react';
 // import { Container, FormEl, LogBtn } from './RegisterForm.styled';
 // import { Logo } from 'components/Headers/Headers.styled';
-import { Input, InputGroup, Stack, InputLeftElement, Box, GridItem, Grid } from '@chakra-ui/react';
+import {
+  Input,
+  InputGroup,
+  Stack,
+  InputLeftElement,
+  GridItem,
+  Grid,
+  FormControl,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 import { EmailIcon, LockIcon, AtSignIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
@@ -16,19 +25,15 @@ import { Logo } from 'components/Logo/Logo';
 import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 
 import {
-  FormWrapper,
   Illustration,
   IllustrationDesc,
   IllustrationWrapper,
-  LoginFormPage,
   FormBlock,
 } from './RegisterForm.styled';
 import { NavLink } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   username: '',
@@ -58,12 +63,11 @@ const validationSchema = Yup.object({
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
-
   const media = useMedia();
   const theme = useTheme();
   // const navigate = useNavigate();
 
-  const auth = useSelector(state => state.auth);
+  // const auth = useSelector(state => state.auth);
 
   const formik = useFormik({
     initialValues,
@@ -76,9 +80,9 @@ const RegisterForm = () => {
   });
   return (
     <>
-    {media.isDesktop && (
-      <Grid
-      templateAreas={`
+      {media.isDesktop && (
+        <Grid
+          templateAreas={`
                       "nav main"
                       "nav main"`}
       gridTemplateRows={'1fr 30px'}
@@ -221,29 +225,163 @@ const RegisterForm = () => {
             // type={'transparent'}
             to="/login"
           >
-            <WalletButton text='log in' styleType='transparent'/>
-          </NavLink>
-        </Stack>
-
-      </FormBlock>
-
-      </form>
-      </GridItem>
-    </Grid> 
-    )}
+            <form onSubmit={formik.handleSubmit}>
+              <FormBlock>
+                <Logo />
+                <Stack spacing={0} mt="60px" gap="40px">
+                  <FormControl
+                    isInvalid={formik.touched.email && formik.errors.email}
+                    pb="20px"
+                  >
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<EmailIcon color="gray.300" />}
+                      />
+                      <Input
+                        variant="flushed"
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        width="410px"
+                        height="32px"
+                        errorBorderColor={theme.colors.BgBtnRed}
+                        value={formik.values.email}
+                      />
+                      {/* {formik.touched.email && formik.errors.email
+                        ? toast.info(formik.errors.email)
+                        : null} */}
+                    </InputGroup>
+                    <FormErrorMessage position={'absolute'} bottom="0">
+                      {formik.errors.email}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl
+                    isInvalid={
+                      formik.touched.username && formik.errors.username
+                    }
+                    pb="20px"
+                  >
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<AtSignIcon color="gray.300" />}
+                      />
+                      <Input
+                        variant="flushed"
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        width="410px"
+                        height="32px"
+                        errorBorderColor={theme.colors.BgBtnRed}
+                        value={formik.values.username}
+                      />
+                    </InputGroup>
+                    <FormErrorMessage position={'absolute'} bottom="0">
+                      {formik.errors.email}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl
+                    isInvalid={
+                      formik.touched.password && formik.errors.password
+                    }
+                    pb="20px"
+                  >
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<LockIcon color="gray.300" />}
+                      />
+                      <Input
+                        variant="flushed"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        width="410px"
+                        height="32px"
+                        errorBorderColor={theme.colors.BgBtnRed}
+                        value={formik.values.password}
+                      />
+                      {/* {formik.touched.password && formik.errors.password
+                        ? toast.info(formik.errors.password)
+                        : null} */}
+                    </InputGroup>
+                    <FormErrorMessage position={'absolute'} bottom="0">
+                      {formik.errors.password}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <FormControl
+                    isInvalid={
+                      formik.touched.confirmPassword &&
+                      formik.errors.confirmPassword
+                    }
+                    pb="20px"
+                  >
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<LockIcon color="gray.300" />}
+                      />
+                      <Input
+                        variant="flushed"
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="Confirm password"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        width="410px"
+                        height="32px"
+                        errorBorderColor={theme.colors.BgBtnRed}
+                      />
+                      {/* {formik.touched.confirmPassword &&
+                      formik.errors.confirmPassword
+                        ? toast.info(formik.errors.confirmPassword)
+                        : null} */}
+                    </InputGroup>
+                    <FormErrorMessage position={'absolute'} bottom="0">
+                      {formik.errors.confirmPassword}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Stack>
+                <Stack spacing={0} mt="42px">
+                  <WalletButton
+                    text={'register'}
+                    styleType={'normal'}
+                    type={'submit'}
+                  />
+                  <NavLink
+                    // onSubmit={() => onLoginBtn}
+                    text={'Log In'}
+                    // type={'transparent'}
+                    to="/login"
+                  >
+                    <WalletButton text="log in" styleType="transparent" />
+                  </NavLink>
+                </Stack>
+              </FormBlock>
+            </form>
+          </GridItem>
+        </Grid>
+      )}
     </>
-      // <div
-      //   style={{
-      //     display: 'flex',
-      //     flexDirection: 'column',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //     alignContent: 'center',
-      //   }}
-      // >
-      
-  
-      // </div>
+    // <div
+    //   style={{
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     alignContent: 'center',
+    //   }}
+    // >
+
+    // </div>
   );
 };
 

@@ -10,7 +10,14 @@ import WalletButton from '../WalletButton/WalletButton';
 import { useMedia } from 'components/Media/useMedia';
 
 import { NavLink } from 'react-router-dom';
-import { Input, InputGroup, Stack, InputLeftElement, Box, GridItem, Grid } from '@chakra-ui/react';
+import {
+  Input,
+  InputGroup,
+  Stack,
+  InputLeftElement,
+  GridItem,
+  Grid,
+} from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { Logo } from 'components/Logo/Logo';
@@ -19,16 +26,11 @@ import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 
 import {
-  FormWrapper,
   Illustration,
   IllustrationDesc,
   IllustrationWrapper,
-  LoginFormPage,
   FormBlock,
 } from './LoginForm.styled';
-
-
-
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -47,7 +49,6 @@ const LoginForm = () => {
   });
 
   const handleLogin = ({ email, password }) => {
-    
     // evt.preventDefault();
     dispatch(authOperations.logIn({ email, password }));
   };
@@ -56,53 +57,58 @@ const LoginForm = () => {
     <>
       {media.isDesktop && (
         <Grid
-        templateAreas={`
+          templateAreas={`
                         "nav main"
                         "nav main"`}
-        gridTemplateRows={'1fr 30px'}
-        gridTemplateColumns={'550px 1fr'}
-        gap='0'
-        h='100vh'
-        backgroundColor='mainBgUnderColor'
-        backgroundRepeat='no-repeat, no-repeat'
-        backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
-        backgroundPosition='top -150px right -150px, bottom -150px left -150px'
-        // color='blackAlpha.700'
-        // fontWeight='bold'
-      >
-      {/* <LoginFormPage> */}
-      <GridItem pl='2'  area={'nav'}>
-        <IllustrationWrapper>
-          <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' />
-          <IllustrationDesc>Finance App</IllustrationDesc>
-        </IllustrationWrapper>
-      </GridItem>
-        {/* <IllustrationWrapper> */}
+          gridTemplateRows={'1fr 30px'}
+          gridTemplateColumns={'550px 1fr'}
+          gap="0"
+          h="100vh"
+          backgroundColor="mainBgUnderColor"
+          backgroundRepeat="no-repeat, no-repeat"
+          backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
+          backgroundPosition="top -150px right -150px, bottom -150px left -150px"
+          // color='blackAlpha.700'
+          // fontWeight='bold'
+        >
+          {/* <LoginFormPage> */}
+          <GridItem pl="2" area={'nav'}>
+            <IllustrationWrapper>
+              <Illustration
+                src={Frame}
+                width="435px"
+                alt="Guy shopping online via mobile"
+              />
+              <IllustrationDesc>Finance App</IllustrationDesc>
+            </IllustrationWrapper>
+          </GridItem>
+          {/* <IllustrationWrapper> */}
           {/* <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' /> */}
           {/* <IllustrationDesc>Finance App</IllustrationDesc> */}
-        {/* </IllustrationWrapper> */}
-        {/* <FormWrapper> */}
-        <GridItem 
-          pl='2' 
-          area={'main'}
-          backgroundColor='mainBgLighter'
-          backdropFilter='blur(25px)'
-        >
-          <Formik
-            initialValues={{
-              email: '',
-              password: '',
-            }}
-            validateOnBlur
-            onSubmit={handleLogin}
-            validationSchema={schema}
+          {/* </IllustrationWrapper> */}
+          {/* <FormWrapper> */}
+          <GridItem
+            pl="2"
+            area={'main'}
+            backgroundColor="mainBgLighter"
+            backdropFilter="blur(25px)"
           >
-            {({ handleChange, handleBlur, values, isValid, dirty }) => (
-              <Form >
-                {/* <div>
+            <Formik
+              initialValues={{
+                email: '',
+                password: '',
+              }}
+              validateOnBlur
+              onSubmit={handleLogin}
+              validationSchema={schema}
+            >
+              {({ handleChange, handleBlur, values, isValid, dirty }) => (
+                <Form>
+                  {/* <div>
                   <Logo />
                   <h1>Wallet</h1>
                 </div> */}
+
                 <FormBlock>
                   <Logo />
                   <Stack spacing={0} mt='60px' gap='40px'>
@@ -168,33 +174,10 @@ const LoginForm = () => {
         {/* </FormWrapper> */}
       {/* </LoginFormPage>   */}
       </Grid>     
+
       )}
     </>
   );
 };
 
 export default LoginForm;
-
-
-
-// desktop
-
-{/* <Grid
-  templateAreas={`
-                  "nav main"
-                  "nav main"`}
-  gridTemplateRows={'1fr 30px'}
-  gridTemplateColumns={'550px 1fr'}
-  gap='0'
-  color='blackAlpha.700'
-  fontWeight='bold'
->
-
-  <GridItem pl='2' bg='pink.300' area={'nav'}>
-    Nav
-  </GridItem>
-  <GridItem pl='2' bg='green.300' area={'main'}>
-    Main
-  </GridItem>
-
-</Grid> */}
