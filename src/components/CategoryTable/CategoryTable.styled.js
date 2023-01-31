@@ -58,7 +58,7 @@ export const BoxDesk = styled.label`
   background-color: ${p => p.color};
 `;
 
-export const BoxHeadTitle = styled.div`
+export const BoxHeadTitle = styled.th`
   font-style: normal;
   font-weight: 700;
   color: ${p => p.theme.colors.textMain}

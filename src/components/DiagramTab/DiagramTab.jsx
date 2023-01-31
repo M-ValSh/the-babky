@@ -22,6 +22,8 @@ import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
 import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 import { useMedia } from 'components/Media/useMedia';
+// import { selectTrSummary } from 'redux/transactionsSumCont/transactionsSumCont-selectors';
+// import { useSelector } from 'react-redux';
 
 export const DiagramTab = () => {
   const media = useMedia();
@@ -31,9 +33,12 @@ export const DiagramTab = () => {
   const [incomeSummary, setIncomeSummary] = useState(null);
   const [expenseSummary, setExpenseSummary] = useState(null);
 
+  // const trSummary = useSelector(selectTrSummary);
+
   useEffect(() => {
     function delayedFetch() {
       window.setTimeout(setData, 1000);
+      // console.log('trSummary :>> ', trSummary);
     }
 
     function setData() {

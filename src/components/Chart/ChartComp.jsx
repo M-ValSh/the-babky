@@ -7,6 +7,8 @@ import {
   ChartWrapperMobile,
 } from './ChartComp.styled';
 import { useMedia } from 'components/Media/useMedia';
+import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/auth-selectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -16,25 +18,28 @@ const options = {
 
 export const ChartComp = ({ data }) => {
   const media = useMedia();
+  const { selectBalance } = authSelectors;
+  const balance = useSelector(selectBalance).toFixed(2).toLocaleString();
 
   return (
     <>
       {media.isDesktop && (
         <ChartWrapperDesk>
           <Doughnut data={data} options={options} />
-          <ChartText>₴ 24 000.00</ChartText>
+          <ChartText>₴ {balance}</ChartText>
         </ChartWrapperDesk>
       )}
       {media.isTablet && (
         <ChartWrapperTablet>
           <Doughnut data={data} options={options} />
-          <ChartText>₴ 24 000.00</ChartText>
+          <ChartText>₴ {balance}</ChartText>
         </ChartWrapperTablet>
       )}
       {media.isMobile && (
         <ChartWrapperMobile>
           <Doughnut data={data} options={options} />
-          <ChartText>₴ 24 000.00</ChartText>
+          {/* <ChartText>₴ 24 000.00</ChartText> */}
+          <ChartText>₴ {balance}</ChartText>
         </ChartWrapperMobile>
       )}
     </>
