@@ -15,10 +15,14 @@ import {
   NavigationTablet,
   NavigationDesktop,
 } from 'components/Navigations/Navigation';
+
+import { HomeTab } from 'components/HomeTab/HomeTab';
+
 import AddTrnsctnBtn from 'components/AddTrnsctnBtn/AddTrnsctnBtn';
 import AddTransactionModal from 'components/AddTransactionModal/AddTransactionModal';
 import { useSelector } from 'react-redux';
 import { selectIsModalAddTransactionOpen } from 'redux/global/global-selectors';
+
 
 const HomePage = () => {
   const media = useMedia();
@@ -50,7 +54,7 @@ const HomePage = () => {
             </BalanceBlockMob>
           </GridItem>
           <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
+            <HomeTab />
           </GridItem>
         </Grid>
       )}
@@ -74,8 +78,8 @@ const HomePage = () => {
               </section>
               <Currency />
             </GridItem>
-            <GridItem area={'main'} h="100vh" zIndex="2">
-              Main
+            <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh" zIndex="2">
+               <HomeTab />
             </GridItem>
           </Grid>
         </BubleWrapper>
@@ -105,11 +109,13 @@ const HomePage = () => {
               <Currency />
             </GridItem>
 
+
             <GridItem zIndex="2" area={'main'} h="100vh">
-              Main
+              <HomeTab />
             </GridItem>
           </Grid>
         </BubleWrapper>
+
       )}
     </>
   );
