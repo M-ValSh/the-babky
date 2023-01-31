@@ -12,6 +12,7 @@ import {
   KeepButton,
   LogoutButton,
 } from './LogOutModal.styled';
+import LogOutImg from 'assets/images/logout.png';
 
 const LogOutModal = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const LogOutModal = () => {
     <OverlayBox onClick={onBackdropClick} /* className={styles.overlay} */>
       <ModalBox /* className={styles.modal} */>
         <ContentBox>
+          <img src={LogOutImg} alt="" />
           <Text>
             Are you sure, you want to <b>Log Out</b>?
           </Text>

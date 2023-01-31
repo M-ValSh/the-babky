@@ -39,7 +39,14 @@ const StatisticsPage = () => {
           >
             <NavigationMobile />
           </GridItem>
-          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
+          <GridItem
+            bg={theme.colors.BgMain}
+            area={'main'}
+            h="100vh"
+            display="flex"
+            justifyContent="center"
+            paddingTop="28px"
+          >
             <DiagramTab />
           </GridItem>
         </Grid>
@@ -64,7 +71,14 @@ const StatisticsPage = () => {
               </section>
               <Currency />
             </GridItem>
-            <GridItem zIndex="2" h="100vh" area={'main'}>
+            <GridItem
+              zIndex="2"
+              maxHeight="100vh"
+              area={'main'}
+              display="flex"
+              justifyContent="center"
+              paddingTop="20px"
+            >
               <DiagramTab />
             </GridItem>
           </Grid>
@@ -94,7 +108,13 @@ const StatisticsPage = () => {
               </BalanceBlockDesk>
               <Currency />
             </GridItem>
-            <GridItem zIndex="2" area={'main'} h="100vh">
+            <GridItem
+              zIndex="2"
+              area={'main'}
+              maxHeight="100vh"
+              paddingTop="32px"
+              paddingLeft="69px"
+            >
               <DiagramTab />
             </GridItem>
           </Grid>

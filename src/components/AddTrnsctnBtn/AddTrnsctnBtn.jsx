@@ -2,6 +2,7 @@ import { theme } from 'Styles/theme';
 import { AddTransactionButton } from './AddTrnsctnBtn.styled';
 import { useDispatch } from 'react-redux';
 import { openModalAddTransaction } from 'redux/global/global-slice';
+import Plus from 'assets/images/plus.svg';
 
 export default function AddTrnsctnBtn() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function AddTrnsctnBtn() {
 
   return (
     <AddTransactionButton theme={theme} onClick={handleClick}>
-      Add transaction
+      <img src={Plus} alt="" />
     </AddTransactionButton>
   );
 }
