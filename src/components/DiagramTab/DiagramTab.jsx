@@ -20,12 +20,11 @@ import {
 import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
-import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 import { useMedia } from 'components/Media/useMedia';
 import {
   selectTrSummary,
-  selectIsLoading,
-  selectError,
+  // selectIsLoading,
+  // selectError,
   selectExpenseSummary,
   selectIncomeSummary,
 } from 'redux/transactionsSumCont/transactionsSumCont-selectors';
@@ -37,9 +36,6 @@ export const DiagramTab = () => {
   const media = useMedia();
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
-  // const [categoriesSummary, setCategoriesSummary] = useState([]);
-  // const [incomeSummary, setIncomeSummary] = useState(null);
-  // const [expenseSummary, setExpenseSummary] = useState(null);
 
   const trSummary = useSelector(selectTrSummary);
   const expenseSummary = useSelector(selectExpenseSummary);
@@ -54,21 +50,8 @@ export const DiagramTab = () => {
       fetchTransactionsData({ month, year });
     }
 
-    console.log('trSummary :>> ', trSummary);
-
-    // function delayedFetch() {
-    //   window.setTimeout(setData, 1000);
-    //   console.log('trSummary :>> ', trSummary);
-    // }
-
-    // function setData() {
-    //   setCategoriesSummary(fakeDataPeriodResp.categoriesSummary);
-    //   setIncomeSummary(fakeDataPeriodResp.incomeSummary);
-    //   setExpenseSummary(fakeDataPeriodResp.expenseSummary);
-    // }
-
-    // delayedFetch();
-  }, [month, year]);
+    // console.log('trSummary :>> ', trSummary);
+  }, [month, year, dispatch]);
 
   const initialData = {
     datasets: [
