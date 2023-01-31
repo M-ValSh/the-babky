@@ -14,6 +14,7 @@ import {
   NavigationTablet,
   NavigationDesktop,
 } from 'components/Navigations/Navigation';
+import { HomeTab } from 'components/HomeTab/HomeTab';
 
 const HomePage = () => {
   const media = useMedia();
@@ -63,7 +64,7 @@ const HomePage = () => {
             </div> */}
           </GridItem>
           <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
+            <HomeTab />
           </GridItem>
         </Grid>
       )}
@@ -92,7 +93,7 @@ const HomePage = () => {
             <Currency />
           </GridItem>
           <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
+            <HomeTab />
           </GridItem>
         </Grid>
       )}
@@ -121,7 +122,7 @@ const HomePage = () => {
           </GridItem>
 
           <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
+            <HomeTab />
           </GridItem>
         </Grid>
       )}
