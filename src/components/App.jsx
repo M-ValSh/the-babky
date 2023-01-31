@@ -29,7 +29,6 @@ export const App = () => {
   const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
   const media = useMedia();
   // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
-  const media = useMedia();
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
