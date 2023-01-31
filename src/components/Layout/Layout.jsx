@@ -21,7 +21,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-
       <ToastContainer />
     </>
   );
