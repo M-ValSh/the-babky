@@ -7,6 +7,8 @@ import {
   ModalOpt,
   ModalSlct,
   ModalSwitch,
+  SelectWrapper,
+  AmountDateWrapper,
 } from './AddTransactionForm.styled';
 import { theme } from 'Styles/theme';
 import WalletButton from 'components/WalletButton/WalletButton';
@@ -20,9 +22,10 @@ import { addTransaction } from 'redux/transactions/transactions-operations';
 import { selectTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-selectors';
 import { fetchTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-operations';
 import { useEffect } from 'react';
+import { useMedia } from 'components/Media/useMedia';
 
 export default function AddTransactionForm() {
-  // const userId = useSelector(selectId);
+  const media = useMedia();
   const userBalance = useSelector(selectBalance);
   const categories = useSelector(selectTransactionCategories);
   const dispatch = useDispatch();
@@ -63,7 +66,8 @@ export default function AddTransactionForm() {
       dispatch(changeBalance(balanceAfter));
       dispatch(addTransaction(newTransaction));
       formik.resetForm();
-      dispatch(closeModalWindow());;
+      dispatch(closeModalWindow());
+      document.body.style.overflow = 'unset';
     },
   });
 
@@ -87,41 +91,45 @@ export default function AddTransactionForm() {
           </CheckboxText>
         </ModalCheckbox>
         {formik.values.isChecked && (
-          <ModalSlct
-            name="category"
-            onChange={formik.handleChange}
-            value={formik.values.category}
-            theme={theme}
-            placeholder="Select the category"
-            variant="flushed"
-            required
-            icon={<SlArrowDown />}
-          >
-            {categories.map(category => (
-              <ModalOpt key={category.id} value={category.name} theme={theme}>
-                {category.name}
-              </ModalOpt>
-            ))}
-          </ModalSlct>
+          <SelectWrapper>
+            <ModalSlct
+              name="category"
+              onChange={formik.handleChange}
+              value={formik.values.category}
+              theme={theme}
+              placeholder="Select the category"
+              variant="flushed"
+              required
+              icon={<SlArrowDown fill="#000" />}
+            >
+              {categories.map(category => (
+                <ModalOpt key={category.id} value={category.name} theme={theme}>
+                  {category.name}
+                </ModalOpt>
+              ))}
+            </ModalSlct>
+          </SelectWrapper>
         )}
-        <ModalInput
-          variant="flushed"
-          type="number"
-          name="amount"
-          onChange={formik.handleChange}
-          value={formik.values.amount}
-          placeholder="0.00"
-          required
-        />
-        <ModalInput
-          variant="flushed"
-          type="date"
-          name="date"
-          onChange={formik.handleChange}
-          value={formik.values.date}
-          placeholder="Select date"
-          required
-        />
+        <AmountDateWrapper>
+          <ModalInput
+            variant="flushed"
+            type="number"
+            name="amount"
+            onChange={formik.handleChange}
+            value={formik.values.amount}
+            placeholder="0.00"
+            required
+          />
+          <ModalInput
+            variant="flushed"
+            type="date"
+            name="date"
+            onChange={formik.handleChange}
+            value={formik.values.date}
+            placeholder="Select date"
+            required
+          />
+        </AmountDateWrapper>
         <ModalCmnt
           type="text"
           name="comment"
@@ -130,19 +138,22 @@ export default function AddTransactionForm() {
           placeholder="Comment"
           variant="flushed"
           resize="none"
-          rows="3"
+          rows={media.isMobile ? 3 : 1}
         />
-        <WalletButton text={'add'} styleType={'normal'} type="submit" />
+        <div>
+          <WalletButton text={'add'} styleType={'normal'} type="submit" />
+          <WalletButton
+            text={'cancel'}
+            styleType={'transparent'}
+            type="button"
+            onClick={event => {
+              event.preventDefault();
+              dispatch(closeModalWindow());
+              document.body.style.overflow = 'unset';
+            }}
+          />
+        </div>
       </ModalForm>
-      <WalletButton
-        text={'cancel'}
-        styleType={'transparent'}
-        type="button"
-        onClick={event => {
-          event.preventDefault();
-          dispatch(closeModalWindow());
-        }}
-      />
     </>
   );
 }
