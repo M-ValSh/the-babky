@@ -16,14 +16,17 @@ export const LoginFormPage = styled.div(({ theme }) => ({
 export const Illustration = styled.img(({ theme }) => ({
   width: '435px',
   display: 'block',
+  margin: '0 auto',
   // width: '100%',
   // height: '420px',
   // height: '420px',
 }));
 
 export const IllustrationWrapper = styled.div(({ theme }) => ({
-  marginTop: '150px',
-  marginLeft: '76px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  paddingTop: '150px',
   // width: '440px',
   // width: '550px',
   // paddingTop: '150px',

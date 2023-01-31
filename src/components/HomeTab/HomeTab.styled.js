@@ -105,7 +105,11 @@ export const NoTransactions = styled.p`
 
 //  стилі від Ксенії
 export const TableWrapMob = styled.div`
-  margin: 20px;
+  padding: 0 20px;
+`;
+
+export const TableWrapDesk = styled.div`
+  padding: 46px 69px;
 `;
 
 export const TableRow = styled.tr`
@@ -167,7 +171,6 @@ export const Amount = styled(TableTransactions)`
 `;
 
 export const ScrollTableBodyMob = styled.div`
-  height: 60vh;
   overflow-x: auto;
   margin-top: 0px;
   margin-bottom: 20px;
