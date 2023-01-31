@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/team-project/static/css/main.212b7ef9.css",
-    "main.js": "/team-project/static/js/main.7c5a32d8.js",
+    "main.js": "/team-project/static/js/main.4642a1ba.js",
     "static/media/Circe-Bold.woff": "/team-project/static/media/Circe-Bold.fca9743700608e1abf6a.woff",
     "static/media/Circe-Regular.woff": "/team-project/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
     "static/media/404.png": "/team-project/static/media/404.99b7cb0e1e20e4eeeaba.png",
@@ -29,10 +29,10 @@
     "static/media/ellipse-pink.svg": "/team-project/static/media/ellipse-pink.07ef13244b203e866dcdec6e7633ee44.svg",
     "static/media/pink_ellipse.svg": "/team-project/static/media/pink_ellipse.67efe2beefff5419592e10e36bf84721.svg",
     "main.212b7ef9.css.map": "/team-project/static/css/main.212b7ef9.css.map",
-    "main.7c5a32d8.js.map": "/team-project/static/js/main.7c5a32d8.js.map"
+    "main.4642a1ba.js.map": "/team-project/static/js/main.4642a1ba.js.map"
   },
   "entrypoints": [
     "static/css/main.212b7ef9.css",
-    "static/js/main.7c5a32d8.js"
+    "static/js/main.4642a1ba.js"
   ]
 }
