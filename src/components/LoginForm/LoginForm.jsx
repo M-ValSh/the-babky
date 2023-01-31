@@ -107,10 +107,11 @@ const LoginForm = () => {
                   <Logo />
                   <Stack spacing={0} mt='60px' gap='40px'>
                     {/* <p className="text">You can sign in using email and password</p> */}
-                    <InputGroup >
+                    <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<EmailIcon color="gray.300" />}
+                        children={<EmailIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px'/>}
+                        // pb='5px'
                       />
                       <Input
                         variant="flushed"
@@ -120,16 +121,19 @@ const LoginForm = () => {
                         onBlur={handleBlur}
                         value={values.email}
                         placeholder="E-mail"
+                        _placeholder={ theme.placeholderCss }
+                        borderColor= {theme.colors.InputColor}
+                        pl='60px'
                         className="input"
                         width='410px'
-                        height='32px'
+                        height='40px'
                         errorBorderColor={theme.colors.BgBtnRed}
                       />
                     </InputGroup>
                     <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<LockIcon color="gray.300" />}
+                        children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
                       />
                       <Input
                         variant="flushed"
@@ -139,9 +143,12 @@ const LoginForm = () => {
                         onBlur={handleBlur}
                         value={values.password}
                         placeholder="Password"
+                        _placeholder={ theme.placeholderCss }
+                        borderColor= {theme.colors.InputColor}
+                        pl='60px'
                         className="input"
                         width='410px'
-                        height='32px'
+                        height='40px'
                         errorBorderColor={theme.colors.BgBtnRed}
                       />
                     </InputGroup>

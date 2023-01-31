@@ -116,19 +116,22 @@ const RegisterForm = () => {
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
-              children={<EmailIcon color="gray.300" />}
+              children={<EmailIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
             />
             <Input
               variant="flushed"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="E-mail"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
 
  
               width='410px'
-              height='32px'
+              height='40px'
               errorBorderColor={theme.colors.BgBtnRed}
 
               value={formik.values.email}
@@ -141,17 +144,20 @@ const RegisterForm = () => {
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
-              children={<AtSignIcon color="gray.300" />}
+              children={<AtSignIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
             />
             <Input
               variant="flushed"
               type="text"
               name="username"
               placeholder="Username"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               width='410px'
-              height='32px'
+              height='40px'
               errorBorderColor={theme.colors.BgBtnRed}
               // value={formik.initialValues.username}
             />
@@ -162,17 +168,20 @@ const RegisterForm = () => {
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
-              children={<LockIcon color="gray.300" />}
+              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
             />
             <Input
               variant="flushed"
               type="password"
               name="password"
               placeholder="Password"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               width='410px'
-              height='32px'
+              height='40px'
               errorBorderColor={theme.colors.BgBtnRed}
               // value={formik.initialValues.password}
             />
@@ -183,17 +192,20 @@ const RegisterForm = () => {
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
-              children={<LockIcon color="gray.300" />}
+              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
             />
             <Input
               variant="flushed"
               type="password"
               name="confirmPassword"
               placeholder="Confirm password"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               width='410px'
-              height='32px'
+              height='40px'
               errorBorderColor={theme.colors.BgBtnRed}
             />
             {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
