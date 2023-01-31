@@ -5,4 +5,5 @@ export const AddTransactionButton = styled.button(({ theme }) => ({
   bottom: '20px',
   right: '20px',
   backgroundColor: theme.colors.BgBtnGreen,
+  zIndex: '100',
 }));
