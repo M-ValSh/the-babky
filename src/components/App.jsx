@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import css from './Layout/Layout.module.css';
 
 import authSelectors from 'redux/auth/auth-selectors';
 // import { selectIsModalLogoutOpen } from 'redux/global/global-selectors';
@@ -21,6 +20,7 @@ import Currencys from 'pages/Currencys/Currencys';
 import authOperations from 'redux/auth/auth-operations';
 
 import { useMedia } from './Media/useMedia';
+import Loader from './Loader/Loader';
 
 // import LogOutModal from './Modals/LogOutModal/LogOutModal';
 
@@ -36,6 +36,9 @@ export const App = () => {
 
   return (
     <div>
+      {/* <div className={css.loader_field}>
+        <Loader />
+      </div> */}
       {!isCurrentUserRefreshing && (
         <Routes>
           <Route
@@ -66,13 +69,6 @@ export const App = () => {
       )}
 
       {/* {showLogoutModal && <Modal children={ <LogOutModal action="logout"/>} />} */}
-
-      <ToastContainer
-        autoClose={3000}
-        theme="colored"
-        limit={2}
-        style={{ zIndex: '100000' }}
-      />
     </div>
   );
 };
