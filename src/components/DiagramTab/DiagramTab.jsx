@@ -20,12 +20,11 @@ import {
 import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
-import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 import { useMedia } from 'components/Media/useMedia';
 import {
   selectTrSummary,
-  selectIsLoading,
-  selectError,
+  // selectIsLoading,
+  // selectError,
   selectExpenseSummary,
   selectIncomeSummary,
 } from 'redux/transactionsSumCont/transactionsSumCont-selectors';
@@ -37,11 +36,10 @@ export const DiagramTab = () => {
   const media = useMedia();
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
-  const [categoriesSummary, setCategoriesSummary] = useState([]);
-  const [incomeSummary, setIncomeSummary] = useState(null);
-  const [expenseSummary, setExpenseSummary] = useState(null);
 
   const trSummary = useSelector(selectTrSummary);
+  const expenseSummary = useSelector(selectExpenseSummary);
+  const incomeSummary = useSelector(selectIncomeSummary);
 
   useEffect(() => {
     const fetchTransactionsData = ({ month, year }) => {
@@ -52,19 +50,8 @@ export const DiagramTab = () => {
       fetchTransactionsData({ month, year });
     }
 
-    function delayedFetch() {
-      window.setTimeout(setData, 1000);
-      console.log('trSummary :>> ', trSummary);
-    }
-
-    function setData() {
-      setCategoriesSummary(fakeDataPeriodResp.categoriesSummary);
-      setIncomeSummary(fakeDataPeriodResp.incomeSummary);
-      setExpenseSummary(fakeDataPeriodResp.expenseSummary);
-    }
-
-    delayedFetch();
-  }, [month, year]);
+    // console.log('trSummary :>> ', trSummary);
+  }, [month, year, dispatch]);
 
   const initialData = {
     datasets: [
@@ -79,8 +66,8 @@ export const DiagramTab = () => {
 
   // PREPARE DATA FOR CHART DIAGRAM
   function prepareData() {
-    const total = categoriesSummary.map(el => el.total);
-    const colors = categoriesSummary.map(el => categoryColorSwitcher(el.name));
+    const total = trSummary.map(el => el.total);
+    const colors = trSummary.map(el => categoryColorSwitcher(el.name));
 
     let data = {
       datasets: [
@@ -109,7 +96,7 @@ export const DiagramTab = () => {
         <WrapperDesk>
           <ChartWrapperDesk>
             <StatsTitleDesk>Statistics</StatsTitleDesk>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <ChartComp data={prepareData()} />
             ) : (
               <ChartComp data={initialData} />
@@ -146,9 +133,9 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperDesk>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <CategoryTable
-                categoriesSummary={categoriesSummary}
+                categoriesSummary={trSummary}
                 incomeSummary={incomeSummary}
                 expenseSummary={expenseSummary}
               />
@@ -162,7 +149,7 @@ export const DiagramTab = () => {
         <WrapperTablet>
           <ChartWrapperTablet>
             <StatsTitleTablet>Statistics</StatsTitleTablet>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <ChartComp data={prepareData()} />
             ) : (
               <ChartComp data={initialData} />
@@ -199,9 +186,9 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperTablet>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <CategoryTable
-                categoriesSummary={categoriesSummary}
+                categoriesSummary={trSummary}
                 incomeSummary={incomeSummary}
                 expenseSummary={expenseSummary}
               />
@@ -215,7 +202,7 @@ export const DiagramTab = () => {
         <WrapperMobile>
           <ChartWrapperMobile>
             <StatsTitleMobile>Statistics</StatsTitleMobile>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <ChartComp data={prepareData()} />
             ) : (
               <ChartComp data={initialData} />
@@ -252,9 +239,9 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperMobile>
-            {categoriesSummary.length > 0 ? (
+            {trSummary.length > 0 ? (
               <CategoryTable
-                categoriesSummary={categoriesSummary}
+                categoriesSummary={trSummary}
                 incomeSummary={incomeSummary}
                 expenseSummary={expenseSummary}
               />
