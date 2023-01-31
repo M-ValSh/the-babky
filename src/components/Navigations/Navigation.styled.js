@@ -1,4 +1,24 @@
 import styled from '@emotion/styled';
+import BublePurp from 'assets/images/ellipse-purple.svg';
+import BublRed from 'assets/images/ellipse-pink.svg';
+
+export const BubleWrapper = styled.div(({ theme }) => ({
+  width: '100%',
+  height: '100vh',
+  zIndex: 1,
+  background: theme.colors.BgMain,
+  '::after': {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    zIndex: 0,
+    content: '""',
+    filter: 'blur(25px)',
+    background: `url('${BublePurp}') bottom left no-repeat, url('${BublRed}') top right no-repeat `,
+  },
+}));
 
 export const NavigationMob = styled.div(({ theme }) => ({
   display: 'flex',
@@ -34,6 +54,7 @@ export const NavigationDesk = styled.div(({ theme }) => ({
   fontSize: '18px',
   lineHeight: '27px',
   color: theme.colors.textMain,
+  zIndex: 1,
 }));
 
 export const NavigationIcon = styled.img(({ theme }) => ({

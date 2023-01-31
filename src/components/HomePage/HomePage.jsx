@@ -9,6 +9,7 @@ import {
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
 
+import { BubleWrapper } from 'components/Navigations/Navigation.styled';
 import {
   NavigationMobile,
   NavigationTablet,
@@ -36,31 +37,6 @@ const HomePage = () => {
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
-            {/*    <div
-              style={{
-                fontSize: 40,
-                fontFamily: 'Poppins',
-              }}
-            >
-              TEST tets font FONT
-            </div>
-            <div
-              style={{
-                fontSize: 40,
-                fontFamily: 'Circe',
-              }}
-            >
-              TEST tets font FONT
-            </div>
-            <div
-              style={{
-                fontSize: 40,
-                fontFamily: 'Poppins',
-                textAlign: 'center',
-              }}
-            >
-              TEST tets font FONT
-            </div> */}
           </GridItem>
           <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
             Main
@@ -68,62 +44,61 @@ const HomePage = () => {
         </Grid>
       )}
       {media.isTablet && (
-        <Grid
-          templateAreas={`"nav nav"
+        <BubleWrapper>
+          <Grid
+            templateAreas={`"nav nav"
                   "main main"`}
-          gridTemplateRows={'1fr 30px'}
-          gridTemplateColumns={'1fr'}
-          h="200px"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
-          <GridItem
-            bg={theme.colors.BgMain}
-            area={'nav'}
-            h="234px"
-            display="flex"
+            gridTemplateRows={'1fr 30px'}
+            gridTemplateColumns={'1fr'}
+            h="200px"
+            color="blackAlpha.700"
+            fontWeight="bold"
           >
-            <section>
-              <NavigationTablet />
-              <BalanceBlockTablet theme={theme}>
-                <Balance />
-              </BalanceBlockTablet>
-            </section>
-            <Currency />
-          </GridItem>
-          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
-          </GridItem>
-        </Grid>
+            <GridItem area={'nav'} h="234px" display="flex" zIndex="2">
+              <section>
+                <NavigationTablet />
+                <BalanceBlockTablet theme={theme}>
+                  <Balance />
+                </BalanceBlockTablet>
+              </section>
+              <Currency />
+            </GridItem>
+            <GridItem area={'main'} h="100vh" zIndex="2">
+              Main
+            </GridItem>
+          </Grid>
+        </BubleWrapper>
       )}
       {media.isDesktop && (
-        <Grid
-          templateAreas={`"nav main"`}
-          gridTemplateRows={'50px 1fr 30px'}
-          gridTemplateColumns={'37vw 1fr'}
-          h="200px"
-          gap="0.5"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
-          <GridItem
-            bg={theme.colors.BgMain}
-            area={'nav'}
-            h="100vh"
-            borderRight="1px solid #E7E5F2"
-            boxShadow="-1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6)"
+        <BubleWrapper>
+          <Grid
+            templateAreas={`"nav main"`}
+            gridTemplateRows={'50px 1fr 30px'}
+            gridTemplateColumns={'37vw 1fr'}
+            h="200px"
+            gap="0.5"
+            color="blackAlpha.700"
+            fontWeight="bold"
           >
-            <NavigationDesktop />
-            <BalanceBlockDesk theme={theme}>
-              <Balance />
-            </BalanceBlockDesk>
-            <Currency />
-          </GridItem>
+            <GridItem
+              zIndex="2"
+              area={'nav'}
+              h="100vh"
+              borderRight="1px solid #E7E5F2"
+              boxShadow="-1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6)"
+            >
+              <NavigationDesktop />
+              <BalanceBlockDesk theme={theme}>
+                <Balance />
+              </BalanceBlockDesk>
+              <Currency />
+            </GridItem>
 
-          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
-            Main
-          </GridItem>
-        </Grid>
+            <GridItem zIndex="2" area={'main'} h="100vh">
+              Main
+            </GridItem>
+          </Grid>
+        </BubleWrapper>
       )}
     </>
   );
