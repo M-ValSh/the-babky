@@ -14,7 +14,7 @@ import { useFormik } from 'formik';
 import { SlArrowDown } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModalWindow } from 'redux/global/global-slice';
-import { selectBalance, selectId } from 'redux/auth/auth-selectors';
+import { selectBalance } from 'redux/auth/auth-selectors';
 import { changeBalance } from 'redux/auth/auth-slice';
 import { addTransaction } from 'redux/transactions/transactions-operations';
 import { selectTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-selectors';
@@ -22,7 +22,7 @@ import { fetchTransactionCategories } from 'redux/transactionsCategories/transac
 import { useEffect } from 'react';
 
 export default function AddTransactionForm() {
-  const userId = useSelector(selectId);
+  // const userId = useSelector(selectId);
   const userBalance = useSelector(selectBalance);
   const categories = useSelector(selectTransactionCategories);
   const dispatch = useDispatch();
