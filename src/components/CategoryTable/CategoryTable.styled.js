@@ -64,7 +64,7 @@ export const BoxHeadTitle = styled.th`
   color: ${p => p.theme.colors.textMain}
 `
 
-export const BoxTitle = styled.div`
+export const BoxTitle = styled.th`
   font-style: normal;
   font-weight: 400;
   color: ${p => p.theme.colors.textMain}
@@ -213,3 +213,7 @@ export const THMobile = styled.td`
   display: flex;
 `
 
+
+export const THTextMobile = styled.p`
+  display: flex;
+`

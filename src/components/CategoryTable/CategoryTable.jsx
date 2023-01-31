@@ -23,6 +23,7 @@ import {
   THMobile,
   BoxHeadTitle,
   BoxTitle,
+  THTextMobile,
 } from './CategoryTable.styled';
 import { categoryColorSwitcher } from './categoryColorSwitcher';
 
@@ -128,7 +129,7 @@ export const CategoryTable = ({
                   <TRBodyMobile key={el.name}>
                     <THMobile>
                       <BoxMobile color={categoryColorSwitcher(el.name)} />
-                      <THMobile>{el.name}</THMobile>
+                      <THTextMobile>{el.name}</THTextMobile>
                     </THMobile>
                     <THMobile>{el.total}</THMobile>
                   </TRBodyMobile>

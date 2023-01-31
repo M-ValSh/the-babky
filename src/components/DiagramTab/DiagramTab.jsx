@@ -22,10 +22,18 @@ import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
 import fakeDataPeriodResp from './fakeDataPeriodResp.json';
 import { useMedia } from 'components/Media/useMedia';
-// import { selectTrSummary } from 'redux/transactionsSumCont/transactionsSumCont-selectors';
-// import { useSelector } from 'react-redux';
+import {
+  selectTrSummary,
+  selectIsLoading,
+  selectError,
+  selectExpenseSummary,
+  selectIncomeSummary,
+} from 'redux/transactionsSumCont/transactionsSumCont-selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTransactionsSummary } from 'redux/transactionsSumCont/transactionsSumCont-operations';
 
 export const DiagramTab = () => {
+  const dispatch = useDispatch();
   const media = useMedia();
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
@@ -33,12 +41,20 @@ export const DiagramTab = () => {
   const [incomeSummary, setIncomeSummary] = useState(null);
   const [expenseSummary, setExpenseSummary] = useState(null);
 
-  // const trSummary = useSelector(selectTrSummary);
+  const trSummary = useSelector(selectTrSummary);
 
   useEffect(() => {
+    const fetchTransactionsData = ({ month, year }) => {
+      dispatch(getTransactionsSummary({ month, year }));
+    };
+
+    if (month && year) {
+      fetchTransactionsData({ month, year });
+    }
+
     function delayedFetch() {
       window.setTimeout(setData, 1000);
-      // console.log('trSummary :>> ', trSummary);
+      console.log('trSummary :>> ', trSummary);
     }
 
     function setData() {
