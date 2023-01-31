@@ -1,12 +1,28 @@
+import { useMedia } from 'components/Media/useMedia';
 import {
-  TableWrapperDesc,
-  TRHeadDesc,
-  TRBodyDesc,
-  TRFooterDesc,
-  THRedDesc,
-  THGreenDesc,
-  BoxDesc,
-  THDesc,
+  TableWrapperDesk,
+  TRHeadDesk,
+  TRBodyDesk,
+  TRFooterDesk,
+  THRed,
+  THGreen,
+  BoxDesk,
+  THFooter,
+  THDesk,
+  TableWrapperTablet,
+  TRHeadTablet,
+  TRBodyTablet,
+  TRFooterTablet,
+  BoxTablet,
+  THTablet,
+  TableWrapperMobile,
+  TRHeadMobile,
+  TRBodyMobile,
+  TRFooterMobile,
+  BoxMobile,
+  THMobile,
+  BoxHeadTitle,
+  BoxTitle,
 } from './CategoryTable.styled';
 import { categoryColorSwitcher } from './categoryColorSwitcher';
 
@@ -15,51 +31,124 @@ export const CategoryTable = ({
   incomeSummary,
   expenseSummary,
 }) => {
-  return (
-    <TableWrapperDesc>
-      <table>
-        <thead>
-          <TRHeadDesc>
-            <th>Category</th>
-            <th>Sum</th>
-          </TRHeadDesc>
-        </thead>
-        <tbody>
-          {/* Dynamic render of the table list */}
-          {categoriesSummary.map(el => {
-            return (
-              <TRBodyDesc key={el.name}>
-                <THDesc>
-                  <BoxDesc color={categoryColorSwitcher(el.name)} />
-                  {el.name}
-                </THDesc>
-                <th>{el.total}</th>
-              </TRBodyDesc>
-            );
-          })}
-          {/* <TRBodyDesc>
-            <THDesc>
-              <BoxDesc color={'red'} />
-              Category
-            </THDesc>
-            <th>27000</th>
-          </TRBodyDesc> */}
-          {/*  */}
-        </tbody>
+  const media = useMedia();
 
-        <tfoot>
-          <TRFooterDesc>
-            <th>Expenses:</th>
-            <THRedDesc>{expenseSummary}</THRedDesc>
-            {/* <THRedDesc>27 000</THRedDesc> */}
-          </TRFooterDesc>
-          <TRFooterDesc>
-            <th>Income:</th>
-            <THGreenDesc>{incomeSummary}</THGreenDesc>
-            {/* <THGreenDesc>28 000</THGreenDesc> */}
-          </TRFooterDesc>
-        </tfoot>
-      </table>
-    </TableWrapperDesc>
+  return (
+    <>
+      {media.isDesktop && (
+        <TableWrapperDesk>
+          <table>
+            <thead>
+              <TRHeadDesk>
+                <BoxHeadTitle>Category</BoxHeadTitle>
+                <BoxHeadTitle>Sum</BoxHeadTitle>
+              </TRHeadDesk>
+            </thead>
+
+            <tbody>
+              {/* Dynamic render of the table list */}
+              {categoriesSummary.map(el => {
+                return (
+                  <TRBodyDesk key={el.name}>
+                    <THDesk>
+                      <BoxDesk color={categoryColorSwitcher(el.name)} />
+                      <BoxTitle>{el.name}</BoxTitle>
+                    </THDesk>
+                    <BoxTitle>{el.total}</BoxTitle>
+                  </TRBodyDesk>
+                );
+              })}
+            </tbody>
+
+            <tfoot>
+              <TRFooterDesk>
+                <THFooter>Expenses:</THFooter>
+                <THRed>{expenseSummary}</THRed>
+              </TRFooterDesk>
+              <TRFooterDesk>
+                <THFooter>Income:</THFooter>
+                <THGreen>{incomeSummary}</THGreen>
+              </TRFooterDesk>
+            </tfoot>
+          </table>
+        </TableWrapperDesk>
+      )}
+      {media.isTablet && (
+        <TableWrapperTablet>
+          <table>
+            <thead>
+              <TRHeadTablet>
+                <BoxHeadTitle>Category</BoxHeadTitle>
+                <BoxHeadTitle>Sum</BoxHeadTitle>
+              </TRHeadTablet>
+            </thead>
+
+            <tbody>
+              {/* Dynamic render of the table list */}
+              {categoriesSummary.map(el => {
+                return (
+                  <TRBodyTablet key={el.name}>
+                    <THTablet>
+                      <BoxTablet color={categoryColorSwitcher(el.name)} />
+                      <BoxTitle>{el.name}</BoxTitle>
+                    </THTablet>
+                    <THTablet>{el.total}</THTablet>
+                  </TRBodyTablet>
+                );
+              })}
+            </tbody>
+
+            <tfoot>
+              <TRFooterTablet>
+                <THFooter>Expenses:</THFooter>
+                <THRed>{expenseSummary}</THRed>
+              </TRFooterTablet>
+              <TRFooterTablet>
+                <THFooter>Income:</THFooter>
+                <THGreen>{incomeSummary}</THGreen>
+              </TRFooterTablet>
+            </tfoot>
+          </table>
+        </TableWrapperTablet>
+      )}
+      {media.isMobile && (
+        <TableWrapperMobile>
+          <table>
+            <thead>
+              <TRHeadMobile>
+                <BoxHeadTitle>Category</BoxHeadTitle>
+                <BoxHeadTitle>Sum</BoxHeadTitle>
+              </TRHeadMobile>
+            </thead>
+
+            <tbody>
+              {/* Dynamic render of the table list */}
+              {categoriesSummary.map(el => {
+                return (
+                  <TRBodyMobile key={el.name}>
+                    <THMobile>
+                      <BoxMobile color={categoryColorSwitcher(el.name)} />
+                      <THMobile>{el.name}</THMobile>
+                    </THMobile>
+                    <THMobile>{el.total}</THMobile>
+                  </TRBodyMobile>
+                );
+              })}
+            </tbody>
+
+            <tfoot>
+              <TRFooterMobile>
+                <THFooter>Expenses:</THFooter>
+                <THRed>{expenseSummary}</THRed>
+              </TRFooterMobile>
+              <TRFooterMobile>
+                <THFooter>Income:</THFooter>
+                <THGreen>{incomeSummary}</THGreen>
+              </TRFooterMobile>
+            </tfoot>
+          </table>
+        </TableWrapperMobile>
+      )}
+    </>
   );
 };

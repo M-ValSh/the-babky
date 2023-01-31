@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ChartWrapper = styled.div`
+export const ChartWrapperDesk = styled.div`
   position: relative;
   width: 288px;
   height: 288px;
@@ -16,4 +16,17 @@ export const ChartText = styled.span`
   line-height: calc(27 / 18);
   font-weight: 700;
   text-align: center;
+  color: ${p => p.theme.colors.textMain}
+`;
+
+export const ChartWrapperTablet = styled.div`
+  position: relative;
+  width: 336px;
+  height: 336px;
+`;
+
+export const ChartWrapperMobile = styled.div`
+  position: relative;
+  width: 280px;
+  height: 280px;
 `;
