@@ -41,6 +41,7 @@ const globalSlice = createSlice({
 
 export const {
   openModalLogout,
+  closeModalLogout,
   openModalAddTransaction,
   closeModalWindow,
   setError,

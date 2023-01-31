@@ -85,37 +85,145 @@ const RegisterForm = () => {
           templateAreas={`
                       "nav main"
                       "nav main"`}
-          gridTemplateRows={'1fr 30px'}
-          gridTemplateColumns={'550px 1fr'}
-          gap="0"
-          backgroundColor="mainBgUnderColor"
-          backgroundRepeat="no-repeat, no-repeat"
-          backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
-          backgroundPosition="top -150px right -150px, bottom -150px left -150px"
-          // color='blackAlpha.700'
-          // fontWeight='bold'
-        >
-          {/* {auth.error ? (
-            <div>
-              <p>{auth.error}</p>
-            </div>
-          ) : null} */}
-          <GridItem pl="2" area={'nav'}>
-            <IllustrationWrapper>
-              <Illustration
-                src={Frame}
-                width="435px"
-                alt="Guy shopping online via mobile"
-              />
-              <IllustrationDesc>Finance App</IllustrationDesc>
-            </IllustrationWrapper>
-          </GridItem>
-          <GridItem
-            pl="2"
-            area={'main'}
-            centerContent
-            backgroundColor="mainBgLighter"
-            backdropFilter="blur(25px)"
+      gridTemplateRows={'1fr 30px'}
+      gridTemplateColumns={'550px 1fr'}
+      gap='0'
+      backgroundColor='mainBgUnderColor'
+      backgroundRepeat='no-repeat, no-repeat'
+      backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
+      backgroundPosition='top -150px right -150px, bottom -150px left -150px'
+      // color='blackAlpha.700'
+      // fontWeight='bold'
+    >
+      {auth.error ? (
+        <div>
+          <p>{auth.error}</p>
+        </div>
+      ) : null}
+      <GridItem pl='2'  area={'nav'}>
+        <IllustrationWrapper>
+          <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' />
+          <IllustrationDesc>Finance App</IllustrationDesc>
+        </IllustrationWrapper>
+      </GridItem>
+      <GridItem 
+          pl='2' 
+          area={'main'}
+          centerContent
+          backgroundColor='mainBgLighter'
+          backdropFilter='blur(25px)'
+      >
+      <form onSubmit={formik.handleSubmit}>
+      <FormBlock>
+        <Logo />
+        <Stack spacing={0} mt='60px' gap='40px'>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<EmailIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
+            />
+            <Input
+              variant="flushed"
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
+
+ 
+              width='410px'
+              height='40px'
+              errorBorderColor={theme.colors.BgBtnRed}
+
+              value={formik.values.email}
+
+            />
+            {formik.touched.email && formik.errors.email ? (
+              toast.info(formik.errors.email)
+            ) : null}
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<AtSignIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
+            />
+            <Input
+              variant="flushed"
+              type="text"
+              name="username"
+              placeholder="Username"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              width='410px'
+              height='40px'
+              errorBorderColor={theme.colors.BgBtnRed}
+              // value={formik.initialValues.username}
+            />
+            {formik.touched.username && formik.errors.username ? (
+              toast.info(formik.errors.username)
+            ) : null}
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
+            />
+            <Input
+              variant="flushed"
+              type="password"
+              name="password"
+              placeholder="Password"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              width='410px'
+              height='40px'
+              errorBorderColor={theme.colors.BgBtnRed}
+              // value={formik.initialValues.password}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              toast.info(formik.errors.password)
+            ) : null}
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
+            />
+            <Input
+              variant="flushed"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm password"
+              _placeholder={ theme.placeholderCss }
+              borderColor= {theme.colors.InputColor}
+              pl='60px'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              width='410px'
+              height='40px'
+              errorBorderColor={theme.colors.BgBtnRed}
+            />
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              toast.info(formik.errors.confirmPassword)
+            ) : null}
+          </InputGroup>
+        </Stack>
+        <Stack spacing={0} mt='42px'>
+          <WalletButton text={'register'} styleType={'normal'} type={'submit'} />
+          <NavLink
+            // onSubmit={() => onLoginBtn}
+            text={'Log In'}
+            // type={'transparent'}
+            to="/login"
           >
             <form onSubmit={formik.handleSubmit}>
               <FormBlock>

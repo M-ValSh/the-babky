@@ -30,6 +30,7 @@ export const App = () => {
   const media = useMedia();
   // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
 
+
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
