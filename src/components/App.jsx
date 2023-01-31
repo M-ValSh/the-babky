@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
 
-// import css from './Layout/Layout.module.css';
-
 import authSelectors from 'redux/auth/auth-selectors';
+import authOperations from 'redux/auth/auth-operations';
+import { selectIsLoading } from 'redux/transactions/transactions-selectors';
 // import { selectIsModalLogoutOpen } from 'redux/global/global-selectors';
 
 import Layout from './Layout/Layout';
@@ -17,19 +17,18 @@ import NotFound from './NotFound/NotFound';
 import HomePage from './HomePage/HomePage';
 import Statistics from 'pages/Statistics/Statistics';
 import Currencys from 'pages/Currencys/Currencys';
-import authOperations from 'redux/auth/auth-operations';
+import Loader from './Loader/Loader';
 
 import { useMedia } from './Media/useMedia';
-// import Loader from './Loader/Loader';
-
-// import LogOutModal from './Modals/LogOutModal/LogOutModal';
+import { selectTransactionIsLoading } from 'redux/transactionsCategories/transactionsCategories-selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
   const media = useMedia();
-  // const showLogoutModal = useSelector(selectIsModalLogoutOpen);
-
+  const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
+  const isLoadingAuth = useSelector(authSelectors.selectIsLoading);
+  const isLoadingTransactions = useSelector(selectIsLoading);
+  const isLoadingTransactSelec = useSelector(selectTransactionIsLoading);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -37,9 +36,10 @@ export const App = () => {
 
   return (
     <div>
-      {/* <div className={css.loader_field}>
-        <Loader />
-      </div> */}
+      {isLoadingAuth && <Loader />}
+      {isLoadingTransactions && <Loader />}
+      {isLoadingTransactSelec && <Loader />}
+
       {!isCurrentUserRefreshing && (
         <Routes>
           <Route

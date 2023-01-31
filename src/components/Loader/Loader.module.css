@@ -1,8 +1,23 @@
+.loader_field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(34, 34, 34, 0.6);
+  --animate-time: 3s;
+  --face-animate-function: ease-in-out;
+  --face-animate-iteration: infinite;
+  z-index: 1500;
+}
 .scene {
   perspective: 10000px;
 }
 .cube {
-  font-size: 10px;
+  font-size: 15px;
   width: 10em;
   height: 10em;
   margin: 0 auto;
