@@ -4,10 +4,6 @@ import { useFormik } from 'formik';
 import authOperations from '../../redux/auth/auth-operations';
 import WalletButton from 'components/WalletButton/WalletButton';
 
-// import s from './RegisterForm.module.css';
-// import { useState } from 'react';
-// import { Container, FormEl, LogBtn } from './RegisterForm.styled';
-// import { Logo } from 'components/Headers/Headers.styled';
 import {
   Input,
   InputGroup,
@@ -60,14 +56,12 @@ const validationSchema = Yup.object({
     .max(12, 'maximum 12 characters required')
     .required('this field is required'),
 });
+
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const media = useMedia();
   const theme = useTheme();
-  // const navigate = useNavigate();
-
-  // const auth = useSelector(state => state.auth);
 
   const formik = useFormik({
     initialValues,
@@ -85,145 +79,30 @@ const RegisterForm = () => {
           templateAreas={`
                       "nav main"
                       "nav main"`}
-      gridTemplateRows={'1fr 30px'}
-      gridTemplateColumns={'550px 1fr'}
-      gap='0'
-      backgroundColor='mainBgUnderColor'
-      backgroundRepeat='no-repeat, no-repeat'
-      backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
-      backgroundPosition='top -150px right -150px, bottom -150px left -150px'
-      // color='blackAlpha.700'
-      // fontWeight='bold'
-    >
-      {auth.error ? (
-        <div>
-          <p>{auth.error}</p>
-        </div>
-      ) : null}
-      <GridItem pl='2'  area={'nav'}>
-        <IllustrationWrapper>
-          <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' />
-          <IllustrationDesc>Finance App</IllustrationDesc>
-        </IllustrationWrapper>
-      </GridItem>
-      <GridItem 
-          pl='2' 
-          area={'main'}
-          centerContent
-          backgroundColor='mainBgLighter'
-          backdropFilter='blur(25px)'
-      >
-      <form onSubmit={formik.handleSubmit}>
-      <FormBlock>
-        <Logo />
-        <Stack spacing={0} mt='60px' gap='40px'>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<EmailIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
-            />
-            <Input
-              variant="flushed"
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              _placeholder={ theme.placeholderCss }
-              borderColor= {theme.colors.InputColor}
-              pl='60px'
-
- 
-              width='410px'
-              height='40px'
-              errorBorderColor={theme.colors.BgBtnRed}
-
-              value={formik.values.email}
-
-            />
-            {formik.touched.email && formik.errors.email ? (
-              toast.info(formik.errors.email)
-            ) : null}
-          </InputGroup>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<AtSignIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
-            />
-            <Input
-              variant="flushed"
-              type="text"
-              name="username"
-              placeholder="Username"
-              _placeholder={ theme.placeholderCss }
-              borderColor= {theme.colors.InputColor}
-              pl='60px'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              width='410px'
-              height='40px'
-              errorBorderColor={theme.colors.BgBtnRed}
-              // value={formik.initialValues.username}
-            />
-            {formik.touched.username && formik.errors.username ? (
-              toast.info(formik.errors.username)
-            ) : null}
-          </InputGroup>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
-            />
-            <Input
-              variant="flushed"
-              type="password"
-              name="password"
-              placeholder="Password"
-              _placeholder={ theme.placeholderCss }
-              borderColor= {theme.colors.InputColor}
-              pl='60px'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              width='410px'
-              height='40px'
-              errorBorderColor={theme.colors.BgBtnRed}
-              // value={formik.initialValues.password}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              toast.info(formik.errors.password)
-            ) : null}
-          </InputGroup>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
-            />
-            <Input
-              variant="flushed"
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm password"
-              _placeholder={ theme.placeholderCss }
-              borderColor= {theme.colors.InputColor}
-              pl='60px'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              width='410px'
-              height='40px'
-              errorBorderColor={theme.colors.BgBtnRed}
-            />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              toast.info(formik.errors.confirmPassword)
-            ) : null}
-          </InputGroup>
-        </Stack>
-        <Stack spacing={0} mt='42px'>
-          <WalletButton text={'register'} styleType={'normal'} type={'submit'} />
-          <NavLink
-            // onSubmit={() => onLoginBtn}
-            text={'Log In'}
-            // type={'transparent'}
-            to="/login"
+          gridTemplateRows={'1fr 30px'}
+          gridTemplateColumns={'550px 1fr'}
+          gap="0"
+          backgroundColor="mainBgUnderColor"
+          backgroundRepeat="no-repeat, no-repeat"
+          backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
+          backgroundPosition="top -150px right -150px, bottom -150px left -150px"
+        >
+          <GridItem pl="2" area={'nav'}>
+            <IllustrationWrapper>
+              <Illustration
+                src={Frame}
+                width="435px"
+                alt="Guy shopping online via mobile"
+              />
+              <IllustrationDesc>Finance App</IllustrationDesc>
+            </IllustrationWrapper>
+          </GridItem>
+          <GridItem
+            pl="2"
+            area={'main'}
+            centerContent
+            backgroundColor="mainBgLighter"
+            backdropFilter="blur(25px)"
           >
             <form onSubmit={formik.handleSubmit}>
               <FormBlock>
@@ -236,23 +115,30 @@ const RegisterForm = () => {
                     <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<EmailIcon color="gray.300" />}
+                        children={
+                          <EmailIcon
+                            color={theme.colors.InputColor}
+                            w="24px"
+                            h="24px"
+                            ml="12px"
+                          />
+                        }
                       />
                       <Input
                         variant="flushed"
                         type="email"
                         name="email"
-                        placeholder="Email"
+                        placeholder="E-mail"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
+                        _placeholder={theme.placeholderCss}
+                        borderColor={theme.colors.InputColor}
+                        pl="60px"
                         width="410px"
-                        height="32px"
+                        height="40px"
                         errorBorderColor={theme.colors.BgBtnRed}
                         value={formik.values.email}
                       />
-                      {/* {formik.touched.email && formik.errors.email
-                        ? toast.info(formik.errors.email)
-                        : null} */}
                     </InputGroup>
                     <FormErrorMessage position={'absolute'} bottom="0">
                       {formik.errors.email}
@@ -267,17 +153,27 @@ const RegisterForm = () => {
                     <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<AtSignIcon color="gray.300" />}
+                        children={
+                          <AtSignIcon
+                            color={theme.colors.InputColor}
+                            w="24px"
+                            h="24px"
+                            ml="12px"
+                          />
+                        }
                       />
                       <Input
                         variant="flushed"
                         type="text"
                         name="username"
                         placeholder="Username"
+                        _placeholder={theme.placeholderCss}
+                        borderColor={theme.colors.InputColor}
+                        pl="60px"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         width="410px"
-                        height="32px"
+                        height="40px"
                         errorBorderColor={theme.colors.BgBtnRed}
                         value={formik.values.username}
                       />
@@ -295,23 +191,30 @@ const RegisterForm = () => {
                     <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<LockIcon color="gray.300" />}
+                        children={
+                          <LockIcon
+                            color={theme.colors.InputColor}
+                            w="24px"
+                            h="24px"
+                            ml="12px"
+                          />
+                        }
                       />
                       <Input
                         variant="flushed"
                         type="password"
                         name="password"
                         placeholder="Password"
+                        _placeholder={theme.placeholderCss}
+                        borderColor={theme.colors.InputColor}
+                        pl="60px"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         width="410px"
-                        height="32px"
+                        height="40px"
                         errorBorderColor={theme.colors.BgBtnRed}
                         value={formik.values.password}
                       />
-                      {/* {formik.touched.password && formik.errors.password
-                        ? toast.info(formik.errors.password)
-                        : null} */}
                     </InputGroup>
                     <FormErrorMessage position={'absolute'} bottom="0">
                       {formik.errors.password}
@@ -327,23 +230,29 @@ const RegisterForm = () => {
                     <InputGroup>
                       <InputLeftElement
                         pointerEvents="none"
-                        children={<LockIcon color="gray.300" />}
+                        children={
+                          <LockIcon
+                            color={theme.colors.InputColor}
+                            w="24px"
+                            h="24px"
+                            ml="12px"
+                          />
+                        }
                       />
                       <Input
                         variant="flushed"
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm password"
+                        _placeholder={theme.placeholderCss}
+                        borderColor={theme.colors.InputColor}
+                        pl="60px"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         width="410px"
-                        height="32px"
+                        height="40px"
                         errorBorderColor={theme.colors.BgBtnRed}
                       />
-                      {/* {formik.touched.confirmPassword &&
-                      formik.errors.confirmPassword
-                        ? toast.info(formik.errors.confirmPassword)
-                        : null} */}
                     </InputGroup>
                     <FormErrorMessage position={'absolute'} bottom="0">
                       {formik.errors.confirmPassword}
@@ -356,12 +265,7 @@ const RegisterForm = () => {
                     styleType={'normal'}
                     type={'submit'}
                   />
-                  <NavLink
-                    // onSubmit={() => onLoginBtn}
-                    text={'Log In'}
-                    // type={'transparent'}
-                    to="/login"
-                  >
+                  <NavLink text={'Log In'} to="/login">
                     <WalletButton text="log in" styleType="transparent" />
                   </NavLink>
                 </Stack>
@@ -371,17 +275,6 @@ const RegisterForm = () => {
         </Grid>
       )}
     </>
-    // <div
-    //   style={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     alignContent: 'center',
-    //   }}
-    // >
-
-    // </div>
   );
 };
 
