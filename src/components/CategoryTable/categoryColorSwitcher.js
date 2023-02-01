@@ -1,26 +1,28 @@
 export const categoryColorSwitcher = (category) => {
-  // console.log(props);
   switch (category) {
     case 'Main expenses':
-      return "#FED057";
+      return "#527677";
     case 'Products':
-      return "#FFD8D0";
+      return "#ffd8d0";
     case 'Car':
-      return "#FD9498";
+      return "#fd9498";
     case 'Self care':
-      return "#C5BAFF";
+      return "#c5baff";
     case 'Child care':
-      return "#6E78E8";
+      return "#a5b300";
     case 'Household products':
-      return "#4A56E2";
+      return "#4a56e2";
     case 'Education':
-      return "#81E1FF";
+      return "#81e1ff";
     case 'Leisure':
-      return "#24CCA7";
-    // case 'Other expenses':
-    //   return "#00AD84";
+      return "#8d542a";
+    case 'Other expenses':
+      return "#ffb8b3";
+    case 'Entertainment':
+      return "#f0b774";
+    case 'Income':
+      return "#00b36e";
     default:
-      return "#00AD84";
-    // return "#6E78E8";
+      return "#9E9E9E";
   }
 };
