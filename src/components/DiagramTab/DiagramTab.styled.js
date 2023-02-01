@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Select } from '@chakra-ui/react';
 
 export const WrapperDesk = styled.div`
   display: flex;
@@ -18,10 +19,15 @@ export const SelectWrapperDesk = styled.div`
   gap: 16px;
 `;
 
+export const MySelect = styled(Select)`
+ & + div {
+    right: 32px;
+  },`;
+
 export const ChartWrapperDesk = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const StatsTitleDesk = styled.h4`
   margin-left: 20px;
@@ -31,13 +37,13 @@ export const StatsTitleDesk = styled.h4`
   font-weight: 400;
   font-size: 30px;
   line-height: calc(45 / 30);
-  color: ${p => (p.theme.colors.textMain)};
-`
+  color: ${p => p.theme.colors.textMain};
+`;
 export const NoDataDesk = styled.div`
   width: 395px;
-  margin: 20px;
+  padding: 20px;
   text-align: center;
-`
+`;
 
 // TABLET
 
@@ -63,7 +69,7 @@ export const ChartWrapperTablet = styled.div`
   height: 336px;
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const StatsTitleTablet = styled.h4`
   margin-left: 20px;
@@ -73,15 +79,14 @@ export const StatsTitleTablet = styled.h4`
   font-weight: 400;
   font-size: 30px;
   line-height: calc(45 / 30);
-  color: ${p => (p.theme.colors.textMain)};
-`
+  color: ${p => p.theme.colors.textMain};
+`;
 
 export const NoDataTablet = styled.div`
-  width: 296px;
-  margin: 20px;
+  width: 336px;
+  padding: 20px;
   text-align: center;
-`
-
+`;
 
 // MOBILE
 
@@ -107,7 +112,7 @@ export const SelectWrapperMobile = styled.div`
 export const ChartWrapperMobile = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const StatsTitleMobile = styled.h4`
   font-family: ${p => p.theme.fonts.main};
@@ -115,24 +120,23 @@ export const StatsTitleMobile = styled.h4`
   font-weight: 400;
   font-size: 30px;
   line-height: calc(45 / 30);
-  color: ${p => (p.theme.colors.textMain)};
-`
+  color: ${p => p.theme.colors.textMain};
+`;
 
 export const NoDataMobile = styled.div`
   width: 280px;
-  margin: 10px;
+  padding: 10px;
   text-align: center;
-`
+`;
 
-
-// 
+//
 export const ChartCompLoadingDesk = styled.div`
   height: 288px;
   width: 288px;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const ChartCompLoadingTablet = styled.div`
   height: 336px;
@@ -140,7 +144,7 @@ export const ChartCompLoadingTablet = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const ChartCompLoadingMobile = styled.div`
   height: 280px;
@@ -148,4 +152,4 @@ export const ChartCompLoadingMobile = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;

@@ -22,8 +22,9 @@ import {
   ChartCompLoadingDesk,
   ChartCompLoadingTablet,
   ChartCompLoadingMobile,
+  MySelect,
 } from './DiagramTab.styled';
-import { Select } from '@chakra-ui/react';
+// import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
 import { useMedia } from 'components/Media/useMedia';
@@ -37,6 +38,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactionsSummary } from 'redux/transactionsSumCont/transactionsSumCont-operations';
 import { MoonLoader } from 'react-spinners';
+import { SlArrowDown } from 'react-icons/sl';
 
 export const DiagramTab = () => {
   const dispatch = useDispatch();
@@ -129,8 +131,9 @@ export const DiagramTab = () => {
           </ChartWrapperDesk>
           <TableWrapperDesk>
             <SelectWrapperDesk>
-              <Select
-                variant="filled"
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
@@ -146,9 +149,10 @@ export const DiagramTab = () => {
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-              </Select>
-              <Select
-                variant="filled"
+              </MySelect>
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
@@ -156,7 +160,7 @@ export const DiagramTab = () => {
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-              </Select>
+              </MySelect>
             </SelectWrapperDesk>
 
             {/* INITIAL MOMENT OF TIME */}
@@ -216,8 +220,9 @@ export const DiagramTab = () => {
           </ChartWrapperTablet>
           <TableWrapperTablet>
             <SelectWrapperTablet>
-              <Select
-                variant="filled"
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
@@ -233,9 +238,10 @@ export const DiagramTab = () => {
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-              </Select>
-              <Select
-                variant="filled"
+              </MySelect>
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
@@ -243,7 +249,7 @@ export const DiagramTab = () => {
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-              </Select>
+              </MySelect>
             </SelectWrapperTablet>
             {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
@@ -302,8 +308,9 @@ export const DiagramTab = () => {
           </ChartWrapperMobile>
           <TableWrapperMobile>
             <SelectWrapperMobile>
-              <Select
-                variant="filled"
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
@@ -319,9 +326,10 @@ export const DiagramTab = () => {
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-              </Select>
-              <Select
-                variant="filled"
+              </MySelect>
+              <MySelect
+                variant="mySelectStyle"
+                icon={<SlArrowDown fill="#000" />}
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
@@ -329,7 +337,7 @@ export const DiagramTab = () => {
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-              </Select>
+              </MySelect>
             </SelectWrapperMobile>
             {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
