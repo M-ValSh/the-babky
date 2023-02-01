@@ -450,7 +450,6 @@ const RegisterForm = () => {
         <Box>
           <BubbleWrapper>
             <IconWrapper>
-
               <GirlImage width="273px" height="250px" />
 
               <IllustrationDescTab>Finance App</IllustrationDescTab>

@@ -20,14 +20,10 @@ import {
   GridItem,
   Grid,
   Box,
-
-  FormControl,
-
 } from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { Logo } from 'components/Logo/Logo';
-// import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 
@@ -307,7 +303,6 @@ const LoginForm = () => {
         <Box>
           <BubbleWrapper>
             <IconWrapper>
-
               <Frame width="273px" height="250px" />
 
               <IllustrationDescTab>Finance App</IllustrationDescTab>
@@ -323,12 +318,10 @@ const LoginForm = () => {
               validationSchema={schema}
             >
               {({ handleChange, handleBlur, values, isValid, dirty }) => (
-
                 <Form style={{ position: 'relative', zIndex: '50000' }}>
                   <FormBlock
                     style={{ margin: '50px auto', marginBottom: 'auto' }}
                   >
-
                     <Logo />
                     <Stack spacing={0} mt="60px" gap="40px">
                       <InputGroup>
@@ -416,5 +409,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-
