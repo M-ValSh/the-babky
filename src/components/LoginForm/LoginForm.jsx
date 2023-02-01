@@ -20,7 +20,6 @@ import {
   GridItem,
   Grid,
   Box,
-  FormControl,
 } from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
@@ -30,14 +29,11 @@ import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 
 import {
-  Illustration,
   IllustrationDesc,
   IllustrationWrapper,
   FormBlock,
   FormBlockMobile,
   BubbleWrapper,
-  Overlay,
-  IllustrationWrapperTab,
 } from './LoginForm.styled';
 import {
   IconWrapper,

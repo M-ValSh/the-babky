@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
-import pink_ellipse from '../../img/figures/pink_ellipse.svg';
-import purple_ellipse from '../../img/figures/purple_ellipse.svg';
-// import Frame from '../../img/illustrations/Frame.svg';
 import BublePurp from 'assets/images/ellipse-purple.svg';
 import BublRed from 'assets/images/ellipse-pink.svg';
-import { theme } from 'Styles/theme';
 
 export const LoginFormPage = styled.div(({ theme }) => ({
   margin: '0',
@@ -20,9 +16,6 @@ export const Illustration = styled.img(({ theme }) => ({
   width: '435px',
   display: 'block',
   margin: '0 auto',
-  // width: '100%',
-  // height: '420px',
-  // height: '420px',
 }));
 
 export const IllustrationWrapper = styled.div(({ theme }) => ({
@@ -33,17 +26,11 @@ export const IllustrationWrapper = styled.div(({ theme }) => ({
 }));
 
 export const FormWrapper = styled.div(({ theme }) => ({
-  //   marginLeft: '32px',
   display: 'block',
   width: '100%',
-  //   marginLeft: 'auto',
-  //   justifyContent: 'center',
-  //   width: '435px',
-  //   height: '420px',
 
   backgroundColor: theme.colors.mainBgLighter,
   backdropFilter: 'blur(25px)',
-  //   blur: '25px',
 }));
 
 export const IllustrationDesc = styled.p(({ theme }) => ({
