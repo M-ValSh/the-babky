@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Amount,
   NoTransactions,
@@ -19,16 +19,25 @@ import {
 } from './HomeTab.styled';
 import { useMedia } from 'components/Media/useMedia';
 import { selectTransactions } from 'redux/transactions/transactions-selectors';
+import { selectTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-selectors';
+import { fetchTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-operations';
 
-// fake data, later connect from some state
-import fakeTACategories from '../DiagramTab/fakeTACategories.json';
+import { useEffect } from 'react';
+import { fetchTransactions } from 'redux/transactions/transactions-operations';
 
 export const HomeTab = () => {
   const mobile = useMedia().isMobile;
   const tablet = useMedia().isTablet;
   const desktop = useMedia().isDesktop;
-
+  const dispatch = useDispatch();
   const transactions = useSelector(selectTransactions);
+  const transactionsCategories = useSelector(selectTransactionCategories);
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+    dispatch(fetchTransactionCategories());
+  }, [dispatch]);
+
   const sortedTransactions = [...transactions].sort(
     (a, b) => new Date(b.transactionDate) - new Date(a.transactionDate) ?? []
   );
@@ -36,7 +45,7 @@ export const HomeTab = () => {
   const dataCorrection = data => data.replaceAll('-', '.');
 
   const getCategoryName = id => {
-    return fakeTACategories.find(el => el.id === id).name;
+    return transactionsCategories.find(el => el.id === id).name;
   };
 
   return (
@@ -45,7 +54,8 @@ export const HomeTab = () => {
         <TableWrapMob>
           <ScrollTableMob>
             <ScrollTableBodyMob>
-              {sortedTransactions.length !== 0 ? (
+              {sortedTransactions.length !== 0 &&
+              transactionsCategories.length !== 0 ? (
                 sortedTransactions.map(
                   ({
                     id,
@@ -105,7 +115,8 @@ export const HomeTab = () => {
       {/* tablet */}
       {tablet && (
         <>
-          {sortedTransactions.length > 0 ? (
+          {sortedTransactions.length > 0 &&
+          transactionsCategories.length !== 0 ? (
             <Table>
               <thead>
                 <TableHead>
@@ -158,7 +169,8 @@ export const HomeTab = () => {
       {/* desktop */}
       {desktop && (
         <TableWrapDesk>
-          {sortedTransactions.length > 0 ? (
+          {sortedTransactions.length > 0 &&
+          transactionsCategories.length !== 0 ? (
             <Table>
               <thead>
                 <TableHead>
