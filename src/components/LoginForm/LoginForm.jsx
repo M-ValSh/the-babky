@@ -80,20 +80,10 @@ const LoginForm = () => {
           {/* <LoginFormPage> */}
           <GridItem pl="2" area={'nav'}>
             <IllustrationWrapper>
-              {/* <Illustration
-                src={Frame}
-                width="435px"
-                alt="Guy shopping online via mobile"
-              /> */}
               <Frame />
               <IllustrationDesc>Finance App</IllustrationDesc>
             </IllustrationWrapper>
           </GridItem>
-          {/* <IllustrationWrapper> */}
-          {/* <Illustration src={Frame} width='435px' alt='Guy shopping online via mobile' /> */}
-          {/* <IllustrationDesc>Finance App</IllustrationDesc> */}
-          {/* </IllustrationWrapper> */}
-          {/* <FormWrapper> */}
           <GridItem
             pl="2"
             area={'main'}
@@ -111,15 +101,9 @@ const LoginForm = () => {
             >
               {({ handleChange, handleBlur, values, isValid, dirty }) => (
                 <Form>
-                  {/* <div>
-                  <Logo />
-                  <h1>Wallet</h1>
-                </div> */}
-
                   <FormBlock>
                     <Logo />
                     <Stack spacing={0} mt="60px" gap="40px">
-                      {/* <p className="text">You can sign in using email and password</p> */}
                       <InputGroup>
                         <InputLeftElement
                           pointerEvents="none"
@@ -131,7 +115,6 @@ const LoginForm = () => {
                               ml="12px"
                             />
                           }
-                          // pb='5px'
                         />
                         <Input
                           variant="flushed"
@@ -141,7 +124,7 @@ const LoginForm = () => {
                           onBlur={handleBlur}
                           value={values.email}
                           placeholder="E-mail"
-                          _placeholder={theme.placeholderCss}
+                          _placeholder={theme.colorPlaceholder}
                           borderColor={theme.colors.InputColor}
                           pl="60px"
                           className="input"
@@ -170,7 +153,7 @@ const LoginForm = () => {
                           onBlur={handleBlur}
                           value={values.password}
                           placeholder="Password"
-                          _placeholder={theme.placeholderCss}
+                          _placeholder={theme.colorPlaceholder}
                           borderColor={theme.colors.InputColor}
                           pl="60px"
                           className="input"

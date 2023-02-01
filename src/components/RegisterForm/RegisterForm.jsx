@@ -131,7 +131,7 @@ const RegisterForm = () => {
                         placeholder="E-mail"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         width="410px"
@@ -167,7 +167,7 @@ const RegisterForm = () => {
                         type="text"
                         name="username"
                         placeholder="Username"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -205,7 +205,7 @@ const RegisterForm = () => {
                         type="password"
                         name="password"
                         placeholder="Password"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -244,7 +244,7 @@ const RegisterForm = () => {
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm password"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -303,7 +303,7 @@ const RegisterForm = () => {
                     placeholder="E-mail"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    _placeholder={theme.placeholderCss}
+                    _placeholder={theme.colorPlaceholder}
                     borderColor={theme.colors.InputColor}
                     pl="60px"
                     width="280px"
@@ -337,7 +337,7 @@ const RegisterForm = () => {
                     type="text"
                     name="username"
                     placeholder="Username"
-                    _placeholder={theme.placeholderCss}
+                    _placeholder={theme.colorPlaceholder}
                     borderColor={theme.colors.InputColor}
                     pl="60px"
                     onChange={formik.handleChange}
@@ -373,7 +373,7 @@ const RegisterForm = () => {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    _placeholder={theme.placeholderCss}
+                    _placeholder={theme.colorPlaceholder}
                     borderColor={theme.colors.InputColor}
                     pl="60px"
                     onChange={formik.handleChange}
@@ -412,7 +412,7 @@ const RegisterForm = () => {
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm password"
-                    _placeholder={theme.placeholderCss}
+                    _placeholder={theme.colorPlaceholder}
                     borderColor={theme.colors.InputColor}
                     pl="60px"
                     onChange={formik.handleChange}
@@ -464,7 +464,7 @@ const RegisterForm = () => {
                 <Stack spacing={0} mt="32px" gap="40px">
                   <FormControl
                     isInvalid={formik.touched.email && formik.errors.email}
-                    // pb="20px"
+                    pb="20px"
                   >
                     <InputGroup>
                       <InputLeftElement
@@ -485,7 +485,7 @@ const RegisterForm = () => {
                         placeholder="E-mail"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         width="410px"
@@ -502,7 +502,7 @@ const RegisterForm = () => {
                     isInvalid={
                       formik.touched.username && formik.errors.username
                     }
-                    // pb="20px"
+                    pb="20px"
                   >
                     <InputGroup>
                       <InputLeftElement
@@ -521,7 +521,7 @@ const RegisterForm = () => {
                         type="text"
                         name="username"
                         placeholder="Username"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -540,7 +540,7 @@ const RegisterForm = () => {
                     isInvalid={
                       formik.touched.password && formik.errors.password
                     }
-                    // pb="20px"
+                    pb="20px"
                   >
                     <InputGroup>
                       <InputLeftElement
@@ -559,7 +559,7 @@ const RegisterForm = () => {
                         type="password"
                         name="password"
                         placeholder="Password"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -598,7 +598,7 @@ const RegisterForm = () => {
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm password"
-                        _placeholder={theme.placeholderCss}
+                        _placeholder={theme.colorPlaceholder}
                         borderColor={theme.colors.InputColor}
                         pl="60px"
                         onChange={formik.handleChange}
@@ -625,10 +625,6 @@ const RegisterForm = () => {
                 </Stack>
               </FormBlockTab>
             </form>
-
-            {/* <Overlay> */}
-
-            {/* </Overlay> */}
           </BubbleWrapper>
         </Box>
       )}
