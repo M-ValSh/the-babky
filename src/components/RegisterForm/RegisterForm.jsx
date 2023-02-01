@@ -13,21 +13,29 @@ import {
   Grid,
   FormControl,
   FormErrorMessage,
+  Box,
 } from '@chakra-ui/react';
 import { EmailIcon, LockIcon, AtSignIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
 import { Logo } from 'components/Logo/Logo';
-import Frame from '../../img/illustrations/Frame.svg';
+// import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 import { useDispatch } from 'react-redux';
+import { theme } from 'Styles/theme';
+import { ReactComponent as GirlImage } from 'assets/images/register-girl.svg';
 
 import {
   Illustration,
   IllustrationDesc,
   IllustrationWrapper,
   FormBlock,
+  Overlay,
+  BubbleWrapper,
+  FormBlockTab,
+  IllustrationWrapperTab,
+  IconWrapper,
 } from './RegisterForm.styled';
 import { NavLink } from 'react-router-dom';
 
@@ -90,11 +98,7 @@ const RegisterForm = () => {
         >
           <GridItem pl="2" area={'nav'}>
             <IllustrationWrapper>
-              <Illustration
-                src={Frame}
-                width="435px"
-                alt="Guy shopping online via mobile"
-              />
+              <GirlImage width={452} />
               <IllustrationDesc>Finance App</IllustrationDesc>
             </IllustrationWrapper>
           </GridItem>
@@ -273,6 +277,357 @@ const RegisterForm = () => {
             </form>
           </GridItem>
         </Grid>
+      )}
+
+      {media.isMobile && (
+        <form onSubmit={formik.handleSubmit}>
+          <FormBlock>
+            <Logo />
+            <Stack spacing={0} mt="60px" gap="40px">
+              <FormControl
+                isInvalid={formik.touched.email && formik.errors.email}
+                pb="20px"
+              >
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={
+                      <EmailIcon
+                        color={theme.colors.InputColor}
+                        w="24px"
+                        h="24px"
+                        ml="12px"
+                      />
+                    }
+                  />
+                  <Input
+                    variant="flushed"
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    _placeholder={theme.placeholderCss}
+                    borderColor={theme.colors.InputColor}
+                    pl="60px"
+                    width="280px"
+                    height="40px"
+                    errorBorderColor={theme.colors.BgBtnRed}
+                    value={formik.values.email}
+                  />
+                </InputGroup>
+                <FormErrorMessage position={'absolute'} bottom="0">
+                  {formik.errors.email}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl
+                isInvalid={formik.touched.username && formik.errors.username}
+                pb="20px"
+              >
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={
+                      <AtSignIcon
+                        color={theme.colors.InputColor}
+                        w="24px"
+                        h="24px"
+                        ml="12px"
+                      />
+                    }
+                  />
+                  <Input
+                    variant="flushed"
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    _placeholder={theme.placeholderCss}
+                    borderColor={theme.colors.InputColor}
+                    pl="60px"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    width="280px"
+                    height="40px"
+                    errorBorderColor={theme.colors.BgBtnRed}
+                    value={formik.values.username}
+                  />
+                </InputGroup>
+                <FormErrorMessage position={'absolute'} bottom="0">
+                  {formik.errors.email}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl
+                isInvalid={formik.touched.password && formik.errors.password}
+                pb="20px"
+              >
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={
+                      <LockIcon
+                        color={theme.colors.InputColor}
+                        w="24px"
+                        h="24px"
+                        ml="12px"
+                      />
+                    }
+                  />
+                  <Input
+                    variant="flushed"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    _placeholder={theme.placeholderCss}
+                    borderColor={theme.colors.InputColor}
+                    pl="60px"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    width="280px"
+                    height="40px"
+                    errorBorderColor={theme.colors.BgBtnRed}
+                    value={formik.values.password}
+                  />
+                </InputGroup>
+                <FormErrorMessage position={'absolute'} bottom="0">
+                  {formik.errors.password}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl
+                isInvalid={
+                  formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword
+                }
+                pb="20px"
+              >
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={
+                      <LockIcon
+                        color={theme.colors.InputColor}
+                        w="24px"
+                        h="24px"
+                        ml="12px"
+                      />
+                    }
+                  />
+                  <Input
+                    variant="flushed"
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm password"
+                    _placeholder={theme.placeholderCss}
+                    borderColor={theme.colors.InputColor}
+                    pl="60px"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    width="280px"
+                    height="40px"
+                    errorBorderColor={theme.colors.BgBtnRed}
+                  />
+                </InputGroup>
+                <FormErrorMessage position={'absolute'} bottom="0">
+                  {formik.errors.confirmPassword}
+                </FormErrorMessage>
+              </FormControl>
+            </Stack>
+            <Stack spacing={0} mt="42px">
+              <WalletButton
+                text={'register'}
+                styleType={'normal'}
+                type={'submit'}
+                style={{ minWidth: '280px' }}
+              />
+              <NavLink text={'Log In'} to="/login">
+                <WalletButton
+                  text="log in"
+                  styleType="transparent"
+                  style={{ minWidth: '280px' }}
+                />
+              </NavLink>
+            </Stack>
+          </FormBlock>
+        </form>
+      )}
+
+      {media.isTablet && (
+        <Box width="768px">
+          <BubbleWrapper>
+            <IconWrapper>
+              <GirlImage width="273px" />
+              <p>Finance App</p>
+            </IconWrapper>
+            <Overlay>
+              <form onSubmit={formik.handleSubmit}>
+                <FormBlockTab style={{ maxHeight: '616px' }}>
+                  <Logo />
+                  <Stack spacing={0} mt="32px" gap="40px">
+                    <FormControl
+                      isInvalid={formik.touched.email && formik.errors.email}
+                      // pb="20px"
+                    >
+                      <InputGroup>
+                        <InputLeftElement
+                          pointerEvents="none"
+                          children={
+                            <EmailIcon
+                              color={theme.colors.InputColor}
+                              w="24px"
+                              h="24px"
+                              ml="12px"
+                            />
+                          }
+                        />
+                        <Input
+                          variant="flushed"
+                          type="email"
+                          name="email"
+                          placeholder="E-mail"
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          _placeholder={theme.placeholderCss}
+                          borderColor={theme.colors.InputColor}
+                          pl="60px"
+                          width="410px"
+                          height="40px"
+                          errorBorderColor={theme.colors.BgBtnRed}
+                          value={formik.values.email}
+                        />
+                      </InputGroup>
+                      <FormErrorMessage position={'absolute'} bottom="0">
+                        {formik.errors.email}
+                      </FormErrorMessage>
+                    </FormControl>
+                    <FormControl
+                      isInvalid={
+                        formik.touched.username && formik.errors.username
+                      }
+                      // pb="20px"
+                    >
+                      <InputGroup>
+                        <InputLeftElement
+                          pointerEvents="none"
+                          children={
+                            <AtSignIcon
+                              color={theme.colors.InputColor}
+                              w="24px"
+                              h="24px"
+                              ml="12px"
+                            />
+                          }
+                        />
+                        <Input
+                          variant="flushed"
+                          type="text"
+                          name="username"
+                          placeholder="Username"
+                          _placeholder={theme.placeholderCss}
+                          borderColor={theme.colors.InputColor}
+                          pl="60px"
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          width="410px"
+                          height="40px"
+                          errorBorderColor={theme.colors.BgBtnRed}
+                          value={formik.values.username}
+                        />
+                      </InputGroup>
+                      <FormErrorMessage position={'absolute'} bottom="0">
+                        {formik.errors.email}
+                      </FormErrorMessage>
+                    </FormControl>
+                    <FormControl
+                      isInvalid={
+                        formik.touched.password && formik.errors.password
+                      }
+                      // pb="20px"
+                    >
+                      <InputGroup>
+                        <InputLeftElement
+                          pointerEvents="none"
+                          children={
+                            <LockIcon
+                              color={theme.colors.InputColor}
+                              w="24px"
+                              h="24px"
+                              ml="12px"
+                            />
+                          }
+                        />
+                        <Input
+                          variant="flushed"
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                          _placeholder={theme.placeholderCss}
+                          borderColor={theme.colors.InputColor}
+                          pl="60px"
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          width="410px"
+                          height="40px"
+                          errorBorderColor={theme.colors.BgBtnRed}
+                          value={formik.values.password}
+                        />
+                      </InputGroup>
+                      <FormErrorMessage position={'absolute'} bottom="0">
+                        {formik.errors.password}
+                      </FormErrorMessage>
+                    </FormControl>
+                    <FormControl
+                      isInvalid={
+                        formik.touched.confirmPassword &&
+                        formik.errors.confirmPassword
+                      }
+                      pb="40px"
+                    >
+                      <InputGroup>
+                        <InputLeftElement
+                          pointerEvents="none"
+                          children={
+                            <LockIcon
+                              color={theme.colors.InputColor}
+                              w="24px"
+                              h="24px"
+                              ml="12px"
+                            />
+                          }
+                        />
+                        <Input
+                          variant="flushed"
+                          type="password"
+                          name="confirmPassword"
+                          placeholder="Confirm password"
+                          _placeholder={theme.placeholderCss}
+                          borderColor={theme.colors.InputColor}
+                          pl="60px"
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          width="410px"
+                          height="40px"
+                          errorBorderColor={theme.colors.BgBtnRed}
+                        />
+                      </InputGroup>
+                      <FormErrorMessage position={'absolute'} bottom="0">
+                        {formik.errors.confirmPassword}
+                      </FormErrorMessage>
+                    </FormControl>
+                  </Stack>
+                  <Stack spacing={0}>
+                    <WalletButton
+                      text={'register'}
+                      styleType={'normal'}
+                      type={'submit'}
+                    />
+                    <NavLink text={'Log In'} to="/login">
+                      <WalletButton text="log in" styleType="transparent" />
+                    </NavLink>
+                  </Stack>
+                </FormBlockTab>
+              </form>
+            </Overlay>
+          </BubbleWrapper>
+        </Box>
       )}
     </>
   );
