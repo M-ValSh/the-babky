@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { PublicRoute } from 'HOCs/PublicRoute';
-import { PrivateRoute } from 'HOCs/PrivateRoute';
+import { PublicRoute } from 'Routes/PublicRoute';
+import { PrivateRoute } from 'Routes/PrivateRoute';
 
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
@@ -53,10 +53,9 @@ export const App = () => {
             {media.isMobile && (
               <Route path="/currency" element={<Currencys />} />
             )}
-
-            <Route path="*" element={<NotFound />} />
           </Route>
 
+          <Route path="*" element={<NotFound />} />
           <Route
             path="/register"
             element={<PublicRoute redirectTo="/" component={<Register />} />}
