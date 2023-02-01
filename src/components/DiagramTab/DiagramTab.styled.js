@@ -35,7 +35,7 @@ export const StatsTitleDesk = styled.h4`
 `
 export const NoDataDesk = styled.div`
   width: 395px;
-  margin: 20px;
+  padding: 20px;
   text-align: center;
 `
 
@@ -77,8 +77,8 @@ export const StatsTitleTablet = styled.h4`
 `
 
 export const NoDataTablet = styled.div`
-  width: 296px;
-  margin: 20px;
+  width: 336px;
+  padding: 20px;
   text-align: center;
 `
 
@@ -120,7 +120,7 @@ export const StatsTitleMobile = styled.h4`
 
 export const NoDataMobile = styled.div`
   width: 280px;
-  margin: 10px;
+  padding: 10px;
   text-align: center;
 `
 
