@@ -17,6 +17,8 @@ const myStyle = definePartsStyle({
     bg: '#24CCA7',
     boxShadow: '0px 6px 15px rgba(36, 204, 167, 0.5)',
 
+    transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+
     _before: {
       content: '""',
       w: '20px',
