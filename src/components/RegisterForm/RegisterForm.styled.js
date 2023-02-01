@@ -69,6 +69,7 @@ export const IllustrationDesc = styled.p(({ theme }) => ({
 export const FormBlock = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
+  zIndex: '100000',
 
   margin: '136px 91px 116px 107px',
   marginLeft: 'auto',
@@ -86,8 +87,8 @@ export const FormBlock = styled.div(({ theme }) => ({
 }));
 
 export const Overlay = styled.div`
-  position: fixed;
-  top: 360px;
+  /* position: fixed; */
+  /* top: 360px; */
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -108,13 +109,13 @@ export const Overlay = styled.div`
 
 export const BubbleWrapper = styled.div(({ theme }) => ({
   width: '100%',
-  height: '100vh',
-  minHeight: '800px',
+  minHeight: '100vh',
+  // minHeight: '800px',
 
-  zIndex: 1,
+  zIndex: 0,
   background: theme.colors.BgMain,
   '::after': {
-    position: 'fixed',
+    position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
@@ -162,3 +163,16 @@ export const IconWrapper = styled.div`
   align-items: center;
   gap: 40px;
 `;
+
+export const IllustrationDescTab = styled.p(({ theme }) => ({
+  marginTop: '28px',
+  marginLeft: '40px',
+  padding: 0,
+  textAlign: 'center',
+  fontFamily: theme.fonts.main,
+  fontSize: '30px',
+  lineHeight: '45px',
+  color: theme.colors.textMain,
+  fontWeight: 400,
+  zIndex: '10',
+}));
