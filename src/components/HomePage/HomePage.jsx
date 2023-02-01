@@ -9,10 +9,7 @@ import {
   BalanceBlockMob,
 } from 'components/Balance/Balance.styled';
 
-import {
-  BubleWrapper,
-  Section,
-} from 'components/Navigations/Navigation.styled';
+import { BubleWrapper } from 'components/Navigations/Navigation.styled';
 import {
   NavigationMobile,
   NavigationTablet,
