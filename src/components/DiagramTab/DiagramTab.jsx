@@ -16,6 +16,12 @@ import {
   SelectWrapperMobile,
   ChartWrapperMobile,
   StatsTitleMobile,
+  NoDataDesk,
+  NoDataTablet,
+  NoDataMobile,
+  ChartCompLoadingDesk,
+  ChartCompLoadingTablet,
+  ChartCompLoadingMobile,
 } from './DiagramTab.styled';
 import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
@@ -23,13 +29,14 @@ import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js
 import { useMedia } from 'components/Media/useMedia';
 import {
   selectTrSummary,
-  // selectIsLoading,
-  // selectError,
+  selectIsLoading,
+  selectError,
   selectExpenseSummary,
   selectIncomeSummary,
 } from 'redux/transactionsSumCont/transactionsSumCont-selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactionsSummary } from 'redux/transactionsSumCont/transactionsSumCont-operations';
+import { MoonLoader } from 'react-spinners';
 
 export const DiagramTab = () => {
   const dispatch = useDispatch();
@@ -40,6 +47,8 @@ export const DiagramTab = () => {
   const trSummary = useSelector(selectTrSummary);
   const expenseSummary = useSelector(selectExpenseSummary);
   const incomeSummary = useSelector(selectIncomeSummary);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     const fetchTransactionsData = ({ month, year }) => {
@@ -49,8 +58,6 @@ export const DiagramTab = () => {
     if (month && year) {
       fetchTransactionsData({ month, year });
     }
-
-    // console.log('trSummary :>> ', trSummary);
   }, [month, year, dispatch]);
 
   const initialData = {
@@ -96,10 +103,28 @@ export const DiagramTab = () => {
         <WrapperDesk>
           <ChartWrapperDesk>
             <StatsTitleDesk>Statistics</StatsTitleDesk>
-            {trSummary.length > 0 ? (
-              <ChartComp data={prepareData()} />
-            ) : (
+
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
               <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && <ChartComp data={prepareData()} />}
+
+            {/* IN CASE OF LOADING */}
+            {isLoading && !error && (
+              <ChartCompLoadingDesk>
+                <MoonLoader color="#36d7b7" />
+              </ChartCompLoadingDesk>
             )}
           </ChartWrapperDesk>
           <TableWrapperDesk>
@@ -133,15 +158,32 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperDesk>
-            {trSummary.length > 0 ? (
-              <CategoryTable
-                categoriesSummary={trSummary}
-                incomeSummary={incomeSummary}
-                expenseSummary={expenseSummary}
-              />
-            ) : (
-              <div>Loading...</div>
+
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
+              <NoDataDesk>
+                Please, select period above to see transactions
+              </NoDataDesk>
             )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <NoDataDesk>
+                Sorry, but there are no transactions during that period
+              </NoDataDesk>
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && (
+                <CategoryTable
+                  categoriesSummary={trSummary}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
           </TableWrapperDesk>
         </WrapperDesk>
       )}
@@ -149,10 +191,27 @@ export const DiagramTab = () => {
         <WrapperTablet>
           <ChartWrapperTablet>
             <StatsTitleTablet>Statistics</StatsTitleTablet>
-            {trSummary.length > 0 ? (
-              <ChartComp data={prepareData()} />
-            ) : (
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
               <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && <ChartComp data={prepareData()} />}
+
+            {/* IN CASE OF LOADING */}
+            {isLoading && !error && (
+              <ChartCompLoadingTablet>
+                <MoonLoader color="#36d7b7" />
+              </ChartCompLoadingTablet>
             )}
           </ChartWrapperTablet>
           <TableWrapperTablet>
@@ -186,15 +245,31 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperTablet>
-            {trSummary.length > 0 ? (
-              <CategoryTable
-                categoriesSummary={trSummary}
-                incomeSummary={incomeSummary}
-                expenseSummary={expenseSummary}
-              />
-            ) : (
-              <div>Loading...</div>
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
+              <NoDataTablet>
+                Please, select period above to see transactions
+              </NoDataTablet>
             )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <NoDataTablet>
+                Sorry, but there are no transactions during that period
+              </NoDataTablet>
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && (
+                <CategoryTable
+                  categoriesSummary={trSummary}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
           </TableWrapperTablet>
         </WrapperTablet>
       )}
@@ -202,10 +277,27 @@ export const DiagramTab = () => {
         <WrapperMobile>
           <ChartWrapperMobile>
             <StatsTitleMobile>Statistics</StatsTitleMobile>
-            {trSummary.length > 0 ? (
-              <ChartComp data={prepareData()} />
-            ) : (
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
               <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <ChartComp data={initialData} />
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && <ChartComp data={prepareData()} />}
+
+            {/* IN CASE OF LOADING */}
+            {isLoading && !error && (
+              <ChartCompLoadingMobile>
+                <MoonLoader color="#36d7b7" />
+              </ChartCompLoadingMobile>
             )}
           </ChartWrapperMobile>
           <TableWrapperMobile>
@@ -239,15 +331,31 @@ export const DiagramTab = () => {
                 <option value="2025">2025</option>
               </Select>
             </SelectWrapperMobile>
-            {trSummary.length > 0 ? (
-              <CategoryTable
-                categoriesSummary={trSummary}
-                incomeSummary={incomeSummary}
-                expenseSummary={expenseSummary}
-              />
-            ) : (
-              <div>Loading...</div>
+            {/* INITIAL MOMENT OF TIME */}
+            {!isLoading && (month.length === 0 || year.length === 0) && (
+              <NoDataMobile>
+                Please, select period above to see transactions
+              </NoDataMobile>
             )}
+
+            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
+            {!isLoading && month && year && trSummary.length === 0 && (
+              <NoDataMobile>
+                Sorry, but there are no transactions during that period
+              </NoDataMobile>
+            )}
+
+            {/* WHEN THERE ARE RESULTS */}
+            {!isLoading &&
+              trSummary.length > 0 &&
+              month.length > 0 &&
+              year.length > 0 && (
+                <CategoryTable
+                  categoriesSummary={trSummary}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
           </TableWrapperMobile>
         </WrapperMobile>
       )}

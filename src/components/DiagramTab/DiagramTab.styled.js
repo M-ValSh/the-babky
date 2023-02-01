@@ -9,10 +9,11 @@ export const TableWrapperDesk = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  width: 395px;
 `;
 
 export const SelectWrapperDesk = styled.div`
-  width: 395px;
+  /* width: 395px; */
   display: flex;
   gap: 16px;
 `;
@@ -32,7 +33,11 @@ export const StatsTitleDesk = styled.h4`
   line-height: calc(45 / 30);
   color: ${p => (p.theme.colors.textMain)};
 `
-
+export const NoDataDesk = styled.div`
+  width: 395px;
+  margin: 20px;
+  text-align: center;
+`
 
 // TABLET
 
@@ -71,6 +76,12 @@ export const StatsTitleTablet = styled.h4`
   color: ${p => (p.theme.colors.textMain)};
 `
 
+export const NoDataTablet = styled.div`
+  width: 296px;
+  margin: 20px;
+  text-align: center;
+`
+
 
 // MOBILE
 
@@ -105,4 +116,36 @@ export const StatsTitleMobile = styled.h4`
   font-size: 30px;
   line-height: calc(45 / 30);
   color: ${p => (p.theme.colors.textMain)};
+`
+
+export const NoDataMobile = styled.div`
+  width: 280px;
+  margin: 10px;
+  text-align: center;
+`
+
+
+// 
+export const ChartCompLoadingDesk = styled.div`
+  height: 288px;
+  width: 288px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ChartCompLoadingTablet = styled.div`
+  height: 336px;
+  width: 336px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ChartCompLoadingMobile = styled.div`
+  height: 280px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
