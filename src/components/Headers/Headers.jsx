@@ -48,6 +48,7 @@ export const Headers = () => {
               justifyContent="space-between"
             >
               <LogoMob src={logoSvg} />
+              <UserImg src={User} />
               <ClientNameMob theme={theme}> {userName}</ClientNameMob>
               <LogoutButton onClick={() => dispatch(openModalLogout())}>
                 <LogoutImg src={logOutSvg} />
