@@ -135,19 +135,33 @@ export const DiagramTab = () => {
 
             {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
-              year.length > 0 && <ChartComp data={prepareData()} />}
+              year.length > 0 && (
+                <ChartComp
+                  data={prepareData()}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
 
             {/* IN CASE OF LOADING */}
             {isLoading && !error && (
@@ -244,19 +258,33 @@ export const DiagramTab = () => {
             <StatsTitleTablet>Statistics</StatsTitleTablet>
             {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
-              year.length > 0 && <ChartComp data={prepareData()} />}
+              year.length > 0 && (
+                <ChartComp
+                  data={prepareData()}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
 
             {/* IN CASE OF LOADING */}
             {isLoading && !error && (
@@ -352,19 +380,33 @@ export const DiagramTab = () => {
             <StatsTitleMobile>Statistics</StatsTitleMobile>
             {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
-              <ChartComp data={initialData} />
+              <ChartComp
+                data={initialData}
+                incomeSummary={0}
+                expenseSummary={0}
+              />
             )}
 
             {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
-              year.length > 0 && <ChartComp data={prepareData()} />}
+              year.length > 0 && (
+                <ChartComp
+                  data={prepareData()}
+                  incomeSummary={incomeSummary}
+                  expenseSummary={expenseSummary}
+                />
+              )}
 
             {/* IN CASE OF LOADING */}
             {isLoading && !error && (
