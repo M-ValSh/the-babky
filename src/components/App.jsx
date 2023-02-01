@@ -14,7 +14,6 @@ import NotFound from './NotFound/NotFound';
 import Loader from './Loader/Loader';
 
 import { useMedia } from './Media/useMedia';
-import { selectTransactionIsLoading } from 'redux/transactionsCategories/transactionsCategories-selectors';
 
 const Currencys = lazy(() => import('pages/Currencys/Currencys'));
 const Home = lazy(() => import('pages/Home/Home'));
@@ -28,7 +27,6 @@ export const App = () => {
   const isCurrentUserRefreshing = useSelector(authSelectors.selectIsRefreshing);
   const isLoadingAuth = useSelector(authSelectors.selectIsLoading);
   const isLoadingTransactions = useSelector(selectIsLoading);
-  const isLoadingTransactSelec = useSelector(selectTransactionIsLoading);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -38,7 +36,6 @@ export const App = () => {
     <div>
       {isLoadingAuth && <Loader />}
       {isLoadingTransactions && <Loader />}
-      {isLoadingTransactSelec && <Loader />}
 
       {!isCurrentUserRefreshing && (
         <Routes>
