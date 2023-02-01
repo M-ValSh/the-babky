@@ -22,6 +22,7 @@ export const IllustrationWrapper = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  alignItems: 'center',
   paddingTop: '150px',
 }));
 

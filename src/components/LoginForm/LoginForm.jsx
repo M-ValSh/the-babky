@@ -69,7 +69,7 @@ const LoginForm = () => {
           gridTemplateRows={'1fr 30px'}
           gridTemplateColumns={'42vw 1fr'}
           gap="0"
-          h="100vh"
+          minH="100vh"
           backgroundColor="mainBgUnderColor"
           backgroundRepeat="no-repeat, no-repeat"
           backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
@@ -225,7 +225,7 @@ const LoginForm = () => {
                       onBlur={handleBlur}
                       value={values.email}
                       placeholder="E-mail"
-                      _placeholder={theme.placeholderCss}
+                      _placeholder={theme.colorPlaceholder}
                       borderColor={theme.colors.InputColor}
                       pl="60px"
                       className="input"
@@ -254,7 +254,7 @@ const LoginForm = () => {
                       onBlur={handleBlur}
                       value={values.password}
                       placeholder="Password"
-                      _placeholder={theme.placeholderCss}
+                      _placeholder={theme.colorPlaceholder}
                       borderColor={theme.colors.InputColor}
                       pl="60px"
                       className="input"
@@ -328,7 +328,7 @@ const LoginForm = () => {
                           onBlur={handleBlur}
                           value={values.email}
                           placeholder="E-mail"
-                          _placeholder={theme.placeholderCss}
+                          _placeholder={theme.colorPlaceholder}
                           borderColor={theme.colors.InputColor}
                           pl="60px"
                           className="input"
@@ -357,7 +357,7 @@ const LoginForm = () => {
                           onBlur={handleBlur}
                           value={values.password}
                           placeholder="Password"
-                          _placeholder={theme.placeholderCss}
+                          _placeholder={theme.colorPlaceholder}
                           borderColor={theme.colors.InputColor}
                           pl="60px"
                           className="input"

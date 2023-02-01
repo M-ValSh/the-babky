@@ -83,10 +83,11 @@ const RegisterForm = () => {
           templateAreas={`
                       "nav main"
                       "nav main"`}
-          gridTemplateRows={'1fr 30px'}
+          gridTemplateRows={'1fr'} /* '1fr 30px' */
           gridTemplateColumns={'42vw 1fr'}
           gap="0"
-          h="100vh"
+          // h="100vh"
+          minH='100vh'
           backgroundColor="mainBgUnderColor"
           backgroundRepeat="no-repeat, no-repeat"
           backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
@@ -104,7 +105,7 @@ const RegisterForm = () => {
             backgroundColor="mainBgLighter"
             backdropFilter="blur(25px)"
           >
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} style={{padding: '40px 0'}}>
               <FormBlock>
                 <Logo />
                 <Stack spacing={0} mt="60px" gap="40px">
