@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import { switchTheme } from 'components/AddTransactionModal/AddTransactionForm/SwitchTheme';
+import { selectTheme } from 'components/SelectTheme';
 
 const colors = {
   mainBgDarker: '#E5E5E5',
@@ -56,5 +57,5 @@ export const theme = extendTheme({
   radii,
   fonts,
   placeholderCss,
-  components: { Switch: switchTheme },
+  components: { Switch: switchTheme, Select: selectTheme },
 });
