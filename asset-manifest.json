@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/the-babky/static/css/main.839beafa.css",
-    "main.js": "/the-babky/static/js/main.09bfc6e7.js",
+    "main.js": "/the-babky/static/js/main.8ddaedb0.js",
     "static/js/709.73d17a80.chunk.js": "/the-babky/static/js/709.73d17a80.chunk.js",
-    "static/js/646.c3b77c02.chunk.js": "/the-babky/static/js/646.c3b77c02.chunk.js",
+    "static/js/646.dac12dcd.chunk.js": "/the-babky/static/js/646.dac12dcd.chunk.js",
     "static/js/320.b2c48c83.chunk.js": "/the-babky/static/js/320.b2c48c83.chunk.js",
     "static/js/693.d8249035.chunk.js": "/the-babky/static/js/693.d8249035.chunk.js",
     "static/js/530.3bb04003.chunk.js": "/the-babky/static/js/530.3bb04003.chunk.js",
@@ -45,9 +45,9 @@
     "static/media/pink_ellipse.svg": "/the-babky/static/media/pink_ellipse.67efe2beefff5419592e10e36bf84721.svg",
     "static/media/plus.svg": "/the-babky/static/media/plus.6194a661e88e1e5113d28da2398b6404.svg",
     "main.839beafa.css.map": "/the-babky/static/css/main.839beafa.css.map",
-    "main.09bfc6e7.js.map": "/the-babky/static/js/main.09bfc6e7.js.map",
+    "main.8ddaedb0.js.map": "/the-babky/static/js/main.8ddaedb0.js.map",
     "709.73d17a80.chunk.js.map": "/the-babky/static/js/709.73d17a80.chunk.js.map",
-    "646.c3b77c02.chunk.js.map": "/the-babky/static/js/646.c3b77c02.chunk.js.map",
+    "646.dac12dcd.chunk.js.map": "/the-babky/static/js/646.dac12dcd.chunk.js.map",
     "320.b2c48c83.chunk.js.map": "/the-babky/static/js/320.b2c48c83.chunk.js.map",
     "693.d8249035.chunk.js.map": "/the-babky/static/js/693.d8249035.chunk.js.map",
     "530.3bb04003.chunk.js.map": "/the-babky/static/js/530.3bb04003.chunk.js.map",
@@ -61,6 +61,6 @@
   },
   "entrypoints": [
     "static/css/main.839beafa.css",
-    "static/js/main.09bfc6e7.js"
+    "static/js/main.8ddaedb0.js"
   ]
 }
