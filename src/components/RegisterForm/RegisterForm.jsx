@@ -19,22 +19,17 @@ import { EmailIcon, LockIcon, AtSignIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
 import { Logo } from 'components/Logo/Logo';
-// import Frame from '../../img/illustrations/Frame.svg';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 import { useDispatch } from 'react-redux';
-import { theme } from 'Styles/theme';
 import { ReactComponent as GirlImage } from 'assets/images/register-girl.svg';
 
 import {
-  Illustration,
   IllustrationDesc,
   IllustrationWrapper,
   FormBlock,
-  Overlay,
   BubbleWrapper,
   FormBlockTab,
-  IllustrationWrapperTab,
   IconWrapper,
   IllustrationDescTab,
 } from './RegisterForm.styled';
@@ -455,7 +450,9 @@ const RegisterForm = () => {
         <Box>
           <BubbleWrapper>
             <IconWrapper>
-              <GirlImage width="273px" />
+
+              <GirlImage width="273px" height="250px" />
+
               <IllustrationDescTab>Finance App</IllustrationDescTab>
             </IconWrapper>
 

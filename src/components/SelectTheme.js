@@ -7,7 +7,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const mySelectStyle = definePartsStyle({
   field: {
     fontFamily: 'Circe',
-    w: '182px',
+    w: '280px',
     h: '50px',
     border: '1px solid #000',
     borderRadius: '30px',
@@ -15,8 +15,12 @@ const mySelectStyle = definePartsStyle({
     color: '#000',
     padding: '0 32px 0 20px',
 
-    '@media (max-width: 767px)': {
-      w: '280px',
+    '@media (min-width: 768px)': {
+      w: '160px',
+    },
+
+    '@media (min-width: 1280px)': {
+      w: '182px',
     },
 
     '&>option': {

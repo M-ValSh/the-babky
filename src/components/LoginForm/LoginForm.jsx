@@ -20,7 +20,9 @@ import {
   GridItem,
   Grid,
   Box,
+
   FormControl,
+
 } from '@chakra-ui/react';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
@@ -30,14 +32,11 @@ import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 
 import {
-  Illustration,
   IllustrationDesc,
   IllustrationWrapper,
   FormBlock,
   FormBlockMobile,
   BubbleWrapper,
-  Overlay,
-  IllustrationWrapperTab,
 } from './LoginForm.styled';
 import {
   IconWrapper,
@@ -308,7 +307,9 @@ const LoginForm = () => {
         <Box>
           <BubbleWrapper>
             <IconWrapper>
-              <Frame width="273px" />
+
+              <Frame width="273px" height="250px" />
+
               <IllustrationDescTab>Finance App</IllustrationDescTab>
             </IconWrapper>
 
@@ -322,11 +323,14 @@ const LoginForm = () => {
               validationSchema={schema}
             >
               {({ handleChange, handleBlur, values, isValid, dirty }) => (
-                <Form position="relative" zIndex="50000">
-                  <FormBlock>
+
+                <Form style={{ position: 'relative', zIndex: '50000' }}>
+                  <FormBlock
+                    style={{ margin: '50px auto', marginBottom: 'auto' }}
+                  >
+
                     <Logo />
                     <Stack spacing={0} mt="60px" gap="40px">
-                      {/* <p className="text">You can sign in using email and password</p> */}
                       <InputGroup>
                         <InputLeftElement
                           pointerEvents="none"
@@ -413,103 +417,4 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-// {
-//   media.isTablet && (
-//     <BubbleWrapper>
-//       <Formik
-//         initialValues={{
-//           email: '',
-//           password: '',
-//         }}
-//         validateOnBlur
-//         onSubmit={handleLogin}
-//         validationSchema={schema}
-//       >
-//         {({ handleChange, handleBlur, values, isValid, dirty }) => (
-//           <Form position="relative" zIndex="50000">
-//             <FormBlock>
-//               <Logo />
-//               <Stack spacing={0} mt="60px" gap="40px">
-//                 {/* <p className="text">You can sign in using email and password</p> */}
-//                 <InputGroup>
-//                   <InputLeftElement
-//                     pointerEvents="none"
-//                     children={
-//                       <EmailIcon
-//                         color={theme.colors.InputColor}
-//                         w="24px"
-//                         h="24px"
-//                         ml="12px"
-//                       />
-//                     }
-//                     // pb='5px'
-//                   />
-//                   <Input
-//                     variant="flushed"
-//                     type="email"
-//                     name="email"
-//                     onChange={handleChange}
-//                     onBlur={handleBlur}
-//                     value={values.email}
-//                     placeholder="E-mail"
-//                     _placeholder={theme.placeholderCss}
-//                     borderColor={theme.colors.InputColor}
-//                     pl="60px"
-//                     className="input"
-//                     width="410px"
-//                     height="40px"
-//                     errorBorderColor={theme.colors.BgBtnRed}
-//                   />
-//                 </InputGroup>
-//                 <InputGroup>
-//                   <InputLeftElement
-//                     pointerEvents="none"
-//                     children={
-//                       <LockIcon
-//                         color={theme.colors.InputColor}
-//                         w="24px"
-//                         h="24px"
-//                         ml="12px"
-//                       />
-//                     }
-//                   />
-//                   <Input
-//                     variant="flushed"
-//                     type="password"
-//                     name="password"
-//                     onChange={handleChange}
-//                     onBlur={handleBlur}
-//                     value={values.password}
-//                     placeholder="Password"
-//                     _placeholder={theme.placeholderCss}
-//                     borderColor={theme.colors.InputColor}
-//                     pl="60px"
-//                     className="input"
-//                     width="410px"
-//                     height="40px"
-//                     errorBorderColor={theme.colors.BgBtnRed}
-//                   />
-//                 </InputGroup>
-//               </Stack>
-//               <Stack spacing={0} mt="42px">
-//                 <WalletButton text="LOG IN" />
-//                 <NavLink to="/register">
-//                   <WalletButton
-//                     text="REGISTER"
-//                     styleType="transparent"
-//                     type="submit"
-//                   />
-//                 </NavLink>
-//               </Stack>
-//             </FormBlock>
-//           </Form>
-//         )}
-//       </Formik>
 
-//       <IllustrationWrapperTab>
-//         <Frame width="260" />
-//         <IllustrationDesc>Finance App</IllustrationDesc>
-//       </IllustrationWrapperTab>
-//     </BubbleWrapper>
-//   );
-// }
