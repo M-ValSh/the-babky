@@ -96,7 +96,7 @@ export const TDelement = styled.td`
 export const TDElementSum = styled.td`
   color: ${props => (props.isIncome ? '#24CCA7' : '#FF6596')};
   text-align: right;
-  padding: 14px 20px;
+  padding: 14px 15px;
 `;
 
 export const NoTransactions = styled.p`
