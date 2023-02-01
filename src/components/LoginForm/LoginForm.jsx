@@ -74,10 +74,7 @@ const LoginForm = () => {
           backgroundRepeat="no-repeat, no-repeat"
           backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
           backgroundPosition="top -150px right -150px, bottom -150px left -150px"
-          // color='blackAlpha.700'
-          // fontWeight='bold'
         >
-          {/* <LoginFormPage> */}
           <GridItem pl="2" area={'nav'}>
             <IllustrationWrapper>
               <Frame />
@@ -215,7 +212,6 @@ const LoginForm = () => {
                           ml="12px"
                         />
                       }
-                      // pb='5px'
                     />
                     <Input
                       variant="flushed"
@@ -281,7 +277,6 @@ const LoginForm = () => {
         </Formik>
       )}
 
-      {/* From register component */}
       {media.isTablet && (
         <Box>
           <BubbleWrapper>
@@ -318,7 +313,6 @@ const LoginForm = () => {
                               ml="12px"
                             />
                           }
-                          // pb='5px'
                         />
                         <Input
                           variant="flushed"

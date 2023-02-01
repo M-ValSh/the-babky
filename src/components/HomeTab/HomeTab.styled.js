@@ -1,36 +1,10 @@
 import styled from '@emotion/styled';
 
-// export const TransactionsList = styled.ul`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 8px;
-//   list-style: none;
-// `;
-// export const TransactionsItem = styled.li`
-//   /* display: flex;
-//   flex-direction: column;
-//   gap: 8px; */
-//   margin: 0 auto;
-//   width: 280px;
-//   border-radius: 10px;
-
-//   &:first-of-type {
-//     /* width: 120px; */
-//     border-top-left-radius: 30px;
-//     border-bottom-left-radius: 30px;
-//   }
-//   &:last-child {
-//     /* width: 60px; */
-//     border-top-right-radius: 30px;
-//     border-bottom-right-radius: 30px;
-//   }
-// `;
 
 export const Table = styled.table`
   table-layout: fixed;
   width: 704px;
   border-collapse: collapse;
-  /* border: 3px solid purple; */
   margin: 0 auto;
 `;
 
@@ -103,7 +77,6 @@ export const NoTransactions = styled.p`
   text-align: center;
 `;
 
-//  стилі від Ксенії
 export const TableWrapMob = styled.div`
   padding: 0 20px;
 `;

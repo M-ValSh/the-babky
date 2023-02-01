@@ -86,7 +86,6 @@ const RegisterForm = () => {
           gridTemplateRows={'1fr'} /* '1fr 30px' */
           gridTemplateColumns={'42vw 1fr'}
           gap="0"
-          // h="100vh"
           minH='100vh'
           backgroundColor="mainBgUnderColor"
           backgroundRepeat="no-repeat, no-repeat"

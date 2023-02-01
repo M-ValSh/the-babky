@@ -52,7 +52,6 @@ export const FormBlock = styled.div(({ theme }) => ({
   flexDirection: 'column',
   zIndex: '100000',
 
-  // margin: '136px 91px 116px 107px',
   marginLeft: 'auto',
   marginRight: 'auto',
   padding: '40px 61px 62px 61px',
@@ -96,7 +95,6 @@ export const BubbleWrapper = styled.div(({ theme }) => ({
     bottom: 0,
     zIndex: 0,
     content: '""',
-    // filter: 'blur(25px)',
     background: `url('${BublePurp}') bottom left no-repeat, url('${BublRed}') top right no-repeat `,
   },
 }));

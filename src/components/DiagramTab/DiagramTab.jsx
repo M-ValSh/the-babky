@@ -173,14 +173,13 @@ export const DiagramTab = () => {
           <TableWrapperDesk>
             <SelectWrapperDesk>
               <Multiselect
-                options={optionsMonths} // Options to display in the dropdown
-                onSelect={onSelectMonth} // Function will trigger on select event
-                onRemove={onRemoveMonth} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsMonths}
+                onSelect={onSelectMonth}
+                onRemove={onRemoveMonth}
+                displayValue="name"
                 placeholder="Month"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '181px',
@@ -188,7 +187,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -198,14 +196,13 @@ export const DiagramTab = () => {
                 singleSelect
               />
               <Multiselect
-                options={optionsYears} // Options to display in the dropdown
-                onSelect={onSelectYear} // Function will trigger on select event
-                onRemove={onRemoveYear} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsYears}
+                onSelect={onSelectYear}
+                onRemove={onRemoveYear}
+                displayValue="name"
                 placeholder="Year"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '181px',
@@ -213,7 +210,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -224,21 +220,18 @@ export const DiagramTab = () => {
               />
             </SelectWrapperDesk>
 
-            {/* INITIAL MOMENT OF TIME */}
             {!isLoading && (month.length === 0 || year.length === 0) && (
               <NoDataDesk>
                 Please, select period above to see transactions
               </NoDataDesk>
             )}
 
-            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
               <NoDataDesk>
                 Sorry, but there are no transactions during that period
               </NoDataDesk>
             )}
 
-            {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
@@ -256,7 +249,7 @@ export const DiagramTab = () => {
         <WrapperTablet>
           <ChartWrapperTablet>
             <StatsTitleTablet>Statistics</StatsTitleTablet>
-            {/* INITIAL MOMENT OF TIME */}
+
             {!isLoading && (month.length === 0 || year.length === 0) && (
               <ChartComp
                 data={initialData}
@@ -265,7 +258,6 @@ export const DiagramTab = () => {
               />
             )}
 
-            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
               <ChartComp
                 data={initialData}
@@ -274,7 +266,6 @@ export const DiagramTab = () => {
               />
             )}
 
-            {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
@@ -286,7 +277,6 @@ export const DiagramTab = () => {
                 />
               )}
 
-            {/* IN CASE OF LOADING */}
             {isLoading && !error && (
               <ChartCompLoadingTablet>
                 <MoonLoader color="#36d7b7" />
@@ -296,14 +286,13 @@ export const DiagramTab = () => {
           <TableWrapperTablet>
             <SelectWrapperTablet>
               <Multiselect
-                options={optionsMonths} // Options to display in the dropdown
-                onSelect={onSelectMonth} // Function will trigger on select event
-                onRemove={onRemoveMonth} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsMonths}
+                onSelect={onSelectMonth}
+                onRemove={onRemoveMonth}
+                displayValue="name"
                 placeholder="Month"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '160px',
@@ -311,7 +300,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -321,14 +309,13 @@ export const DiagramTab = () => {
                 singleSelect
               />
               <Multiselect
-                options={optionsYears} // Options to display in the dropdown
-                onSelect={onSelectYear} // Function will trigger on select event
-                onRemove={onRemoveYear} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsYears}
+                onSelect={onSelectYear}
+                onRemove={onRemoveYear}
+                displayValue="name"
                 placeholder="Year"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '160px',
@@ -336,7 +323,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -346,21 +332,19 @@ export const DiagramTab = () => {
                 singleSelect
               />
             </SelectWrapperTablet>
-            {/* INITIAL MOMENT OF TIME */}
+
             {!isLoading && (month.length === 0 || year.length === 0) && (
               <NoDataTablet>
                 Please, select period above to see transactions
               </NoDataTablet>
             )}
 
-            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
               <NoDataTablet>
                 Sorry, but there are no transactions during that period
               </NoDataTablet>
             )}
 
-            {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
@@ -378,7 +362,7 @@ export const DiagramTab = () => {
         <WrapperMobile>
           <ChartWrapperMobile>
             <StatsTitleMobile>Statistics</StatsTitleMobile>
-            {/* INITIAL MOMENT OF TIME */}
+
             {!isLoading && (month.length === 0 || year.length === 0) && (
               <ChartComp
                 data={initialData}
@@ -387,7 +371,6 @@ export const DiagramTab = () => {
               />
             )}
 
-            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
               <ChartComp
                 data={initialData}
@@ -396,7 +379,6 @@ export const DiagramTab = () => {
               />
             )}
 
-            {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&
@@ -408,7 +390,6 @@ export const DiagramTab = () => {
                 />
               )}
 
-            {/* IN CASE OF LOADING */}
             {isLoading && !error && (
               <ChartCompLoadingMobile>
                 <MoonLoader color="#36d7b7" />
@@ -418,14 +399,13 @@ export const DiagramTab = () => {
           <TableWrapperMobile>
             <SelectWrapperMobile>
               <Multiselect
-                options={optionsMonths} // Options to display in the dropdown
-                onSelect={onSelectMonth} // Function will trigger on select event
-                onRemove={onRemoveMonth} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsMonths}
+                onSelect={onSelectMonth}
+                onRemove={onRemoveMonth}
+                displayValue="name"
                 placeholder="Month"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '280px',
@@ -433,7 +413,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -443,14 +422,13 @@ export const DiagramTab = () => {
                 singleSelect
               />
               <Multiselect
-                options={optionsYears} // Options to display in the dropdown
-                onSelect={onSelectYear} // Function will trigger on select event
-                onRemove={onRemoveYear} // Function will trigger on remove event
-                displayValue="name" // Property name to display in the dropdown options
+                options={optionsYears}
+                onSelect={onSelectYear}
+                onRemove={onRemoveYear}
+                displayValue="name"
                 placeholder="Year"
                 style={{
                   searchBox: {
-                    // To change search box element look
                     border: '1px solid black',
                     borderRadius: '30px',
                     width: '280px',
@@ -458,7 +436,6 @@ export const DiagramTab = () => {
                     height: '46px',
                   },
                   option: {
-                    // To change css for dropdown options
                     color: 'black',
                   },
                 }}
@@ -468,21 +445,19 @@ export const DiagramTab = () => {
                 singleSelect
               />
             </SelectWrapperMobile>
-            {/* INITIAL MOMENT OF TIME */}
+
             {!isLoading && (month.length === 0 || year.length === 0) && (
               <NoDataMobile>
                 Please, select period above to see transactions
               </NoDataMobile>
             )}
 
-            {/* WHEN SELECTED PERIOD BUT NO RESULTS */}
             {!isLoading && month && year && trSummary.length === 0 && (
               <NoDataMobile>
                 Sorry, but there are no transactions during that period
               </NoDataMobile>
             )}
 
-            {/* WHEN THERE ARE RESULTS */}
             {!isLoading &&
               trSummary.length > 0 &&
               month.length > 0 &&

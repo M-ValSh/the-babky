@@ -59,10 +59,10 @@ export const FormBlock = styled.div(({ theme }) => ({
   height: '468px',
 
   alignItems: 'center',
-  //   justifyContent: 'center',
+
   backgroundColor: theme.colors.whiteColor,
   color: theme.colors.textMain,
-  //   borderRadius: '20px',
+
   borderRadius: theme.radii.currency,
 }));
 
@@ -71,34 +71,23 @@ export const FormBlockMobile = styled.div(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
 
-  // margin: '136px 91px 116px 107px',
-  // marginLeft: 'auto',
-  // marginRight: 'auto',
-  // padding: '40px 61px 62px 61px',
-
   minWidth: '280px',
   height: '568px',
 
   alignItems: 'center',
-  //   justifyContent: 'center',
+
   backgroundColor: theme.colors.whiteColor,
   color: theme.colors.textMain,
-  //   borderRadius: '20px',
+
   borderRadius: theme.radii.currency,
 }));
 
 export const FormWrapperMobile = styled.div(({ theme }) => ({
-  //   marginLeft: '32px',
   display: 'block',
   width: '100%',
-  //   marginLeft: 'auto',
-  //   justifyContent: 'center',
-  //   width: '435px',
-  //   height: '420px',
 
   backgroundColor: theme.colors.mainBgLighter,
   backdropFilter: 'blur(25px)',
-  //   blur: '25px',
 }));
 
 export const Overlay = styled.div`
@@ -121,7 +110,7 @@ export const Overlay = styled.div`
 export const BubbleWrapper = styled.div(({ theme }) => ({
   width: '100%',
   minHeight: '100vh',
-  // minHeight: '800px',
+
   zIndex: 0,
   background: theme.colors.BgMain,
   '::after': {
@@ -132,7 +121,7 @@ export const BubbleWrapper = styled.div(({ theme }) => ({
     bottom: 0,
     zIndex: 0,
     content: '""',
-    // filter: 'blur(25px)',
+
     background: `url('${BublePurp}') bottom left no-repeat, url('${BublRed}') top right no-repeat `,
   },
 }));
