@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/the-babky/static/css/main.e39184df.css",
-    "main.js": "/the-babky/static/js/main.440a0763.js",
+    "main.js": "/the-babky/static/js/main.c7e89fc9.js",
     "static/js/709.73d17a80.chunk.js": "/the-babky/static/js/709.73d17a80.chunk.js",
-    "static/js/646.dac12dcd.chunk.js": "/the-babky/static/js/646.dac12dcd.chunk.js",
+    "static/js/155.882fab31.chunk.js": "/the-babky/static/js/155.882fab31.chunk.js",
     "static/js/320.b2c48c83.chunk.js": "/the-babky/static/js/320.b2c48c83.chunk.js",
     "static/js/693.d8249035.chunk.js": "/the-babky/static/js/693.d8249035.chunk.js",
-    "static/js/530.6d887404.chunk.js": "/the-babky/static/js/530.6d887404.chunk.js",
+    "static/js/530.56d1da92.chunk.js": "/the-babky/static/js/530.56d1da92.chunk.js",
     "static/js/94.8635cecd.chunk.js": "/the-babky/static/js/94.8635cecd.chunk.js",
     "static/js/144.0de5586e.chunk.js": "/the-babky/static/js/144.0de5586e.chunk.js",
     "static/js/785.fdd29bdf.chunk.js": "/the-babky/static/js/785.fdd29bdf.chunk.js",
@@ -44,12 +44,12 @@
     "static/media/pink_ellipse.svg": "/the-babky/static/media/pink_ellipse.67efe2beefff5419592e10e36bf84721.svg",
     "static/media/plus.svg": "/the-babky/static/media/plus.6194a661e88e1e5113d28da2398b6404.svg",
     "main.e39184df.css.map": "/the-babky/static/css/main.e39184df.css.map",
-    "main.440a0763.js.map": "/the-babky/static/js/main.440a0763.js.map",
+    "main.c7e89fc9.js.map": "/the-babky/static/js/main.c7e89fc9.js.map",
     "709.73d17a80.chunk.js.map": "/the-babky/static/js/709.73d17a80.chunk.js.map",
-    "646.dac12dcd.chunk.js.map": "/the-babky/static/js/646.dac12dcd.chunk.js.map",
+    "155.882fab31.chunk.js.map": "/the-babky/static/js/155.882fab31.chunk.js.map",
     "320.b2c48c83.chunk.js.map": "/the-babky/static/js/320.b2c48c83.chunk.js.map",
     "693.d8249035.chunk.js.map": "/the-babky/static/js/693.d8249035.chunk.js.map",
-    "530.6d887404.chunk.js.map": "/the-babky/static/js/530.6d887404.chunk.js.map",
+    "530.56d1da92.chunk.js.map": "/the-babky/static/js/530.56d1da92.chunk.js.map",
     "94.8635cecd.chunk.js.map": "/the-babky/static/js/94.8635cecd.chunk.js.map",
     "144.0de5586e.chunk.js.map": "/the-babky/static/js/144.0de5586e.chunk.js.map",
     "785.fdd29bdf.chunk.js.map": "/the-babky/static/js/785.fdd29bdf.chunk.js.map",
@@ -59,6 +59,6 @@
   },
   "entrypoints": [
     "static/css/main.e39184df.css",
-    "static/js/main.440a0763.js"
+    "static/js/main.c7e89fc9.js"
   ]
 }
