@@ -137,10 +137,18 @@ export const DiagramTab = () => {
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
-                value="01">January value="02">February value="03">March
-                value="04">April value="05">May value="06">June value="07">July
-                value="08">August value="09">September value="10">October
-                value="11">November value="12">December
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
               </MySelect>
               <MySelect
                 variant="mySelectStyle"
@@ -148,8 +156,10 @@ export const DiagramTab = () => {
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
-                value="2022">2022 value="2023">2023 value="2024">2024
-                value="2025">2025
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
               </MySelect>
             </SelectWrapperDesk>
 
@@ -216,10 +226,18 @@ export const DiagramTab = () => {
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
-                value="01">January value="02">February value="03">March
-                value="04">April value="05">May value="06">June value="07">July
-                value="08">August value="09">September value="10">October
-                value="11">November value="12">December
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
               </MySelect>
               <MySelect
                 variant="mySelectStyle"
@@ -227,8 +245,10 @@ export const DiagramTab = () => {
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
-                value="2022">2022 value="2023">2023 value="2024">2024
-                value="2025">2025
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
               </MySelect>
             </SelectWrapperTablet>
             {/* INITIAL MOMENT OF TIME */}
@@ -294,10 +314,18 @@ export const DiagramTab = () => {
                 placeholder="Month"
                 onChange={handleChangeMonth}
               >
-                value="01">January value="02">February value="03">March
-                value="04">April value="05">May value="06">June value="07">July
-                value="08">August value="09">September value="10">October
-                value="11">November value="12">December
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
               </MySelect>
               <MySelect
                 variant="mySelectStyle"
@@ -305,8 +333,10 @@ export const DiagramTab = () => {
                 placeholder="Year"
                 onChange={handleChangeYear}
               >
-                value="2022">2022 value="2023">2023 value="2024">2024
-                value="2025">2025
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
               </MySelect>
             </SelectWrapperMobile>
             {/* INITIAL MOMENT OF TIME */}
