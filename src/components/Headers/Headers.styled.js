@@ -37,7 +37,7 @@ export const ClientNameMob = styled.p(({ theme }) => ({
   fontSize: '18px',
   lineHeight: '24px',
   marginRight: '12px',
-  marginLeft: 'auto',
+  // marginLeft: 'auto',
 }));
 
 export const LogoutButton = styled.button(({ theme }) => ({
