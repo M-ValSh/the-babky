@@ -1,4 +1,4 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import {
   ChartText,
@@ -8,7 +8,7 @@ import {
 } from './ChartComp.styled';
 import { useMedia } from 'components/Media/useMedia';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip);
 
 const options = {
   cutout: '65%',
