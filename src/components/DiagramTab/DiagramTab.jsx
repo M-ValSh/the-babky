@@ -24,7 +24,6 @@ import {
   ChartCompLoadingMobile,
   MySelect,
 } from './DiagramTab.styled';
-// import { Select } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { categoryColorSwitcher } from '../CategoryTable/categoryColorSwitcher.js';
 import { useMedia } from 'components/Media/useMedia';
@@ -73,7 +72,6 @@ export const DiagramTab = () => {
     ],
   };
 
-  // PREPARE DATA FOR CHART DIAGRAM
   function prepareData() {
     const total = trSummary.map(el => el.total);
     const colors = trSummary.map(el => categoryColorSwitcher(el.name));

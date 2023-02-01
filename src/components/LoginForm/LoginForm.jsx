@@ -182,7 +182,11 @@ const LoginForm = () => {
                     <Stack spacing={0} mt="42px">
                       <WalletButton text="LOG IN" />
                       <NavLink to="/register">
-                        <WalletButton text="REGISTER" styleType="transparent" />
+                        <WalletButton
+                          text="REGISTER"
+                          styleType="transparent"
+                          type="submit"
+                        />
                       </NavLink>
                     </Stack>
                   </FormBlock>
@@ -282,6 +286,7 @@ const LoginForm = () => {
                     <WalletButton
                       text="REGISTER"
                       styleType="transparent"
+                      type="submit"
                       style={{ minWidth: '280px' }}
                     />
                   </NavLink>
@@ -378,7 +383,11 @@ const LoginForm = () => {
                     <Stack spacing={0} mt="42px">
                       <WalletButton text="LOG IN" />
                       <NavLink to="/register">
-                        <WalletButton text="REGISTER" styleType="transparent" />
+                        <WalletButton
+                          text="REGISTER"
+                          styleType="transparent"
+                          type="submit"
+                        />
                       </NavLink>
                     </Stack>
                   </FormBlock>

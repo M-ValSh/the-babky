@@ -5,7 +5,6 @@ const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(selectAnatomy.keys);
 
 const mySelectStyle = definePartsStyle({
-  // define the part you're going to style
   field: {
     fontFamily: 'Circe',
     w: '182px',

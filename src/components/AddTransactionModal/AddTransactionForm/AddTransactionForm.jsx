@@ -44,7 +44,6 @@ export default function AddTransactionForm() {
     },
     onSubmit: values => {
       const { category, amount, date, comment } = values;
-      console.log(categories);
       const selectedCategory = categories.find(item => {
         return item.name === (category === '' ? 'Income' : category);
       });
