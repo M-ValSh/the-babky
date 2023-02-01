@@ -15,6 +15,10 @@ import {
   THMobile,
   TableTextMobile,
   TRMobile,
+  LoaderWrap,
+  LineTwo,
+  LineOne,
+  LineThree,
 } from './Currency.styled';
 import CurrencyDesc from '../../assets/images/iMac-currency.svg';
 import CurrencyTablet from '../../assets/images/tablet-currency.svg';
@@ -115,7 +119,11 @@ export const Currency = () => {
             <tbody>
               {isLoading && (
                 <tr>
-                  <TableTextDesc>Please wait...</TableTextDesc>
+                  <LoaderWrap>
+                    <LineOne />
+                    <LineTwo />
+                    <LineThree />
+                  </LoaderWrap>
                 </tr>
               )}
               {error && (
@@ -159,7 +167,11 @@ export const Currency = () => {
             <tbody>
               {isLoading && (
                 <tr>
-                  <TableTextTablet>Please wait...</TableTextTablet>
+                  <LoaderWrap>
+                    <LineOne />
+                    <LineTwo />
+                    <LineThree />
+                  </LoaderWrap>
                 </tr>
               )}
               {error && (
@@ -203,7 +215,11 @@ export const Currency = () => {
             <tbody>
               {isLoading && (
                 <tr>
-                  <TableTextMobile>Please wait...</TableTextMobile>
+                  <LoaderWrap>
+                    <LineOne />
+                    <LineTwo />
+                    <LineThree />
+                  </LoaderWrap>
                 </tr>
               )}
               {error && (

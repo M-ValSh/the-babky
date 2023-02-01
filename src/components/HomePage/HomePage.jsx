@@ -17,12 +17,10 @@ import {
 } from 'components/Navigations/Navigation';
 
 import { HomeTab } from 'components/HomeTab/HomeTab';
-
 import AddTrnsctnBtn from 'components/AddTrnsctnBtn/AddTrnsctnBtn';
 import AddTransactionModal from 'components/AddTransactionModal/AddTransactionModal';
 import { useSelector } from 'react-redux';
 import { selectIsModalAddTransactionOpen } from 'redux/global/global-selectors';
-
 
 const HomePage = () => {
   const media = useMedia();
@@ -41,19 +39,23 @@ const HomePage = () => {
         <Grid
           templateAreas={`"nav nav"
                   "main main"`}
-          gridTemplateRows={' 1fr 30px'}
+          gridTemplateRows={' 1fr'}
           gridTemplateColumns={'1fr'}
-          h="200px"
           color="textMain"
           fontFamily="heading"
         >
-          <GridItem bg={theme.colors.BgMain} area={'nav'} h="180px">
+          <GridItem bg={theme.colors.BgMain} area={'nav'} h="148px">
             <NavigationMobile />
             <BalanceBlockMob theme={theme}>
               <Balance />
             </BalanceBlockMob>
           </GridItem>
-          <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh">
+          <GridItem
+            bg={theme.colors.BgMain}
+            area={'main'}
+            minHeight="800px"
+            paddingTop="32px"
+          >
             <HomeTab />
           </GridItem>
         </Grid>
@@ -78,8 +80,8 @@ const HomePage = () => {
               </section>
               <Currency />
             </GridItem>
-            <GridItem bg={theme.colors.BgMain} area={'main'} h="100vh" zIndex="2">
-               <HomeTab />
+            <GridItem area={'main'} zIndex="2">
+              <HomeTab />
             </GridItem>
           </Grid>
         </BubleWrapper>
@@ -109,13 +111,11 @@ const HomePage = () => {
               <Currency />
             </GridItem>
 
-
-            <GridItem zIndex="2" area={'main'} h="100vh">
+            <GridItem zIndex="2" area={'main'} display="flex">
               <HomeTab />
             </GridItem>
           </Grid>
         </BubleWrapper>
-
       )}
     </>
   );

@@ -80,8 +80,9 @@ const RegisterForm = () => {
                       "nav main"
                       "nav main"`}
           gridTemplateRows={'1fr 30px'}
-          gridTemplateColumns={'550px 1fr'}
+          gridTemplateColumns={'42vw 1fr'}
           gap="0"
+          h="100vh"
           backgroundColor="mainBgUnderColor"
           backgroundRepeat="no-repeat, no-repeat"
           backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
@@ -98,7 +99,6 @@ const RegisterForm = () => {
             </IllustrationWrapper>
           </GridItem>
           <GridItem
-            pl="2"
             area={'main'}
             centerContent
             backgroundColor="mainBgLighter"
