@@ -51,7 +51,7 @@ export const FormBlock = styled.div(({ theme }) => ({
   flexDirection: 'column',
   zIndex: '100000',
 
-  margin: '136px 91px 116px 107px',
+  // margin: '136px 91px 116px 107px',
   marginLeft: 'auto',
   marginRight: 'auto',
   padding: '40px 61px 62px 61px',
@@ -59,25 +59,19 @@ export const FormBlock = styled.div(({ theme }) => ({
   width: '532px',
 
   alignItems: 'center',
-  //   justifyContent: 'center',
   backgroundColor: theme.colors.whiteColor,
   color: theme.colors.textMain,
-  //   borderRadius: '20px',
+
   borderRadius: theme.radii.currency,
 }));
 
 export const Overlay = styled.div`
-  /* position: fixed; */
-  /* top: 360px; */
   left: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.25); */
-
-  /* overflow-y: hidden; */
   z-index: 100;
 
   @media (min-width: 768px) {
@@ -90,7 +84,6 @@ export const Overlay = styled.div`
 export const BubbleWrapper = styled.div(({ theme }) => ({
   width: '100%',
   minHeight: '100vh',
-  // minHeight: '800px',
 
   zIndex: 0,
   background: theme.colors.BgMain,
