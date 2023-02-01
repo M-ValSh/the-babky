@@ -3,7 +3,6 @@ import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
 import BublePurp from 'assets/images/ellipse-purple.svg';
 import BublRed from 'assets/images/ellipse-pink.svg';
-// import Frame from '../../img/illustrations/Frame.svg';
 
 export const LoginFormPage = styled.div(({ theme }) => ({
   margin: '0',
@@ -19,9 +18,6 @@ export const Illustration = styled.img(({ theme }) => ({
   width: '435px',
   display: 'block',
   margin: '0 auto',
-  // width: '100%',
-  // height: '420px',
-  // height: '420px',
 }));
 
 export const IllustrationWrapper = styled.div(({ theme }) => ({
@@ -29,30 +25,14 @@ export const IllustrationWrapper = styled.div(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   paddingTop: '150px',
-  // width: '440px',
-  // width: '550px',
-  // paddingTop: '150px',
-  // paddingLeft: '76px',
-
-  // background: `url(${Frame})`,
-  // backgroundRepeat: 'no-repeat',
-  // backgroundPosition: 'center',
-  // backgroundSize: 'contain',
-  // paddingBottom: '78px',
 }));
 
 export const FormWrapper = styled.div(({ theme }) => ({
-  //   marginLeft: '32px',
   display: 'block',
   width: '100%',
-  //   marginLeft: 'auto',
-  //   justifyContent: 'center',
-  //   width: '435px',
-  //   height: '420px',
 
   backgroundColor: theme.colors.mainBgLighter,
   backdropFilter: 'blur(25px)',
-  //   blur: '25px',
 }));
 
 export const IllustrationDesc = styled.p(({ theme }) => ({
@@ -158,7 +138,8 @@ export const IconWrapper = styled.div`
   max-width: 768px;
   padding-left: 114px;
   margin: 0 auto;
-
+  padding-top: 60px;
+  margin-bottom: 50px;
   display: flex;
   align-items: center;
   gap: 40px;

@@ -122,11 +122,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.25); */
-
-  /* overflow-y: hidden; */
   z-index: 100;
-
   @media (min-width: 768px) {
     min-width: 603px;
     min-height: 540px;
@@ -136,12 +132,12 @@ export const Overlay = styled.div`
 
 export const BubbleWrapper = styled.div(({ theme }) => ({
   width: '100%',
-  height: '100vh',
-  minHeight: '800px',
-  zIndex: 1,
+  minHeight: '100vh',
+  // minHeight: '800px',
+  zIndex: 0,
   background: theme.colors.BgMain,
   '::after': {
-    position: 'fixed',
+    position: 'absolute',
     left: 0,
     right: 0,
     top: 0,

@@ -308,7 +308,7 @@ const LoginForm = () => {
         <Box>
           <BubbleWrapper>
             <IconWrapper>
-              <Frame width="273px" />
+              <Frame width="273px" height="250px" />
               <IllustrationDescTab>Finance App</IllustrationDescTab>
             </IconWrapper>
 
@@ -322,11 +322,12 @@ const LoginForm = () => {
               validationSchema={schema}
             >
               {({ handleChange, handleBlur, values, isValid, dirty }) => (
-                <Form position="relative" zIndex="50000">
-                  <FormBlock>
+                <Form style={{ position: 'relative', zIndex: '50000' }}>
+                  <FormBlock
+                    style={{ margin: '50px auto', marginBottom: 'auto' }}
+                  >
                     <Logo />
                     <Stack spacing={0} mt="60px" gap="40px">
-                      {/* <p className="text">You can sign in using email and password</p> */}
                       <InputGroup>
                         <InputLeftElement
                           pointerEvents="none"
