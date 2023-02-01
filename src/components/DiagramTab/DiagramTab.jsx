@@ -85,8 +85,8 @@ export const DiagramTab = () => {
   const initialData = {
     datasets: [
       {
-        label: '# of Votes',
-        data: [1],
+        label: 'No data',
+        data: [100],
         backgroundColor: ['#a6a6a6'],
         borderColor: ['transparent'],
       },
@@ -95,11 +95,14 @@ export const DiagramTab = () => {
 
   function prepareData() {
     const total = trSummary.map(el => el.total);
+    const catNames = trSummary.map(el => el.name);
     const colors = trSummary.map(el => categoryColorSwitcher(el.name));
 
     let data = {
+      labels: catNames,
       datasets: [
         {
+          label: ' Amount',
           data: total,
           backgroundColor: colors,
           borderColor: colors,
