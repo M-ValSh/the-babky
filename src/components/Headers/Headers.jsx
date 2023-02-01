@@ -10,11 +10,13 @@ import {
   ClientNameMob,
   LogoutButton,
   LogoutImg,
+  UserImg,
 } from './Headers.styled';
 import logoSvg from 'assets/images/icons/logo-icon.svg';
 import logOutSvg from 'assets/images/icons/logout-icon.svg';
 
 import { openModalLogout } from 'redux/global/global-slice';
+import User from 'assets/images/user.png';
 
 export const Headers = () => {
   const dispatch = useDispatch();
@@ -76,6 +78,7 @@ export const Headers = () => {
               zIndex="2"
             >
               <Logo src={logoSvg} />
+              <UserImg src={User} />
               <ClientName theme={theme}> {userName}</ClientName>
               <LogoutButton onClick={() => dispatch(openModalLogout())}>
                 <LogoutImg src={logOutSvg} /> Exit

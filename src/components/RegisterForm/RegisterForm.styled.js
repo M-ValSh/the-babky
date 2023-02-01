@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import pink_ellipse from '../../img/figures/pink_ellipse.svg';
 import purple_ellipse from '../../img/figures/purple_ellipse.svg';
+import BublePurp from 'assets/images/ellipse-purple.svg';
+import BublRed from 'assets/images/ellipse-pink.svg';
 // import Frame from '../../img/illustrations/Frame.svg';
 
 export const LoginFormPage = styled.div(({ theme }) => ({
@@ -82,3 +84,81 @@ export const FormBlock = styled.div(({ theme }) => ({
   //   borderRadius: '20px',
   borderRadius: theme.radii.currency,
 }));
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 360px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(0, 0, 0, 0.25); */
+
+  /* overflow-y: hidden; */
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    min-width: 603px;
+    min-height: 540px;
+    top: 0;
+  }
+`;
+
+export const BubbleWrapper = styled.div(({ theme }) => ({
+  width: '100%',
+  height: '100vh',
+  minHeight: '800px',
+
+  zIndex: 1,
+  background: theme.colors.BgMain,
+  '::after': {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    zIndex: 0,
+    content: '""',
+    // filter: 'blur(25px)',
+    background: `url('${BublePurp}') bottom left no-repeat, url('${BublRed}') top right no-repeat `,
+  },
+}));
+
+export const FormBlockTab = styled.div(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  padding: '40px 61px 62px 61px',
+
+  width: '532px',
+
+  alignItems: 'center',
+
+  backgroundColor: theme.colors.whiteColor,
+  color: theme.colors.textMain,
+
+  borderRadius: theme.radii.currency,
+}));
+
+export const IllustrationWrapperTab = styled.div(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  paddingTop: '60px',
+  paddingLeft: '114px',
+  position: 'absolute',
+}));
+
+export const IconWrapper = styled.div`
+  max-width: 768px;
+  padding-left: 114px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 40px;
+`;
