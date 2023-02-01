@@ -1,6 +1,5 @@
 import { bankApi } from 'index';
 import { useEffect, useState } from 'react';
-// import { Box } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
 import {
   TableWrapperDesc,
@@ -25,7 +24,6 @@ import CurrencyTablet from '../../assets/images/tablet-currency.svg';
 import CurrencyMobile from '../../assets/images/mobile-currency.svg';
 
 const ONE_HOUR = 3600000;
-// const ONE_HOUR = 86400000;
 let timeDiff = 0;
 let dataCurrency = {};
 
@@ -62,34 +60,27 @@ export const Currency = () => {
       setIsLoading(true);
 
       try {
-        // Checking if LS contains time and data
         if (localStorage.getItem('currency')) {
           const lsTimeParsed = JSON.parse(
             localStorage.getItem('currency')
           ).currentDate;
           const newDate = new Date().getTime();
           timeDiff = newDate - lsTimeParsed;
-          // console.log('timeDiff', timeDiff);
 
-          // IF time from last fetch is more them 1 hour
-          // then do fetch
           if (timeDiff > ONE_HOUR) {
             dataCurrency = await fetchAndFilter();
             writeToLS(dataCurrency);
             return;
           }
-          // IF time from last fetch if less them 1 hour
-          // then read data from LocalStorage
+
           const lsCurrencyData = localStorage.getItem('currency');
           const lsCurrencyParsedData = JSON.parse(lsCurrencyData).dataCurrency;
-          // console.log('lsCurrencyParsedData:', lsCurrencyParsedData);
+
           setCurrency(lsCurrencyParsedData);
           return;
         }
         dataCurrency = await fetchAndFilter();
-        // console.log(dataCurrency);
 
-        // Write time and fetchedData to LocalStorage
         writeToLS(dataCurrency);
 
         setCurrency(dataCurrency);
@@ -106,7 +97,6 @@ export const Currency = () => {
   return (
     <>
       {media.isDesktop && (
-        // <Box>
         <TableWrapperDesc bg={CurrencyDesc}>
           <table>
             <thead>
@@ -150,11 +140,9 @@ export const Currency = () => {
             </tbody>
           </table>
         </TableWrapperDesc>
-        // </Box>
       )}
 
       {media.isTablet && (
-        // <Box>
         <TableWrapperTablet bg={CurrencyTablet}>
           <table>
             <thead>
@@ -198,11 +186,9 @@ export const Currency = () => {
             </tbody>
           </table>
         </TableWrapperTablet>
-        // </Box>
       )}
 
       {media.isMobile && (
-        // <Box>
         <TableWrapperMobile bg={CurrencyMobile}>
           <table>
             <thead>
@@ -246,7 +232,6 @@ export const Currency = () => {
             </tbody>
           </table>
         </TableWrapperMobile>
-        // </Box>
       )}
     </>
   );

@@ -146,7 +146,6 @@ export const BoxTablet = styled.label`
   width: 24px;
   height: 24px;
   border-radius: 2px;
-  /* Pass color via callback function */
   background-color: ${p => p.color};
 `;
 

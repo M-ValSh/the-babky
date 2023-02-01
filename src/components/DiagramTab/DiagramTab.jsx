@@ -93,7 +93,6 @@ export const DiagramTab = () => {
     ],
   };
 
-  // PREPARE DATA FOR CHART DIAGRAM
   function prepareData() {
     const total = trSummary.map(el => el.total);
     const colors = trSummary.map(el => categoryColorSwitcher(el.name));

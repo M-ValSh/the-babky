@@ -11,12 +11,12 @@ export const ChartText = styled.span`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  font-family: ${({ theme }) => theme.fonts.main};
   font-size: 18px;
   line-height: calc(27 / 18);
   font-weight: 700;
   text-align: center;
-  color: ${p => p.theme.colors.textMain}
+  color: ${p => p.theme.colors.textMain};
 `;
 
 export const ChartWrapperTablet = styled.div`

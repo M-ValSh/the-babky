@@ -10,6 +10,13 @@ export const LogoMob = styled.img(({ theme }) => ({
   height: '30px',
 }));
 
+export const UserImg = styled.img(({ theme }) => ({
+  width: '30px',
+  height: '30px',
+  marginRight: '12px',
+  marginLeft: 'auto',
+}));
+
 export const ClientName = styled.p(({ theme }) => ({
   color: theme.colors.placeholder,
   fontFamily: theme.fonts.secondary,
@@ -17,7 +24,6 @@ export const ClientName = styled.p(({ theme }) => ({
   fontSize: '18px',
   lineHeight: '24px',
   marginRight: '12px',
-  marginLeft: 'auto',
   '::after': {
     content: '"|"',
     marginLeft: '12px',
