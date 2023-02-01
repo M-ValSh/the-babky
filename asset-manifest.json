@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/the-babky/static/css/main.839beafa.css",
-    "main.js": "/the-babky/static/js/main.6733b3e9.js",
+    "main.js": "/the-babky/static/js/main.e115c043.js",
     "static/media/Circe-Bold.woff": "/the-babky/static/media/Circe-Bold.fca9743700608e1abf6a.woff",
     "static/media/Circe-Regular.woff": "/the-babky/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
     "static/media/404.png": "/the-babky/static/media/404.99b7cb0e1e20e4eeeaba.png",
@@ -12,6 +12,7 @@
     "static/media/Poppins-Bold.woff": "/the-babky/static/media/Poppins-Bold.c4e77e991e26d17e68c5.woff",
     "static/media/Poppins-Regular.woff2": "/the-babky/static/media/Poppins-Regular.5a6c15af2151cfa27e76.woff2",
     "static/media/Poppins-Bold.woff2": "/the-babky/static/media/Poppins-Bold.b138d0279be06a607215.woff2",
+    "static/media/user.png": "/the-babky/static/media/user.1633813d2deceef6a052.png",
     "static/media/logout.png": "/the-babky/static/media/logout.11649eddc66176995d5e.png",
     "static/media/logo-icon.svg": "/the-babky/static/media/logo-icon.dbec6a2fd2c4ef973171845d6c79ee0a.svg",
     "static/media/statistics-icon-active.svg": "/the-babky/static/media/statistics-icon-active.cc8eb6eea88e61462b521deeadcdadad.svg",
@@ -31,10 +32,10 @@
     "static/media/pink_ellipse.svg": "/the-babky/static/media/pink_ellipse.67efe2beefff5419592e10e36bf84721.svg",
     "static/media/plus.svg": "/the-babky/static/media/plus.6194a661e88e1e5113d28da2398b6404.svg",
     "main.839beafa.css.map": "/the-babky/static/css/main.839beafa.css.map",
-    "main.6733b3e9.js.map": "/the-babky/static/js/main.6733b3e9.js.map"
+    "main.e115c043.js.map": "/the-babky/static/js/main.e115c043.js.map"
   },
   "entrypoints": [
     "static/css/main.839beafa.css",
-    "static/js/main.6733b3e9.js"
+    "static/js/main.e115c043.js"
   ]
 }
