@@ -13,12 +13,19 @@ import {
 import { Currency } from 'components/Currency/Currency';
 import { DiagramTab } from 'components/DiagramTab/DiagramTab';
 import { BubleWrapper } from 'components/Navigations/Navigation.styled';
-
+import authOperations from 'redux/auth/auth-operations';
+import { useEffect } from 'react';
 const { Grid, GridItem } = require('@chakra-ui/react');
 
 const StatisticsPage = () => {
   const media = useMedia();
   const theme = useTheme();
+  const { fetchCurrentUser } = authOperations;
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, [fetchCurrentUser]);
+
   return (
     <>
       {media.isMobile && (

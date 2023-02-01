@@ -21,10 +21,17 @@ import AddTrnsctnBtn from 'components/AddTrnsctnBtn/AddTrnsctnBtn';
 import AddTransactionModal from 'components/AddTransactionModal/AddTransactionModal';
 import { useSelector } from 'react-redux';
 import { selectIsModalAddTransactionOpen } from 'redux/global/global-selectors';
+import authOperations from 'redux/auth/auth-operations';
+import { useEffect } from 'react';
 
 const HomePage = () => {
   const media = useMedia();
   const theme = useTheme();
+  const { fetchCurrentUser } = authOperations;
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, [fetchCurrentUser]);
 
   const isModalAddTransactionOpen = useSelector(
     selectIsModalAddTransactionOpen
@@ -61,7 +68,7 @@ const HomePage = () => {
         </Grid>
       )}
       {media.isTablet && (
-        <BubleWrapper>
+        <BubleWrapper h="100vh">
           <Grid
             templateAreas={`"nav nav"
                   "main main"`}
@@ -71,7 +78,7 @@ const HomePage = () => {
             color="blackAlpha.700"
             fontWeight="bold"
           >
-            <GridItem area={'nav'} h="234px" display="flex" zIndex="2">
+            <GridItem area={'nav'} h="234px" display="flex" zIndex="1">
               <section>
                 <NavigationTablet />
                 <BalanceBlockTablet theme={theme}>
