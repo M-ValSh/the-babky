@@ -116,3 +116,70 @@ export const TableTextMobile = styled.td(({ theme }) => ({
   lineHeight: '1.5',
   padding: '12px 0px 0px 5px',
 }));
+
+export const LoaderWrap = styled.div`
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 75px;
+  display: inline-block;
+  vertical-align: middle;
+`;
+export const LineOne = styled.div`
+  width: 8px;
+  position: absolute;
+  border-radius: 5px;
+  bottom: 0;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#1ee95d),
+    to(#5714ce)
+  );
+  background: -webkit-linear-gradient(top, #1ee95d, #5714ce);
+  background: -o-linear-gradient(top, #1ee95d, #5714ce);
+  background: linear-gradient(to bottom, #1ee95d, #5714ce);
+  left: 0;
+  -webkit-animation: line-grow 0.5s ease alternate infinite;
+  animation: line-grow 0.5s ease alternate infinite;
+`;
+export const LineTwo = styled.div`
+  width: 8px;
+  position: absolute;
+  border-radius: 5px;
+  bottom: 0;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#1ee95d),
+    to(#5714ce)
+  );
+  background: -webkit-linear-gradient(top, #1ee95d, #5714ce);
+  background: -o-linear-gradient(top, #1ee95d, #5714ce);
+  background: linear-gradient(to bottom, #1ee95d, #5714ce);
+  left: 20px;
+  -webkit-animation: line-grow 0.5s 0.2s ease alternate infinite;
+  animation: line-grow 0.5s 0.2s ease alternate infinite;
+`;
+export const LineThree = styled.div`
+  width: 8px;
+  position: absolute;
+  border-radius: 5px;
+  bottom: 0;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#1ee95d),
+    to(#5714ce)
+  );
+  background: -webkit-linear-gradient(top, #1ee95d, #5714ce);
+  background: -o-linear-gradient(top, #1ee95d, #5714ce);
+  background: linear-gradient(to bottom, #1ee95d, #5714ce);
+  left: 40px;
+  -webkit-animation: line-grow 0.5s 0.4s ease alternate infinite;
+  animation: line-grow 0.5s 0.4s ease alternate infinite;
+`;

@@ -15,6 +15,7 @@ import {
   TableTransactions,
   TableWrapMob,
   TableWrapper,
+  TableWrapDesk,
 } from './HomeTab.styled';
 import { useMedia } from 'components/Media/useMedia';
 import { selectTransactions } from 'redux/transactions/transactions-selectors';
@@ -156,7 +157,7 @@ export const HomeTab = () => {
       )}
       {/* desktop */}
       {desktop && (
-        <>
+        <TableWrapDesk>
           {sortedTransactions.length > 0 ? (
             <Table>
               <thead>
@@ -205,7 +206,7 @@ export const HomeTab = () => {
               There are no any transactions at the moment
             </NoTransactions>
           )}
-        </>
+        </TableWrapDesk>
       )}
     </>
   );

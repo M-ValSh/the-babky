@@ -5,6 +5,7 @@ import BublRed from 'assets/images/ellipse-pink.svg';
 export const BubleWrapper = styled.div(({ theme }) => ({
   width: '100%',
   height: '100vh',
+  minHeight: '800px',
   zIndex: 1,
   background: theme.colors.BgMain,
   '::after': {
