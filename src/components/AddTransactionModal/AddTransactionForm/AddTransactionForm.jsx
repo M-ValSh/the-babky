@@ -7,6 +7,8 @@ import {
   ModalOpt,
   ModalSlct,
   ModalSwitch,
+  SelectWrapper,
+  AmountDateWrapper,
 } from './AddTransactionForm.styled';
 import { theme } from 'Styles/theme';
 import WalletButton from 'components/WalletButton/WalletButton';
@@ -20,9 +22,10 @@ import { addTransaction } from 'redux/transactions/transactions-operations';
 import { selectTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-selectors';
 import { fetchTransactionCategories } from 'redux/transactionsCategories/transactionsCategories-operations';
 import { useEffect } from 'react';
+import { useMedia } from 'components/Media/useMedia';
 
 export default function AddTransactionForm() {
-  // const userId = useSelector(selectId);
+  const media = useMedia();
   const userBalance = useSelector(selectBalance);
   const categories = useSelector(selectTransactionCategories);
   const dispatch = useDispatch();
@@ -40,37 +43,31 @@ export default function AddTransactionForm() {
       comment: '',
     },
     onSubmit: values => {
-      console.log(
-        values.isChecked,
-        values.category,
-        values.amount,
-        values.date,
-        values.comment
-      );
-
+      const { category, amount, date, comment } = values;
       console.log(categories);
-      const trType = values.isChecked ? 'EXPENSE' : 'INCOME';
-      const balanceAfter =
-        trType === 'INCOME'
-          ? userBalance + values.amount
-          : userBalance - values.amount;
-
-      const selectedCategory = categories.find(category => {
-        return category.name === values.category;
+      const selectedCategory = categories.find(item => {
+        return item.name === (category === '' ? 'Income' : category);
       });
 
-      const categoryId =
-        trType === 'EXPENSE' ? selectedCategory.id : categories[10].id;
+      const balanceAfter =
+        selectedCategory.type === 'INCOME'
+          ? userBalance + amount
+          : userBalance - amount;
+
+      const categoryId = selectedCategory.id;
+
       const newTransaction = {
-        transactionDate: values.date,
-        type: trType,
-        comment: values.comment,
-        amount: trType === 'EXPENSE' ? '-' + values.amount : values.amount,
+        transactionDate: date,
+        type: selectedCategory.type,
+        comment: comment,
+        amount: selectedCategory.type === 'EXPENSE' ? '-' + amount : amount,
         categoryId,
-        // balanceAfter,
       };
       dispatch(changeBalance(balanceAfter));
       dispatch(addTransaction(newTransaction));
+      formik.resetForm();
+      dispatch(closeModalWindow());
+      document.body.style.overflow = 'unset';
     },
   });
 
@@ -94,72 +91,45 @@ export default function AddTransactionForm() {
           </CheckboxText>
         </ModalCheckbox>
         {formik.values.isChecked && (
-          <ModalSlct
-            name="category"
-            onChange={formik.handleChange}
-            value={formik.values.category}
-            theme={theme}
-            placeholder="Select the category"
-            variant="flushed"
-            required
-            icon={<SlArrowDown />}
-          >
-            {' '}
-            {categories.map(category => (
-              <ModalOpt key={category.id} value={category.name} theme={theme}>
-                {category.name}
-              </ModalOpt>
-            ))}
-            {/* <ModalOpt value="Main expenses" theme={theme}>
-              Main expenses
-            </ModalOpt>
-            <ModalOpt value="Products" theme={theme}>
-              Products
-            </ModalOpt>
-            <ModalOpt value="Car" theme={theme}>
-              Car
-            </ModalOpt>
-            <ModalOpt value="Self care" theme={theme}>
-              Self care
-            </ModalOpt>
-            <ModalOpt value="Child care" theme={theme}>
-              Child care
-            </ModalOpt>
-            <ModalOpt value="Household products" theme={theme}>
-              Household products
-            </ModalOpt>
-            <ModalOpt value="Education" theme={theme}>
-              Education
-            </ModalOpt>
-            <ModalOpt value="Leisure" theme={theme}>
-              Leisure
-            </ModalOpt>
-            <ModalOpt value="Other expenses" theme={theme}>
-              Other expenses
-            </ModalOpt>
-            <ModalOpt value="Entertainment" theme={theme}>
-              Entertainment
-            </ModalOpt> */}
-          </ModalSlct>
+          <SelectWrapper>
+            <ModalSlct
+              name="category"
+              onChange={formik.handleChange}
+              value={formik.values.category}
+              theme={theme}
+              placeholder="Select the category"
+              variant="flushed"
+              required
+              icon={<SlArrowDown fill="#000" />}
+            >
+              {categories.map(category => (
+                <ModalOpt key={category.id} value={category.name} theme={theme}>
+                  {category.name}
+                </ModalOpt>
+              ))}
+            </ModalSlct>
+          </SelectWrapper>
         )}
-        <ModalInput
-          variant="flushed"
-          type="number"
-          name="amount"
-          onChange={formik.handleChange}
-          value={formik.values.amount}
-          placeholder="0.00"
-          required
-        />
-        <ModalInput
-          variant="flushed"
-          type="date"
-          name="date"
-          onChange={formik.handleChange}
-          value={formik.values.date}
-          placeholder="Select date"
-          required
-        />
+        <AmountDateWrapper>
+          <ModalInput
+            variant="flushed"
+            type="number"
+            name="amount"
+            onChange={formik.handleChange}
+            value={formik.values.amount}
+            placeholder="0.00"
+            required
+          />
+          <ModalInput
+            variant="flushed"
+            type="date"
+            name="date"
+            onChange={formik.handleChange}
+            value={formik.values.date}
+            placeholder="Select date"
+            required
+          />
+        </AmountDateWrapper>
         <ModalCmnt
           type="text"
           name="comment"
@@ -168,19 +138,22 @@ export default function AddTransactionForm() {
           placeholder="Comment"
           variant="flushed"
           resize="none"
-          rows="3"
+          rows={media.isMobile ? 3 : 1}
         />
-        <WalletButton text={'add'} styleType={'normal'} type="submit" />
+        <div>
+          <WalletButton text={'add'} styleType={'normal'} type="submit" />
+          <WalletButton
+            text={'cancel'}
+            styleType={'transparent'}
+            type="button"
+            onClick={event => {
+              event.preventDefault();
+              dispatch(closeModalWindow());
+              document.body.style.overflow = 'unset';
+            }}
+          />
+        </div>
       </ModalForm>
-      <WalletButton
-        text={'cancel'}
-        styleType={'transparent'}
-        type="button"
-        onClick={event => {
-          event.preventDefault();
-          dispatch(closeModalWindow());
-        }}
-      />
     </>
   );
 }

@@ -6,7 +6,12 @@ import { theme } from 'Styles/theme';
 
 export const Balance = () => {
   const { selectBalance } = authSelectors;
-  const balance = useSelector(selectBalance).toFixed(2).toLocaleString();
+  const balance = useSelector(selectBalance)
+    .toLocaleString('fr-FR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })
+    .replace(',', '.');
 
   return (
     <>

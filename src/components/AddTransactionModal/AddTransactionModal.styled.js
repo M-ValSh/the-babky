@@ -11,7 +11,14 @@ export const Overlay = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
 
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    min-width: 603px;
+    min-height: 540px;
+    top: 0;
+  }
 `;
 
 export const ModalWindow = styled.div(({ theme }) => ({
@@ -20,8 +27,15 @@ export const ModalWindow = styled.div(({ theme }) => ({
   padding: '20px 10px',
   backgroundColor: theme.colors.textSecondary,
   textAlign: 'center',
-
   overflow: 'scroll',
+
+  '@media (min-width: 768px)': {
+    width: '540px',
+    height: 'auto',
+    padding: '40px 0 60px',
+    overflow: 'visible',
+    borderRadius: '20px',
+  },
 }));
 
 export const ModalTitle = styled.p(({ theme }) => ({

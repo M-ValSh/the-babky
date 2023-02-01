@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Switch, Input, Select, Textarea } from '@chakra-ui/react';
 
 export const ModalCheckbox = styled.div(({ theme }) => ({
-  marginBottom: '40px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -34,6 +33,23 @@ export const ModalForm = styled.form(({ theme }) => ({
   fontSize: theme.fontSizes.lg,
 }));
 
+export const SelectWrapper = styled.div`
+  position: relative;
+`;
+
+export const AmountDateWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @media (min-width: 768px) {
+    width: 394px;
+    flex-direction: row;
+    gap: 30px;
+  }
+`;
+
 export const ModalSlct = styled(Select)(({ theme }) => ({
   width: '280px',
   paddingLeft: '20px',
@@ -41,7 +57,16 @@ export const ModalSlct = styled(Select)(({ theme }) => ({
   borderBottom: '1px solid #E0E0E0',
 
   '& + div': {
+    position: 'absolute',
     right: '30px',
+
+    '@media (min-width: 768px)': {
+      right: '8px',
+    },
+  },
+
+  '@media (min-width: 768px)': {
+    width: '394px',
   },
 }));
 
@@ -58,6 +83,10 @@ export const ModalInput = styled(Input)(({ theme }) => ({
   '&:first-of-type': {
     fontWeight: theme.fontWeights.bold,
   },
+
+  '@media (min-width: 768px)': {
+    width: 'calc((100% - 30px) / 2)',
+  },
 }));
 
 export const ModalCmnt = styled(Textarea)(({ theme }) => ({
@@ -65,4 +94,8 @@ export const ModalCmnt = styled(Textarea)(({ theme }) => ({
   paddingLeft: '20px',
   paddingRight: '20px',
   borderBottom: '1px solid #E0E0E0',
+
+  '@media (min-width: 768px)': {
+    width: '394px',
+  },
 }));

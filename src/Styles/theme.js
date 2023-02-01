@@ -9,6 +9,7 @@ const colors = {
   BgBtnGreen: '#24CCA7',
   BgBtnRed: '#FF6596',
   BgMain: '#f1f2f7',
+  InputColor: '#E0E0E0',
 
   whiteColor: '#FFFFFF',
 
@@ -39,10 +40,21 @@ const fonts = {
   secondary: 'Circe',
 };
 
+const placeholderCss = {
+  fontFamily: 'Circe',
+  fontStyle: 'normal',
+  fontSize: '18px',
+  fontWeight: 400,
+  color: colors.BgBtnGreen,
+  colorPlaceholder: '#BDBDBD',
+  opacity: '1',
+};
+
 export const theme = extendTheme({
   colors,
   breakpoints,
   radii,
   fonts,
+  placeholderCss,
   components: { Switch: switchTheme },
 });

@@ -1,18 +1,36 @@
+import { Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeModalWindow } from 'redux/global/global-slice';
+
+import { closeModalLogout } from 'redux/global/global-slice';
+import authOperations from '../../../redux/auth/auth-operations';
+import {
+  OverlayBox,
+  ModalBox,
+  ContentBox,
+  ButtonsBox,
+  KeepButton,
+  LogoutButton,
+} from './LogOutModal.styled';
+import LogOutImg from 'assets/images/logout.png';
 
 const LogOutModal = () => {
   const dispatch = useDispatch();
 
+  const onLogOutClick = () =>
+    dispatch(authOperations.logOut())
+      .unwrap()
+      .then(() => dispatch(closeModalLogout()));
+  const onKeepInClick = () => dispatch(closeModalLogout());
+
   const onBackdropClick = e => {
     if (e.currentTarget !== e.target) return;
-    dispatch(closeModalWindow());
+    onKeepInClick();
   };
 
   useEffect(() => {
     const hideModal = e => {
-      if (e.code === 'Escape') dispatch(closeModalWindow());
+      if (e.code === 'Escape') dispatch(closeModalLogout());
     };
 
     document.addEventListener('keydown', hideModal);
@@ -23,15 +41,24 @@ const LogOutModal = () => {
   }, [dispatch]);
 
   return (
-    <div onClick={() => onBackdropClick()} /* className={styles.overlay} */>
-      <div /* className={styles.modal} */>
-        <p>Are you sure, you want to Log Out?</p>
-        <button type="button" onClick={() => dispatch(closeModalWindow())}>
-          Keep In
-        </button>
-        <button type="button">Log Out</button>
-      </div>
-    </div>
+    <OverlayBox onClick={onBackdropClick} /* className={styles.overlay} */>
+      <ModalBox /* className={styles.modal} */>
+        <ContentBox>
+          <img src={LogOutImg} alt="" />
+          <Text>
+            Are you sure, you want to <b>Log Out</b>?
+          </Text>
+          <ButtonsBox>
+            <KeepButton type="button" onClick={onKeepInClick}>
+              Keep In
+            </KeepButton>
+            <LogoutButton type="button" onClick={onLogOutClick}>
+              Log Out
+            </LogoutButton>
+          </ButtonsBox>
+        </ContentBox>
+      </ModalBox>
+    </OverlayBox>
   );
 };
 

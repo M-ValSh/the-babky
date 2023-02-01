@@ -108,63 +108,73 @@ const LoginForm = () => {
                   <Logo />
                   <h1>Wallet</h1>
                 </div> */}
-                  <FormBlock>
-                    <Logo />
-                    <Stack spacing={0} mt="60px" gap="40px">
-                      {/* <p className="text">You can sign in using email and password</p> */}
-                      <InputGroup>
-                        <InputLeftElement
-                          pointerEvents="none"
-                          children={<EmailIcon color="gray.300" />}
-                        />
-                        <Input
-                          variant="flushed"
-                          type="email"
-                          name="email"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.email}
-                          placeholder="E-mail"
-                          className="input"
-                          width="410px"
-                          height="32px"
-                          errorBorderColor={theme.colors.BgBtnRed}
-                        />
-                      </InputGroup>
-                      <InputGroup>
-                        <InputLeftElement
-                          pointerEvents="none"
-                          children={<LockIcon color="gray.300" />}
-                        />
-                        <Input
-                          variant="flushed"
-                          type="password"
-                          name="password"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.password}
-                          placeholder="Password"
-                          className="input"
-                          width="410px"
-                          height="32px"
-                          errorBorderColor={theme.colors.BgBtnRed}
-                        />
-                      </InputGroup>
-                    </Stack>
-                    <Stack spacing={0} mt="42px">
-                      <WalletButton text="LOG IN" />
-                      <NavLink to="/register">
-                        <WalletButton text="REGISTER" styleType="transparent" />
-                      </NavLink>
-                    </Stack>
-                  </FormBlock>
-                </Form>
-              )}
-            </Formik>
-          </GridItem>
-          {/* </FormWrapper> */}
-          {/* </LoginFormPage>   */}
-        </Grid>
+
+                <FormBlock>
+                  <Logo />
+                  <Stack spacing={0} mt='60px' gap='40px'>
+                    {/* <p className="text">You can sign in using email and password</p> */}
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<EmailIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px'/>}
+                        // pb='5px'
+                      />
+                      <Input
+                        variant="flushed"
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        placeholder="E-mail"
+                        _placeholder={ theme.placeholderCss }
+                        borderColor= {theme.colors.InputColor}
+                        pl='60px'
+                        className="input"
+                        width='410px'
+                        height='40px'
+                        errorBorderColor={theme.colors.BgBtnRed}
+                      />
+                    </InputGroup>
+                    <InputGroup>
+                      <InputLeftElement
+                        pointerEvents="none"
+                        children={<LockIcon color={theme.colors.InputColor} w='24px' h='24px' ml='12px' />}
+                      />
+                      <Input
+                        variant="flushed"
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        placeholder="Password"
+                        _placeholder={ theme.placeholderCss }
+                        borderColor= {theme.colors.InputColor}
+                        pl='60px'
+                        className="input"
+                        width='410px'
+                        height='40px'
+                        errorBorderColor={theme.colors.BgBtnRed}
+                      />
+                    </InputGroup>
+                  </Stack>
+                  <Stack spacing={0} mt='42px'>
+                    <WalletButton text='LOG IN'/>
+                    <NavLink to="/register">
+                      <WalletButton text='REGISTER' styleType='transparent'/>
+                    </NavLink>
+                  </Stack>
+                </FormBlock>
+              </Form>
+              
+            )}
+          </Formik>
+        </GridItem>
+        {/* </FormWrapper> */}
+      {/* </LoginFormPage>   */}
+      </Grid>     
+
       )}
     </>
   );
