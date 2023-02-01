@@ -102,11 +102,20 @@ export default function AddTransactionForm() {
               required
               icon={<SlArrowDown fill="#000" />}
             >
-              {categories.map(category => (
-                <ModalOpt key={category.id} value={category.name} theme={theme}>
-                  {category.name}
-                </ModalOpt>
-              ))}
+              {categories.map(category => {
+                if (category.name === 'Income') {
+                  return <></>;
+                }
+                return (
+                  <ModalOpt
+                    key={category.id}
+                    value={category.name}
+                    theme={theme}
+                  >
+                    {category.name}
+                  </ModalOpt>
+                );
+              })}
             </ModalSlct>
           </SelectWrapper>
         )}

@@ -4,6 +4,10 @@ import {
   fetchTransactions,
   deleteTransaction,
 } from './transactions-operations';
+import {
+  notifyError,
+  notifySuccess,
+} from 'components/ToastNotification/ToastNotification';
 
 const initialState = {
   items: [
@@ -68,10 +72,12 @@ const transactionsSlice = createSlice({
         state.items = [...state.items, payload];
         state.isLoading = false;
         state.error = null;
+        notifySuccess();
       })
       .addCase(addTransaction.rejected, (state, { payload }) => {
         state.error = payload;
         state.isLoading = false;
+        notifyError();
       })
       .addCase(deleteTransaction.pending, state => {
         state.isLoading = true;
