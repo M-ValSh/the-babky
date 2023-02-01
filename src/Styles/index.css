@@ -1,4 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+
+/* bring in normalize.css styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,3 +14,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ----------------------------------------------------------- */
+/* Custom styles for select input */
+
+.backgroundColorCustom .optionListContainer {
+  background-color: transparent;
+}
+
+.backgroundColorCustom .optionContainer {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  border: none;
+  border-radius: 30px;
+
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.backgroundColorCustom .optionContainer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.backgroundColorCustom .optionContainer li {
+  padding: 6px 24px 6px;
+  font-weight: 400;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(24/16);
+}
+
+.backgroundColorCustom .optionContainer li:hover,
+.backgroundColorCustom .optionContainer li:active {
+  background: white;
+}
+
+.search-wrapper .singleChip {
+  padding-top: 8px;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+}
+
+.backgroundColorCustom .closeIcon {
+  color: black;
+  fill: black;
+}
+
+.singleChip i {
+  display: block;
+}
+
+.backgroundColorCustom .singleChip {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.multiSelectContainer input {
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.backgroundColorCustom .chip {
+  padding: 4px 0px;
+}
+
+/* ----------------------------------------------------------- */
