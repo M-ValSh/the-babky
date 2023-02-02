@@ -59,7 +59,7 @@ export const App = () => {
               <PublicRoute
                 redirectTo="/"
                 component={
-                  <Suspense>
+                  <Suspense fallback={<Loader />}>
                     <Register />
                   </Suspense>
                 }
@@ -73,7 +73,7 @@ export const App = () => {
               <PublicRoute
                 redirectTo="/"
                 component={
-                  <Suspense>
+                  <Suspense fallback={<Loader />}>
                     <Login />
                   </Suspense>
                 }

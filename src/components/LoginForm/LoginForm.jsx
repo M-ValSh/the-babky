@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import WalletButton from '../WalletButton/WalletButton';
 import { useMedia } from 'components/Media/useMedia';
 
-import { ReactComponent as Frame } from 'img/illustrations/Frame.svg';
+import { ReactComponent as Frame } from 'assets/images/illustrations/Frame.svg';
 
 import { NavLink } from 'react-router-dom';
 import {
@@ -24,8 +24,8 @@ import {
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { Logo } from 'components/Logo/Logo';
-import pink_ellipse from '../../img/figures/pink_ellipse.svg';
-import purple_ellipse from '../../img/figures/purple_ellipse.svg';
+import pink_ellipse from 'assets/images/figures/pink_ellipse.svg';
+import purple_ellipse from 'assets/images/figures/purple_ellipse.svg';
 
 import {
   IllustrationDesc,

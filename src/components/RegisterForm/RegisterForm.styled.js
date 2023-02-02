@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import pink_ellipse from '../../img/figures/pink_ellipse.svg';
-import purple_ellipse from '../../img/figures/purple_ellipse.svg';
+import pink_ellipse from 'assets/images/figures/pink_ellipse.svg';
+import purple_ellipse from 'assets/images/figures/purple_ellipse.svg';
 import BublePurp from 'assets/images/ellipse-purple.svg';
 import BublRed from 'assets/images/ellipse-pink.svg';
 

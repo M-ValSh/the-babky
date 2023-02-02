@@ -19,8 +19,8 @@ import { EmailIcon, LockIcon, AtSignIcon } from '@chakra-ui/icons';
 import { useTheme } from '@chakra-ui/react';
 import { useMedia } from 'components/Media/useMedia';
 import { Logo } from 'components/Logo/Logo';
-import pink_ellipse from '../../img/figures/pink_ellipse.svg';
-import purple_ellipse from '../../img/figures/purple_ellipse.svg';
+import pink_ellipse from 'assets/images/figures/pink_ellipse.svg';
+import purple_ellipse from 'assets/images/figures/purple_ellipse.svg';
 import { useDispatch } from 'react-redux';
 import { ReactComponent as GirlImage } from 'assets/images/register-girl.svg';
 
@@ -86,7 +86,7 @@ const RegisterForm = () => {
           gridTemplateRows={'1fr'} /* '1fr 30px' */
           gridTemplateColumns={'42vw 1fr'}
           gap="0"
-          minH='100vh'
+          minH="100vh"
           backgroundColor="mainBgUnderColor"
           backgroundRepeat="no-repeat, no-repeat"
           backgroundImage={`url(${pink_ellipse}), url(${purple_ellipse})`}
@@ -104,7 +104,7 @@ const RegisterForm = () => {
             backgroundColor="mainBgLighter"
             backdropFilter="blur(25px)"
           >
-            <form onSubmit={formik.handleSubmit} style={{padding: '40px 0'}}>
+            <form onSubmit={formik.handleSubmit} style={{ padding: '40px 0' }}>
               <FormBlock>
                 <Logo />
                 <Stack spacing={0} mt="60px" gap="40px">
